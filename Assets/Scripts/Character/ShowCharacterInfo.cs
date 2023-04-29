@@ -18,7 +18,11 @@ public class ShowCharacterInfo : MonoBehaviour
 
     public void ShowInfo(int characterID)
     {
-        CharacterInfoPanel.SetActive(true);
+        if(!CharacterInfoPanel.activeSelf)
+        {
+            CharacterInfoPanel.SetActive(true);
+            CharacterInfoPanel.GetComponent<FadeEffect>().FadeIn();
+        }
         Portrait.sprite = CharacterPortraits[characterID-1].sprite;
         var character = GameInfo.Instance.Characters[characterID-1];
         Name.text = character.Name;
@@ -27,6 +31,7 @@ public class ShowCharacterInfo : MonoBehaviour
     
     public void HideInfo()
     {
-        CharacterInfoPanel.SetActive(false);
+        if(CharacterInfoPanel.activeSelf)
+            CharacterInfoPanel.GetComponent<FadeEffect>().FadeOutAndDisable();
     }
 }

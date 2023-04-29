@@ -508,6 +508,8 @@ GameObject:
   - component: {fileID: 1173316340995216467}
   - component: {fileID: 4548301801363344427}
   - component: {fileID: 4363921843960070015}
+  - component: {fileID: 8330985869239725444}
+  - component: {fileID: 1920313303477548603}
   m_Layer: 5
   m_Name: LocationInfoUI
   m_TagString: Untagged
@@ -523,8 +525,8 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5929681375079779066}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
+  m_LocalScale: {x: 0.01, y: 0.01, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8934154676323273815}
@@ -555,7 +557,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: 585288609
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &1173316340995216467
@@ -613,3 +615,29 @@ MonoBehaviour:
   Picture: {fileID: 2774903139365547126}
   Name: {fileID: 5362481902794523175}
   Description: {fileID: 1179907371033722022}
+--- !u!114 &8330985869239725444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5929681375079779066}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e483531aea3b21147ad59d47c1fe8981, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 1920313303477548603}
+  fadeTime: 0.2
+--- !u!225 &1920313303477548603
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5929681375079779066}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0

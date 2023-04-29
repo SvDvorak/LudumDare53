@@ -10,33 +10,45 @@ public class FadeEffect : MonoBehaviour
 
     void Start()
     {
-        StartCoroutine(FadeIn());
+        StartCoroutine(FadeInRoutine());
     }
 
     public void FadeOutAndDestroy()
     {
-        StartCoroutine(FadeOut());
+        StartCoroutine(FadeOutRoutine());
         Destroy(gameObject, fadeTime);
     }
+    
+    public void FadeOutAndDisable() => StartCoroutine(FadeOutAndDisableRoutine());
+    public void FadeIn() => StartCoroutine(FadeInRoutine());
+    public void FadeOut() => StartCoroutine(FadeOutRoutine());
 
-    private IEnumerator FadeIn()
+    private IEnumerator FadeOutAndDisableRoutine()
     {
-        var endTime = Time.time + fadeTime;
+        yield return FadeOutRoutine();
+        gameObject.SetActive(false);
+    }
+
+    private IEnumerator FadeInRoutine()
+    {
+        canvasGroup.alpha = 0;
+        var startTime = Time.time;
         while (canvasGroup.alpha < 1)
         {
-            var elapsed = (endTime - Time.time) / fadeTime;
+            var elapsed = (Time.time - startTime) / fadeTime;
             canvasGroup.alpha = elapsed;
 
             yield return null;
         }
     }
 
-    private IEnumerator FadeOut()
+    private IEnumerator FadeOutRoutine()
     {
-        var endTime = Time.time + fadeTime;
+        canvasGroup.alpha = 1;
+        var startTime = Time.time;
         while (canvasGroup.alpha > 0)
         {
-            var elapsed = (endTime - Time.time) / fadeTime;
+            var elapsed = (Time.time - startTime) / fadeTime;
             canvasGroup.alpha = 1 - elapsed;
 
             yield return null;
