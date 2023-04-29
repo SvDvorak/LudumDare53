@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4021460910326660030}
   - component: {fileID: 4021460910326660031}
   - component: {fileID: -7088735210778213744}
+  - component: {fileID: -5674316962414687978}
   m_Layer: 0
   m_Name: Location
   m_TagString: Location
@@ -138,3 +139,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eef721af50d6d2d40a795a789f15d271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-5674316962414687978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4021460910326660027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f91676977eb49c4c951ed68b78c3045, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locationInfoPrefab: {fileID: 0}

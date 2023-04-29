@@ -11,6 +11,9 @@ using UnityEngine;
 public class LocationSelector : MonoBehaviour
 {
     public static event Action<Location> ValidLocationSelected;
+    public event Action LocationSelected;
+    public event Action ClickedOutside; 
+
     private PlayerGroup playerGroup;
     private Location location;
 
@@ -27,8 +30,17 @@ public class LocationSelector : MonoBehaviour
 
     void Update()
     {
-        if (isMouseOver && Input.GetMouseButtonDown(0) && playerGroup.HasEnteredTargetLocation && IsInList())
-            ValidLocationSelected?.Invoke(location);
+        if (Input.GetMouseButtonUp(0))
+        {
+            if (isMouseOver)
+            {
+                LocationSelected?.Invoke();
+                if (playerGroup.HasEnteredTargetLocation && IsInList())
+                    ValidLocationSelected?.Invoke(location);
+            }
+            else
+                ClickedOutside?.Invoke();
+        }
     }
 
     private void OnMouseEnter()
