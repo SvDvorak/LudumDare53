@@ -1,6 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class LocationInfoToggler : MonoBehaviour
@@ -11,12 +10,14 @@ public class LocationInfoToggler : MonoBehaviour
 
     private LocationSelector locationSelector;
     private GameObject instantiatedInfo;
+    private Location location;
 
     public void Start()
     {
         locationSelector = GetComponent<LocationSelector>();
         locationSelector.LocationSelected += OnShowInfo;
         locationSelector.ClickedOutside += HideInfo;
+        location = GetComponent<Location>();
     }
 
     private void OnDestroy()
@@ -29,7 +30,7 @@ public class LocationInfoToggler : MonoBehaviour
     {
         if (instantiatedInfo != null)
         {
-            Destroy(instantiatedInfo);
+            instantiatedInfo.GetComponent<FadeEffect>().FadeOutAndDestroy();
             instantiatedInfo = null;
         }
     }
@@ -39,8 +40,15 @@ public class LocationInfoToggler : MonoBehaviour
         if (locationInfoPrefab == null)
             return;
 
-        instantiatedInfo = Instantiate(locationInfoPrefab.gameObject);
-        instantiatedInfo.transform.SetParent(transform);
-        instantiatedInfo.gameObject.GetComponent<RectTransform>().localPosition = new Vector2(0, 0.2f);
+        var locationInfo = GameInfo.Instance.Locations.FirstOrDefault(x => x.ID == location.LocationID);
+        if(locationInfo == null)
+        {
+            Debug.Log("Location not found in GameInfo for ID: " + location.LocationID);
+            return;
+        }
+        
+        instantiatedInfo = Instantiate(locationInfoPrefab.gameObject, transform, true);
+        instantiatedInfo.GetComponent<RectTransform>().localPosition = new Vector2(0, 0.2f);
+        instantiatedInfo.GetComponent<SetLocationInfo>().SetLocation(locationInfo);
     }
 }

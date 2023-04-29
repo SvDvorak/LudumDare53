@@ -3,6 +3,34 @@
     public Character[] Characters = new Character[4];
     public Location[] Locations = new Location[4];
 
+    public class Character
+    {
+        public string Name;
+        public string Description;
+        public EnterLocationEvent[] EnterLocationEvents;
+    }
+
+    public class Location
+    {
+        public string ID;
+        public string Name;
+        public string Description;
+    }
+
+    public class EnterLocationEvent
+    {
+        public string LocationID;
+        public string EventText;
+    }
+
+    public class ItemOrAttribute
+    {
+        public string ItemID;
+        public string ItemName;
+        public string ItemDescription;
+        public EnterLocationEvent[] EnterLocationEvents;
+    }
+
     public static GameInfo Instance = new()
     {
         Characters = new Character[]
@@ -50,32 +78,4 @@
             }
         }
     };
-    
-    public class Character
-    {
-        public string Name;
-        public string Description;
-        public EnterLocationEvent[] EnterLocationEvents;
-    }
-    
-    public class EnterLocationEvent
-    {
-        public string LocationID;
-        public string EventText;
-    }
-
-    public class Location
-    {
-        public string ID;
-        public string Name;
-        public string Description;
-    }
-
-    public class ItemOrAttribute
-    {
-        public string ItemID;
-        public string ItemName;
-        public string ItemDescription;
-        public EnterLocationEvent[] EnterLocationEvents;
-    }
 }
