@@ -40,6 +40,7 @@ public class PlayerGroup : MonoBehaviour
 
             if (Vector3.Distance(transform.position, target.position) < 0.01)
             {
+                EnteredLocation?.Invoke();
                 HasEnteredTargetLocation = true;
                 target = null;
             }
