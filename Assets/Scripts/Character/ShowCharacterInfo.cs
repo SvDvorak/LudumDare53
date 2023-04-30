@@ -19,10 +19,8 @@ public class ShowCharacterInfo : MonoBehaviour
     public void ShowInfo(int characterID)
     {
         if(!CharacterInfoPanel.activeSelf)
-        {
-            CharacterInfoPanel.SetActive(true);
-            CharacterInfoPanel.GetComponent<FadeEffect>().FadeIn();
-        }
+            CharacterInfoPanel.GetComponent<FadeEffect>().FadeInAndEnable();
+        
         Portrait.sprite = CharacterPortraits[characterID-1].sprite;
         var character = GameInfo.Instance.Characters[characterID-1];
         Name.text = character.Name;

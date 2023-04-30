@@ -1,12 +1,10 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 public class PlayerGroup : MonoBehaviour
 {
     public event Action EnteredLocation;
+    public ShowEnterLocationInfo showEnterLocationInfo;
 
     public Location currentLocation;
     private Transform target;
@@ -41,7 +39,8 @@ public class PlayerGroup : MonoBehaviour
 
             if (Vector3.Distance(transform.position, target.position) < 0.01)
             {
-                EnteredLocation?.Invoke();
+                showEnterLocationInfo.ShowEnterLocation("LUNA", currentLocation);
+                //EnteredLocation?.Invoke();
                 HasEnteredTargetLocation = true;
                 target = null;
             }

@@ -50,5 +50,6 @@ public class LocationInfoToggler : MonoBehaviour
         instantiatedInfo = Instantiate(locationInfoPrefab.gameObject, transform, true);
         instantiatedInfo.GetComponent<RectTransform>().localPosition = new Vector2(0, 0.2f);
         instantiatedInfo.GetComponent<SetLocationInfo>().SetLocation(locationInfo);
+        instantiatedInfo.GetComponent<FadeEffect>().FadeIn();
     }
 }

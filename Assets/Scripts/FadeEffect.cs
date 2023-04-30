@@ -5,12 +5,13 @@ public class FadeEffect : MonoBehaviour
 {
     public CanvasGroup canvasGroup;
     public float fadeTime = 0.5f;
-
+    public float startAlpha = 0;
+    
     private float fadeStartTime;
 
-    void Start()
+    public void Start()
     {
-        StartCoroutine(FadeInRoutine());
+        canvasGroup.alpha = startAlpha;
     }
 
     public void FadeOutAndDestroy()
@@ -19,7 +20,17 @@ public class FadeEffect : MonoBehaviour
         Destroy(gameObject, fadeTime);
     }
     
-    public void FadeOutAndDisable() => StartCoroutine(FadeOutAndDisableRoutine());
+    public void FadeInAndEnable()
+    {
+        gameObject.SetActive(true);
+        StartCoroutine(FadeInRoutine());
+    }
+
+    public void FadeOutAndDisable()
+    {
+        StartCoroutine(FadeOutAndDisableRoutine());
+    }
+
     public void FadeIn() => StartCoroutine(FadeInRoutine());
     public void FadeOut() => StartCoroutine(FadeOutRoutine());
 
