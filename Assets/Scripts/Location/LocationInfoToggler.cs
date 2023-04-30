@@ -8,16 +8,20 @@ public class LocationInfoToggler : MonoBehaviour
 
     [SerializeField] private GameObject locationInfoPrefab;
 
+    private Camera camera;
+    private Canvas canvas;
     private LocationSelector locationSelector;
     private GameObject instantiatedInfo;
     private Location location;
 
     public void Start()
     {
+        camera = GameObject.FindObjectOfType<Camera>();
         locationSelector = GetComponent<LocationSelector>();
         locationSelector.LocationSelected += OnShowInfo;
         locationSelector.ClickedOutside += HideInfo;
         location = GetComponent<Location>();
+        canvas = GameObject.Find("OverlayUI").GetComponent<Canvas>();
     }
 
     private void OnDestroy()
@@ -47,8 +51,11 @@ public class LocationInfoToggler : MonoBehaviour
             return;
         }
         
-        instantiatedInfo = Instantiate(locationInfoPrefab.gameObject, transform, true);
-        instantiatedInfo.GetComponent<RectTransform>().localPosition = new Vector2(0, 0.2f);
+        instantiatedInfo = Instantiate(locationInfoPrefab.gameObject, canvas.transform);
+        
+        Vector2 screenPoint = camera.ScreenToWorldPoint(transform.position);
+        instantiatedInfo.GetComponent<RectTransform>().localPosition = screenPoint;
+
         instantiatedInfo.GetComponent<SetLocationInfo>().SetLocation(locationInfo);
         instantiatedInfo.GetComponent<FadeEffect>().FadeIn();
     }

@@ -5,34 +5,23 @@ using static UnityEngine.GraphicsBuffer;
 
 public class CursorCameraMover : MonoBehaviour
 {
-    [SerializeField] Transform targetSprite;
+    public Transform targetSprite;
     private Camera camera;
 
-    public Transform target;
-    public float smoothTime = 0.3f;
-    public Vector3 offset;
-    private Vector3 velocity = Vector3.zero;
 
-    public float speed = 10f;
-    public float edgeMargin = 20f;
+    private float speed = 10f;
+    private float edgeMargin = 20f;
 
     private float screenWidth;
     private float screenHeight;
 
     void Start()
     {
-        camera = GetComponent<Camera>();
         screenWidth = Screen.width;
         screenHeight = Screen.height;
     }
 
-    void FixedUpdate()
-    {
-        Vector3 targetPosition = new Vector3(target.position.x, target.position.y, transform.position.z);
-        transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
-    }
-
-    private void OldVersionUpdate()
+    private void Update()
     {
         Vector3 mousePos = Input.mousePosition;
 

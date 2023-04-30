@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 public class GameState
 {
@@ -16,6 +17,7 @@ public class GameState
         foreach(var currentCharacter in GameInfo.Instance.Characters)
             Characters.Add(new Character() { ID = currentCharacter.ID });
     }
+    public bool IsGameOver() => Characters.All(x => !x.IsAlive);
 
     public static GameState Instance = new();
 }
