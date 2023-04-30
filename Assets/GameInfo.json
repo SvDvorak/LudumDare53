@@ -5,9 +5,16 @@
       "Name": "Zephyr the Jester",
       "Description": "Zephyr is known for his extravagant outfits and bold color choices, making a statement wherever he goes. He constantly moves to the rhythm of life, embracing every moment with enthusiasm. He has a knack for dramatic entrances and is never afraid to stand out in a crowd. Zephyr is also a bit of a klutz and tends to trip over his own feet, but he always manages to turn it into a silly dance move. Zephyr's wit and slapstick humor make people laugh, and he's always the center of attention. However, his chaotic nature sometimes gets the better of him, losing track of important details or becoming distracted. Despite this, he has a certain charm that others find irresistible, and he's always able to bring people around to his way of thinking. He can be melodramatic, exaggerating his emotions for effect.",
       "FailureLocationIDs": [
-        "The Unforgettable Castle",
-        "Sharpwit Village",
-        "Nimbleton"
+        "The Land of Gray",
+        "The Straitlaced Stronghold",
+        "Graceful Glade",
+        "Mundania",
+        "Memoirea",
+        "The City of Precision",
+        "The Kingdom of Sobriety",
+        "The Town of Understatement",
+        "The Stubborn Stronghold",
+        "The Endless Ennui Empire"
       ]
     },
     {
@@ -16,9 +23,14 @@
       "Description": "Sister Willow is a deeply spiritual individual, living a life of minimalism and dedication to her beliefs. Her stern demeanor and unwavering convictions can be intimidating, yet she is also compassionate and nurturing to those who share her faith. With high standards for herself and others, she is constantly striving for excellence in all aspects of her life. Sister Willow has a keen interest in the lives of her fellow believers, often sharing and seeking information about their moral conduct. However, her trusting nature can make her susceptible to believing outlandish tales. She can be quite blunt, expressing her opinions without sugarcoating them.
 ",
       "FailureLocationIDs": [
-        "The Unforgettable Castle",
+        "The Irreverent Isles",
+        "The Hedonist Haven",
+        "The Pacifist Paradise",
+        "The Land of Mediocrity",
+        "The Harmonious Halls",
+        "The Town of Hushed Whispers",
+        "The City of Skeptics",
         "Sharpwit Village",
-        "Nimbleton"
       ]
     },
     {
@@ -26,9 +38,16 @@
       "Name": "Neville the Night Owl",
       "Description": "Neville's sleepless nights have led him to become a thoughtful and introspective soul, often lost in his own world. His uncertainty about the future causes him to tread cautiously, but he is determined to uncover life's mysteries. Neville's preoccupation with his thoughts often leaves him forgetful of his surroundings, resulting in clumsiness and missed details. His keen insight and critical outlook on the world are often expressed through sarcasm and biting humor. Neville's dietary restrictions have made him particular about his food choices, leading to a few amusing incidents during social gatherings. He can be obsessive, focusing intently on his interests to the point of losing perspective.",
       "FailureLocationIDs": [
+        "Slumberburg",
+        "The Grounded Grove",
+        "The Province of Promptitude",
         "The Unforgettable Castle",
-        "Sharpwit Village",
-        "Nimbleton"
+        "Nimbleton",
+        "The Gullible Grotto",
+        "Sinceritopia",
+        "The City of Capitulation",
+        "The Dairy Domain",
+        "The Casual Commonwealth"
       ]
     },
     {
@@ -36,9 +55,15 @@
       "Name": "Lavender the Lively",
       "Description": "Lavender's spontaneous nature and boundless energy make her the life of any party. Her love for conversation and storytelling captivates her audience, drawing people in wherever she goes. Lavender's fearless pursuit of excitement can sometimes lead her into danger, as she throws caution to the wind in favor of adventure. She takes great pride in her appearance, always seeking admiration and validation from those around her. Lavender's penchant for indulgence can lead to excess in her love of fine foods and relaxation. However, her friends are drawn to her infectious spirit and unwavering positivity. She is opinionated, never hesitating to share her thoughts on any subject, and her insecurity sometimes leads her to be overly nervous in new situations.",
       "FailureLocationIDs": [
-        "The Unforgettable Castle",
-        "Sharpwit Village",
-        "Nimbleton"
+        "The Land of Routine",
+        "The Anxious Archipelago",
+        "The Quiet Queendom",
+        "The Land of Caution",
+        "The Realm of Humility",
+        "The Sparse Sanctuary",
+        "The Bustling Borough",
+        "The Village of Braggarts",
+        "The Fearless Frontier"
       ]
     }
   ],
