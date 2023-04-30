@@ -26,7 +26,7 @@ public class ShowCharacterInfo : MonoBehaviour, IPointerEnterHandler, IPointerEx
 
     private void Update()
     {
-        if (!isMouseHovering && Input.GetMouseButtonDown(0))
+        if (CharacterMouseMover.IsMovingObject || (!isMouseHovering && Input.GetMouseButtonDown(0)))
             HideInfo();
     }
 

@@ -15,7 +15,6 @@
       "Name": "Luna Silvermist",
       "Description": "Luna Silvermist is an elf with an affinity for nature magic. She has long, silver hair and wears a dress made of leaves and flowers. Luna uses her powers to protect the forest and its inhabitants from those who would do them harm.",
       "FailureLocationIDs": [
-        "FOREST",
         "CAVE",
         "CASTLE"
       ]
