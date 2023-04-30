@@ -4219,17 +4219,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1731830512}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10282d9534f8dd54e946ac1affba7dd7, type: 3}
+  m_Script: {fileID: 11500000, guid: f6b2789871e0ccc4e8efebb42c18d905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetSprite: {fileID: 0}
-  target: {fileID: 0}
+  target: {fileID: 2053986850}
   smoothTime: 0.3
-  offset: {x: 0, y: 0, z: 0}
-  speed: 3
-  edgeMargin: 20
 --- !u!1 &1766905650 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7818782040980437366, guid: 157a98464ddd3c14e9803dcaa9aa75a0, type: 3}
@@ -4622,6 +4618,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: f94e24e481a56da4d823cc0f96cfb754, type: 3}
+--- !u!4 &2053986850 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7279516002207252434, guid: 6f182e73dd63f7444816f3daeefdcc00, type: 3}
+  m_PrefabInstance: {fileID: 7279516001198039053}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &2072979144 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4021460910326660031, guid: f94e24e481a56da4d823cc0f96cfb754, type: 3}
