@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9fcd29ec696e094e992a00f95c82a3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LocationID: 
   ConnectedLocations: []
 --- !u!114 &-7088735210778213744
 MonoBehaviour:
@@ -151,4 +152,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f91676977eb49c4c951ed68b78c3045, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  locationInfoPrefab: {fileID: 5929681375079779066, guid: 30813b904d2984049973565744bc19cb, type: 3}
+  locationInfoPrefab: {fileID: 5929681375079779066, guid: b7d505fc443c091498e07247422bf13a, type: 3}
