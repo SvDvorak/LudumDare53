@@ -12,6 +12,8 @@ public class ShowEnterLocationInfo : MonoBehaviour
     public FadeEffect MenuFade;
     public TMP_Text Title;
     public TMP_Text Description;
+
+    public static bool IsShowingEnterLocationInfo { get; private set; }
     
     public void ShowEnterLocation(string characterID, Location currentLocation)
     {
@@ -34,6 +36,7 @@ public class ShowEnterLocationInfo : MonoBehaviour
         
         MenuFade.FadeInAndEnable();
         ShowedInfo?.Invoke();
+        IsShowingEnterLocationInfo = true;
     }
     
     public void HideInfo()
@@ -42,6 +45,7 @@ public class ShowEnterLocationInfo : MonoBehaviour
         {
             MenuFade.FadeOutAndDisable();
             HidInfo?.Invoke();
+            IsShowingEnterLocationInfo = false;
         }
     }
 }

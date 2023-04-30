@@ -32,6 +32,9 @@ public class ShowCharacterInfo : MonoBehaviour, IPointerEnterHandler, IPointerEx
 
     public void ShowInfo(Button button)
     {
+        if (GameState.Instance.IsGameOver() || ShowEnterLocationInfo.IsShowingEnterLocationInfo)
+            return;
+
         // We don't want to fade out the info box when we click on another character
         isMouseHovering = true;
 
