@@ -2,7 +2,7 @@
 
 public class GameState
 {
-    public Dictionary<string, Character> Characters = new();
+    public List<Character> Characters = new();
 
     public class Character
     {
@@ -13,11 +13,8 @@ public class GameState
 
     public GameState()
     {
-        for (int i = 0; i < GameInfo.Instance.Characters.Length; i++)
-        {
-            GameInfo.Character currentCharacter = GameInfo.Instance.Characters[i];
-            Characters.Add(currentCharacter.ID, new Character() { ID = currentCharacter.ID });
-        }
+        foreach(var currentCharacter in GameInfo.Instance.Characters)
+            Characters.Add(new Character() { ID = currentCharacter.ID });
     }
 
     public static GameState Instance = new();

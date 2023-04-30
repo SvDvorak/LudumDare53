@@ -5,6 +5,7 @@ public class GameRestart : MonoBehaviour
 {
     public void RestartGame()
     {
+        GameState.Instance = new GameState();
         Application.LoadLevel(Application.loadedLevel);
     }
 

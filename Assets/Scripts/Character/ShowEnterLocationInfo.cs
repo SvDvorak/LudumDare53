@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using System;
@@ -23,11 +22,9 @@ public class ShowEnterLocationInfo : MonoBehaviour
         {
             Title.text = "FAILURE";
             Description.text = locationInfo.Failure;
-            if (GameState.Instance.Characters.TryGetValue(characterID, out var characterInfo))
-            {
-                characterInfo.IsAlive = false;
-                CharacterDied?.Invoke(characterInfo);
-            }
+            var gamestateCharacter = GameState.Instance.Characters.First(x => x.ID == characterID);
+            gamestateCharacter.IsAlive = false;
+            CharacterDied?.Invoke(gamestateCharacter);
         }
         else
         {

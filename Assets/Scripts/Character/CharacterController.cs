@@ -19,8 +19,8 @@ public class CharacterController : MonoBehaviour
     {
         foreach (var character in GameState.Instance.Characters)
         {
-            if (character.Value.IsAlive)
-                GameObject.Find(character.Key).GetComponent<CharacterMouseMover>().Enable();
+            if (character.IsAlive)
+                GameObject.Find(character.ID).GetComponent<CharacterMouseMover>().Enable();
         }
     }
 
@@ -28,8 +28,8 @@ public class CharacterController : MonoBehaviour
     {
         foreach (var character in GameState.Instance.Characters)
         {
-            if (character.Value.IsAlive)
-                GameObject.Find(character.Key).GetComponent<CharacterMouseMover>().Disable();
+            if (character.IsAlive)
+                GameObject.Find(character.ID).GetComponent<CharacterMouseMover>().Disable();
         }
     }
 
@@ -42,17 +42,13 @@ public class CharacterController : MonoBehaviour
     {
         foreach (var character in GameState.Instance.Characters)
         {
-            if (!character.Value.IsAlive)
+            if (!character.IsAlive)
             {
-                var deadCharacter = GameObject.Find(character.Key);
+                var deadCharacter = GameObject.Find(character.ID);
                 float darkness = 0.4f;
                 deadCharacter.GetComponent<Image>().color = new Color(darkness, darkness, darkness);
+                deadCharacter.transform.Find("Skull").GetComponent<Image>().enabled = true;
             }
         }
-    }
-
-    void Update()
-    {
-        
     }
 }

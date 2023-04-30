@@ -59,4 +59,10 @@ public class GameInfoLoader : MonoBehaviour
                 Debug.LogError($"Location image {locationImage.ID} does not exist in GameInfo.");
         }
     }
+
+    public void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.F5))
+            Start();
+    }
 }
