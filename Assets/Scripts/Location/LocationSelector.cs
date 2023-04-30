@@ -73,7 +73,7 @@ public class LocationSelector : MonoBehaviour
     /// Detects if this location that you clicked on is connected to the playerGroup's current location
     /// </summary>
     /// <returns></returns>
-    private bool IsConnected()
+    public bool IsConnected()
     {
         return playerGroup.currentLocation.ConnectedLocations.Find(x => x.gameObject.name.Equals(gameObject.name));
     }

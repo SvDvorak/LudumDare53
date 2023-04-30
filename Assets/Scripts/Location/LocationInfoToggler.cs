@@ -37,7 +37,7 @@ public class LocationInfoToggler : MonoBehaviour
 
     private void OnShowInfo()
     {
-        if (locationInfoPrefab == null || instantiatedInfo != null)
+        if ((!locationSelector.IsConnected() && CharacterMouseMover.IsMovingObject) || locationInfoPrefab == null || instantiatedInfo != null)
             return;
 
         var locationInfo = GameInfo.Instance.Locations.FirstOrDefault(x => x.ID == location.LocationID);

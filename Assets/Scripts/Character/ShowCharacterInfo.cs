@@ -27,13 +27,14 @@ public class ShowCharacterInfo : MonoBehaviour, IPointerEnterHandler, IPointerEx
     private void Update()
     {
         if (!isMouseHovering && Input.GetMouseButtonDown(0))
-        {
             HideInfo();
-        }
     }
 
     public void ShowInfo(Button button)
     {
+        // We don't want to fade out the info box when we click on another character
+        isMouseHovering = true;
+
         if(!CharacterInfoPanel.activeSelf)
             CharacterInfoPanel.GetComponent<FadeEffect>().FadeInAndEnable();
 
