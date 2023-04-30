@@ -1,13 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class CharacterMouseMover : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
+public class CharacterMouseMover : MonoBehaviour, IPointerUpHandler, IDragHandler
 {
-    [SerializeField] private Camera camera;
-    [SerializeField] private Canvas canvas;
+    public delegate void DroppedCharacterEventHandler(GameObject droppedCharacter);
+    public static event DroppedCharacterEventHandler DroppedCharacter;
+
+    private Camera camera;
+    private GameObject canvas;
 
     private static GameObject followingObject;
 
@@ -15,7 +19,8 @@ public class CharacterMouseMover : MonoBehaviour, IPointerDownHandler, IPointerU
 
     public void Start()
     {
-
+        camera = GetComponent<Camera>();
+        canvas = GameObject.Find("UI");
     }
 
     private void Update()
@@ -28,10 +33,7 @@ public class CharacterMouseMover : MonoBehaviour, IPointerDownHandler, IPointerU
     {
         Destroy(followingObject);
         followingObject = null;
-    }
-
-    public void OnPointerDown(PointerEventData eventData)
-    {
+        DroppedCharacter?.Invoke(gameObject);
     }
 
     public void OnDrag(PointerEventData eventData)

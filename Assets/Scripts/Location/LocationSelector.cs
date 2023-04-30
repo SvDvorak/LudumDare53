@@ -6,8 +6,9 @@ public class LocationSelector : MonoBehaviour
 {
     public static event Action<Location> ValidLocationSelected;
     public event Action LocationSelected;
-    public event Action ClickedOutside; 
+    public event Action ClickedOutside;
 
+    private SpriteRenderer spriteRenderer;
     private PlayerGroup playerGroup;
     private Location location;
 
@@ -18,8 +19,24 @@ public class LocationSelector : MonoBehaviour
 
     void Start()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         playerGroup = FindObjectOfType<PlayerGroup>();
         location = GetComponent<Location>();
+
+        CharacterMouseMover.DroppedCharacter += OnDroppedCharacter;
+    }
+
+    private void OnDroppedCharacter(GameObject droppedCharacter)
+    {
+        if (isMouseOver)
+        {
+            if (playerGroup.HasEnteredTargetLocation && IsConnected())
+                ValidLocationSelected?.Invoke(location);
+
+            ClickedOutside?.Invoke();
+            OnMouseExit();
+        }
+
     }
 
     void Update()
@@ -27,11 +44,7 @@ public class LocationSelector : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             if (isMouseOver)
-            {
                 LocationSelected?.Invoke();
-                if (playerGroup.HasEnteredTargetLocation && IsInList())
-                    ValidLocationSelected?.Invoke(location);
-            }
             else
                 ClickedOutside?.Invoke();
         }
@@ -40,18 +53,26 @@ public class LocationSelector : MonoBehaviour
     private void OnMouseEnter()
     {
         isMouseOver = true;
+        if (CharacterMouseMover.IsMovingObject)
+        {
+            spriteRenderer.color = Color.black;
+            LocationSelected?.Invoke();
+        }
     }
 
     private void OnMouseExit()
     {
         isMouseOver = false;
+        spriteRenderer.color = Color.white;
+        if (CharacterMouseMover.IsMovingObject)
+            ClickedOutside?.Invoke();
     }
 
     /// <summary>
     /// Detects if this location that you clicked on is connected to the playerGroup's current location
     /// </summary>
     /// <returns></returns>
-    private bool IsInList()
+    private bool IsConnected()
     {
         return playerGroup.currentLocation.ConnectedLocations.Find(x => x.gameObject.name.Equals(gameObject.name));
     }

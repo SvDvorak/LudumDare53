@@ -17,6 +17,7 @@ public class PlayerGroup : MonoBehaviour
     {
         // The group is on the starting location by default
         HasEnteredTargetLocation = true;
+        transform.position = currentLocation.transform.position;
         LocationSelector.ValidLocationSelected += OnMoveTowardsLocation;
     }
 
