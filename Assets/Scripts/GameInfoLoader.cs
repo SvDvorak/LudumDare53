@@ -7,19 +7,15 @@ public class GameInfoLoader : MonoBehaviour
 {
     public TextAsset GameInfoJson;
     public LocationImages LocationImages;
-    
+    private static string filePath => Path.Combine(Application.dataPath, "GameInfo.json");
+
     public void Start()
     {
 #if UNITY_EDITOR || DEVELOPMENT_BUILD
         Debug.Log("Loading game info...");
-        var filePath = Path.Combine(Application.dataPath, "GameInfo.json");
         if(File.Exists(filePath))
         {
-            using (var reader = new StreamReader(filePath))
-            {
-                var json = reader.ReadToEnd();
-                GameInfo.Instance = JsonConvert.DeserializeObject<GameInfo>(json);
-            }
+            ReadGameInfo();
         }
         else
         {
@@ -34,16 +30,31 @@ public class GameInfoLoader : MonoBehaviour
         GameInfo.Instance = JsonConvert.DeserializeObject<GameInfo>(GameInfoJson.text);
 #endif
 
+        ValidateGameInfo();
+    }
+
+    public static void ReadGameInfo()
+    {
+        using(var reader = new StreamReader(filePath))
+        {
+            var json = reader.ReadToEnd();
+            GameInfo.Instance = JsonConvert.DeserializeObject<GameInfo>(json);
+        }
+    }
+
+    private void ValidateGameInfo()
+    {
         var info = GameInfo.Instance;
-        
+
         var duplicateIDs = from x in info.Locations
-            group x by x into g
+            group x by x
+            into g
             let count = g.Count()
             where count > 1
-            select new {Value = g.Key, Count = count};
+            select new { Value = g.Key, Count = count };
         foreach(var duplicateID in duplicateIDs)
             Debug.LogError($"Duplicate ID for location {duplicateID.Value.ID}, found {duplicateID.Count} times.");
-        
+
         foreach(var character in info.Characters)
         {
             foreach(var locationID in character.FailureLocationIDs)

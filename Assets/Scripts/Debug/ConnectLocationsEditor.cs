@@ -83,6 +83,32 @@ public class MyEditorWindow : EditorWindow
             if(locationsRoot != null && pathsRoot != null)
                 GeneratePaths();
         }
+        
+        GUILayout.Space(10);
+
+        if(GUILayout.Button("Randomize Locations") && locationsRoot != null)
+        {
+            GameInfoLoader.ReadGameInfo();
+            var mapLocations = locationsRoot.GetComponentsInChildren<Location>();
+            var ids = GameInfo.Instance.Locations
+                .Select(x => x.ID)
+                .OrderBy(x => new Guid())
+                .ToList();
+            if(ids.Count == mapLocations.Length)
+            {
+                for(var i = 0; i < mapLocations.Length; i++)
+                {
+                    var loc = mapLocations[i];
+                    loc.LocationID = ids[i];
+                    EditorUtility.SetDirty(loc.gameObject);
+                    EditorUtility.SetDirty(loc);
+                }
+            }
+            else
+            {
+                Debug.LogError("Mismatch in map location count and game info locations");
+            }
+        }
     }
     
     
