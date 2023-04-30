@@ -8,6 +8,7 @@ public class PlayerGroup : MonoBehaviour
 
     public Location currentLocation;
     private Transform target;
+    private GameObject droppedCharacter;
 
     public bool HasEnteredTargetLocation { get; private set; }
 
@@ -24,10 +25,11 @@ public class PlayerGroup : MonoBehaviour
         LocationSelector.ValidLocationSelected -= OnMoveTowardsLocation;
     }
 
-    private void OnMoveTowardsLocation(Location location)
+    private void OnMoveTowardsLocation(GameObject droppedCharacter, Location selectedLocation)
     {
-        currentLocation = location;
-        target = location.transform;
+        currentLocation = selectedLocation;
+        target = selectedLocation.transform;
+        this.droppedCharacter = droppedCharacter;
         HasEnteredTargetLocation = false;
     }
 
@@ -39,7 +41,7 @@ public class PlayerGroup : MonoBehaviour
 
             if (Vector3.Distance(transform.position, target.position) < 0.01)
             {
-                showEnterLocationInfo.ShowEnterLocation("LUNA", currentLocation);
+                showEnterLocationInfo.ShowEnterLocation(droppedCharacter.name, currentLocation);
                 //EnteredLocation?.Invoke();
                 HasEnteredTargetLocation = true;
                 target = null;

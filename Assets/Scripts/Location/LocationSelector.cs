@@ -4,7 +4,8 @@ using UnityEngine;
 [RequireComponent(typeof(Location))]
 public class LocationSelector : MonoBehaviour
 {
-    public static event Action<Location> ValidLocationSelected;
+    public delegate void LocationSelectedHandler(GameObject droppedCharacter, Location selectedLocation);
+    public static event LocationSelectedHandler ValidLocationSelected;
     public event Action LocationSelected;
     public event Action ClickedOutside;
 
@@ -31,7 +32,7 @@ public class LocationSelector : MonoBehaviour
         if (isMouseOver)
         {
             if (playerGroup.HasEnteredTargetLocation && IsConnected())
-                ValidLocationSelected?.Invoke(location);
+                ValidLocationSelected?.Invoke(droppedCharacter, location);
 
             ClickedOutside?.Invoke();
             OnMouseExit();

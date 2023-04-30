@@ -1,28 +1,44 @@
+using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ShowCharacterInfo : MonoBehaviour
+public class ShowCharacterInfo : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public GameObject CharacterInfoPanel;
     public Image Portrait;
     public TMP_Text Name;
     public TMP_Text Description;
 
-    public Image[] CharacterPortraits;
+    [SerializeField] private Image[] characters;
+
+    private bool isMouseHovering = false;
 
     public void Start()
     {
+        for (int i = 0; i < GameInfo.Instance.Characters.Length; i++)
+            characters[i].gameObject.name = GameInfo.Instance.Characters[i].ID;
+
         CharacterInfoPanel.SetActive(false);
     }
 
-    public void ShowInfo(int characterID)
+    private void Update()
+    {
+        if (!isMouseHovering && Input.GetMouseButtonDown(0))
+        {
+            HideInfo();
+        }
+    }
+
+    public void ShowInfo(Button button)
     {
         if(!CharacterInfoPanel.activeSelf)
             CharacterInfoPanel.GetComponent<FadeEffect>().FadeInAndEnable();
-        
-        Portrait.sprite = CharacterPortraits[characterID-1].sprite;
-        var character = GameInfo.Instance.Characters[characterID-1];
+
+        Portrait.sprite = button.GetComponent<Image>().sprite;
+        var character = GameInfo.Instance.Characters.Where(x => x.ID == button.gameObject.name).First();
         Name.text = character.Name;
         Description.text = character.Description;
     }
@@ -31,5 +47,15 @@ public class ShowCharacterInfo : MonoBehaviour
     {
         if(CharacterInfoPanel.activeSelf)
             CharacterInfoPanel.GetComponent<FadeEffect>().FadeOutAndDisable();
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        isMouseHovering = false;
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        isMouseHovering = true;
     }
 }
