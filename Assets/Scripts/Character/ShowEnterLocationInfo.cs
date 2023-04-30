@@ -1,9 +1,15 @@
 ﻿using System.Linq;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using System;
 
 public class ShowEnterLocationInfo : MonoBehaviour
 {
+    public event Action<GameState.Character> CharacterDied;
+    public event Action ShowedInfo;
+    public event Action HidInfo;
+
     public FadeEffect MenuFade;
     public TMP_Text Title;
     public TMP_Text Description;
@@ -17,6 +23,11 @@ public class ShowEnterLocationInfo : MonoBehaviour
         {
             Title.text = "FAILURE";
             Description.text = locationInfo.Failure;
+            if (GameState.Instance.Characters.TryGetValue(characterID, out var characterInfo))
+            {
+                characterInfo.IsAlive = false;
+                CharacterDied?.Invoke(characterInfo);
+            }
         }
         else
         {
@@ -25,11 +36,15 @@ public class ShowEnterLocationInfo : MonoBehaviour
         }
         
         MenuFade.FadeInAndEnable();
+        ShowedInfo?.Invoke();
     }
     
     public void HideInfo()
     {
-        if(MenuFade.gameObject.activeSelf)
+        if (MenuFade.gameObject.activeSelf)
+        {
             MenuFade.FadeOutAndDisable();
+            HidInfo?.Invoke();
+        }
     }
 }

@@ -2,13 +2,22 @@
 
 public class GameState
 {
-    public List<Character> Characters = new();
-    
+    public Dictionary<string, Character> Characters = new();
+
     public class Character
     {
         public string ID;
         public bool IsAlive = true;
         //public List<string> ItemsOrAttributes = new();
+    }
+
+    public GameState()
+    {
+        for (int i = 0; i < GameInfo.Instance.Characters.Length; i++)
+        {
+            GameInfo.Character currentCharacter = GameInfo.Instance.Characters[i];
+            Characters.Add(currentCharacter.ID, new Character() { ID = currentCharacter.ID });
+        }
     }
 
     public static GameState Instance = new();

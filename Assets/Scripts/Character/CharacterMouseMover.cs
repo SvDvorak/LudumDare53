@@ -15,6 +15,7 @@ public class CharacterMouseMover : MonoBehaviour, IPointerUpHandler, IDragHandle
 
     private static GameObject followingObject;
 
+    private bool canMove = true;
     public static bool IsMovingObject => followingObject != null;
 
     public void Start()
@@ -25,19 +26,26 @@ public class CharacterMouseMover : MonoBehaviour, IPointerUpHandler, IDragHandle
 
     private void Update()
     {
+        if (!canMove)
+            return;
+
         if (followingObject != null)
             followingObject.transform.position = Input.mousePosition;
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        Destroy(followingObject);
-        followingObject = null;
-        DroppedCharacter?.Invoke(gameObject);
+        if (!canMove)
+            return;
+
+        ReleaseFollowingObject();
     }
 
     public void OnDrag(PointerEventData eventData)
     {
+        if (!canMove)
+            return;
+
         if (eventData.dragging)
         {
             if (followingObject != null)
@@ -50,5 +58,26 @@ public class CharacterMouseMover : MonoBehaviour, IPointerUpHandler, IDragHandle
             followingObject.transform.SetParent(canvas.transform);
             followingObject.transform.position = Input.mousePosition;
         }
+    }
+
+    private void ReleaseFollowingObject()
+    {
+        Destroy(followingObject);
+        followingObject = null;
+        DroppedCharacter?.Invoke(gameObject);
+    }
+
+    public void Enable()
+    {
+        canMove = true;
+    }
+
+    public void Disable()
+    {
+        if (followingObject != null)
+            ReleaseFollowingObject();
+
+        followingObject = null;
+        canMove = false;
     }
 }
