@@ -1,12 +1,14 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayerGroup : MonoBehaviour
 {
     public event Action EnteredLocation;
     public ShowEnterLocationInfo showEnterLocationInfo;
-
     public Location currentLocation;
+    [FormerlySerializedAs("CharacterMovers")] public CharacterMovement[] CharacterMovement;
+    
     private Transform target;
     private GameObject droppedCharacter;
 
@@ -17,6 +19,8 @@ public class PlayerGroup : MonoBehaviour
         // The group is on the starting location by default
         HasEnteredTargetLocation = true;
         transform.position = currentLocation.transform.position;
+        foreach(var characterMove in CharacterMovement)
+            characterMove.SetPosition(transform);
         LocationSelector.ValidLocationSelected += OnMoveTowardsLocation;
     }
 
@@ -31,6 +35,9 @@ public class PlayerGroup : MonoBehaviour
         target = selectedLocation.transform;
         this.droppedCharacter = droppedCharacter;
         HasEnteredTargetLocation = false;
+        
+        foreach(var characterMove in CharacterMovement)
+            characterMove.MoveTo(transform);
     }
 
     void Update()

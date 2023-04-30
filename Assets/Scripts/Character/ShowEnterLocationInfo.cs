@@ -19,7 +19,13 @@ public class ShowEnterLocationInfo : MonoBehaviour
     {
         var gameInfo = GameInfo.Instance;
         var character = gameInfo.Characters.First(x => x.ID == characterID);
-        var locationInfo = gameInfo.Locations.First(x => x.ID == currentLocation.LocationID);
+        var locationInfo = gameInfo.Locations.FirstOrDefault(x => x.ID == currentLocation.LocationID);
+        if(locationInfo == null)
+        {
+            Debug.LogWarning("Location event not found");
+            return;
+        }
+        
         if(character.FailureLocationIDs.Contains(currentLocation.LocationID))
         {
             Title.text = "FAILURE";
