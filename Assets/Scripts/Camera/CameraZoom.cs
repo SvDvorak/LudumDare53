@@ -14,7 +14,7 @@ public class CameraZoom : MonoBehaviour
 
     public void Update()
     {
-        var scroll = mainCamera.orthographicSize + Input.mouseScrollDelta.y * ScrollSpeed;
+        var scroll = mainCamera.orthographicSize - Input.mouseScrollDelta.y * ScrollSpeed;
         mainCamera.orthographicSize = Mathf.Clamp(scroll, MinZoom, MaxZoom);
     }
 }
