@@ -687,6 +687,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9fcd29ec696e094e992a00f95c82a3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!223 &1567648629 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 2300080451143305442, guid: 157a98464ddd3c14e9803dcaa9aa75a0, type: 3}
+  m_PrefabInstance: {fileID: 2300080451291760238}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1601106988
 GameObject:
   m_ObjectHideFlags: 0
@@ -1045,6 +1050,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 226230631635800998, guid: 157a98464ddd3c14e9803dcaa9aa75a0, type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 1731830514}
+    - target: {fileID: 226230631635800998, guid: 157a98464ddd3c14e9803dcaa9aa75a0, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1567648629}
     - target: {fileID: 2300080449813939379, guid: 157a98464ddd3c14e9803dcaa9aa75a0, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -1381,6 +1394,34 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5693977420347134307, guid: 157a98464ddd3c14e9803dcaa9aa75a0, type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 1731830514}
+    - target: {fileID: 5693977420347134307, guid: 157a98464ddd3c14e9803dcaa9aa75a0, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1567648629}
+    - target: {fileID: 5815937972560241280, guid: 157a98464ddd3c14e9803dcaa9aa75a0, type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 1731830514}
+    - target: {fileID: 5815937972560241280, guid: 157a98464ddd3c14e9803dcaa9aa75a0, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1567648629}
+    - target: {fileID: 5815937972560241280, guid: 157a98464ddd3c14e9803dcaa9aa75a0, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8971939950955860422, guid: 157a98464ddd3c14e9803dcaa9aa75a0, type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 1731830514}
+    - target: {fileID: 8971939950955860422, guid: 157a98464ddd3c14e9803dcaa9aa75a0, type: 3}
+      propertyPath: canvas
+      value: 
+      objectReference: {fileID: 1567648629}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 157a98464ddd3c14e9803dcaa9aa75a0, type: 3}

@@ -24,7 +24,7 @@ public class LocationSelector : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonDown(0))
         {
             if (isMouseOver)
             {
