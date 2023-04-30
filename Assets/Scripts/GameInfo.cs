@@ -1,4 +1,20 @@
-﻿public class GameInfo
+﻿using System.Collections.Generic;
+
+public class GameState
+{
+    public List<Character> Characters = new();
+    
+    public class Character
+    {
+        public string ID;
+        public bool IsAlive = true;
+        //public List<string> ItemsOrAttributes = new();
+    }
+
+    public static GameState Instance = new();
+}
+
+public class GameInfo
 {
     public Character[] Characters = new Character[4];
     public Location[] Locations = new Location[4];

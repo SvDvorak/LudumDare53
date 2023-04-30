@@ -20,7 +20,7 @@ public class CharacterMouseMover : MonoBehaviour, IPointerUpHandler, IDragHandle
     public void Start()
     {
         camera = GetComponent<Camera>();
-        canvas = GameObject.Find("UI");
+        canvas = GameObject.Find("OverlayUI");
     }
 
     private void Update()
