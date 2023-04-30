@@ -615,6 +615,7 @@ MonoBehaviour:
   Picture: {fileID: 2774903139365547126}
   Name: {fileID: 5362481902794523175}
   Description: {fileID: 1179907371033722022}
+  Images: {fileID: 11400000, guid: 2385a3c856b21544da9673d504969e2d, type: 2}
 --- !u!114 &8330985869239725444
 MonoBehaviour:
   m_ObjectHideFlags: 0

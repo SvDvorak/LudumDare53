@@ -92,6 +92,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameInfoJson: {fileID: 4900000, guid: 439112a4319f03d488b03a4970f99f10, type: 3}
+  LocationImages: {fileID: 11400000, guid: 2385a3c856b21544da9673d504969e2d, type: 2}
 --- !u!1 &5119926454528805342
 GameObject:
   m_ObjectHideFlags: 0

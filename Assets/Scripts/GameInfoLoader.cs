@@ -6,6 +6,7 @@ using UnityEngine;
 public class GameInfoLoader : MonoBehaviour
 {
     public TextAsset GameInfoJson;
+    public LocationImages LocationImages;
     
     public void Start()
     {
@@ -50,6 +51,12 @@ public class GameInfoLoader : MonoBehaviour
                 if(!info.Locations.Any(x => x.ID == locationID))
                     Debug.LogError($"Character {character.ID} has failure location {locationID} which does not exist.");
             }
+        }
+
+        foreach(var locationImage in LocationImages.imageList)
+        {
+            if(!string.IsNullOrEmpty(locationImage.ID) && !info.Locations.Any(x => x.ID == locationImage.ID))
+                Debug.LogError($"Location image {locationImage.ID} does not exist in GameInfo.");
         }
     }
 }
