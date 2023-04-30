@@ -1,48 +1,49 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class CursorCameraMover : MonoBehaviour
 {
-    public float speed = 10f; // Adjust this value to control the speed of camera movement.
-    public float edgeMargin = 20f; // Adjust this value to control how close the mouse needs to be to the edge before the camera starts moving.
+    [SerializeField] Transform targetSprite;
+    private Camera camera;
+
+    public Transform target;
+    public float smoothTime = 0.3f;
+    public Vector3 offset;
+    private Vector3 velocity = Vector3.zero;
+
+    public float speed = 10f;
+    public float edgeMargin = 20f;
 
     private float screenWidth;
     private float screenHeight;
 
     void Start()
     {
-        // Get the screen width and height in pixels.
+        camera = GetComponent<Camera>();
         screenWidth = Screen.width;
         screenHeight = Screen.height;
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        // Get the position of the mouse in pixels.
+        Vector3 targetPosition = new Vector3(target.position.x, target.position.y, transform.position.z);
+        transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
+    }
+
+    private void OldVersionUpdate()
+    {
         Vector3 mousePos = Input.mousePosition;
 
-        // Check if the mouse is close enough to the edge of the screen to move the camera.
         if (mousePos.x < edgeMargin && transform.position.x > -screenWidth / 2)
-        {
-            // Move the camera to the left.
             transform.Translate(-Vector2.right * speed * Time.deltaTime);
-        }
         else if (mousePos.x > screenWidth - edgeMargin && transform.position.x < screenWidth / 2)
-        {
-            // Move the camera to the right.
             transform.Translate(Vector2.right * speed * Time.deltaTime);
-        }
 
         if (mousePos.y < edgeMargin && transform.position.y > -screenHeight / 2)
-        {
-            // Move the camera down.
             transform.Translate(-Vector2.up * speed * Time.deltaTime);
-        }
         else if (mousePos.y > screenHeight - edgeMargin && transform.position.y < screenHeight / 2)
-        {
-            // Move the camera up.
             transform.Translate(Vector2.up * speed * Time.deltaTime);
-        }
     }
 }
