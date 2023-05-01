@@ -12,6 +12,8 @@ public class LocationImages : ScriptableObject
         [FormerlySerializedAs("name")] public string ID;
         public Sprite image;
         public AudioClip music;
+        [Range(0, 1f)]
+        public float volume = 1;
     }
 
     public List<ImageData> imageList = new();
@@ -24,5 +26,10 @@ public class LocationImages : ScriptableObject
     public AudioClip GetMusic(string locationID)
     {
         return imageList.First(x => x.ID == locationID).music;
+    }
+
+    public float GetVolume(string locationID)
+    {
+        return imageList.First(x => x.ID == locationID).volume;
     }
 }
