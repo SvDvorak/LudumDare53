@@ -6,9 +6,10 @@ public class LocationInfoPositionAdjuster : MonoBehaviour
     
     void Start()
     {
+        var camera = FindObjectOfType<Camera>();
         var canvasRect = FindObjectOfType<Canvas>().GetComponent<RectTransform>();
         Vector2 centerPoint = canvasRect.position;
-        bool isMouseOnRight = Input.mousePosition.x > centerPoint.x;
+        bool isMouseOnRight =  camera.ScreenToWorldPoint(Input.mousePosition).x > centerPoint.x;
 
         var rectTransform = GetComponent<RectTransform>();
         if (isMouseOnRight)
