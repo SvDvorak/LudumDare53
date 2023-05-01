@@ -5,7 +5,8 @@ using System.Linq;
 public class GameState
 {
     public List<Character> Characters = new();
-    public List<string> ItemsIDs = new();
+    public List<string> CarriedItems = new();
+    public List<string> DeliveredItems = new();
 
     public class Character
     {
@@ -18,6 +19,36 @@ public class GameState
         foreach(var currentCharacter in GameInfo.Instance.Characters)
             Characters.Add(new Character() { ID = currentCharacter.ID });
     }
+
+    public List<GameInfo.Item> GetActiveItems()
+    {
+        var gameInfo = GameInfo.Instance;
+        return CarriedItems.Select(x => gameInfo.Items.FirstOrDefault(y => y.ID == x)).ToList();
+    }
+
+    public GameInfo.ItemEvent GetLocationEvent(string locationID)
+    {
+        var location = GameInfo.Instance.Locations.FirstOrDefault(x => x.ID == locationID);
+        if(location.Carried != null)
+        {
+            foreach(var carried in location.Carried)
+            {
+                if(Instance.CarriedItems.Contains(carried.ItemID))
+                    return carried;
+            }
+        }
+        if(location.Available != null)
+        {
+            foreach(var available in location.Available)
+            {
+                if(!Instance.DeliveredItems.Contains(available.ItemID) && !Instance.CarriedItems.Contains(available.ItemID))
+                    return available;
+            }
+        }
+
+        return null;
+    }
+    
     public bool IsGameOver() => Characters.All(x => !x.IsAlive);
 
     public static GameState Instance = new();
@@ -28,6 +59,7 @@ public class GameInfo
     public Character[] Characters = new Character[4];
     public Location[] Locations = Array.Empty<Location>();
     public Item[] Items = Array.Empty<Item>();
+    public string PartyDeadGameOverText = "";
 
     public class Character
     {
@@ -42,15 +74,18 @@ public class GameInfo
         public string ID;
         public string Name;
         public string Description;
-        public string Success;
         public string Failure;
+        public List<ItemEvent> Available;
+        public List<ItemEvent> Carried;
     }
 
-    public class LocationEvent
+    public class ItemEvent
     {
-        public string LocationID;
+        public string ItemID;
         public string EventText;
         public string[] Changes;
+        public string[] ChoiceYesChanges;
+        public string[] ChoiceNoChanges;
     }
 
     public class Item
@@ -58,7 +93,6 @@ public class GameInfo
         public string ID;
         public string Name;
         public string Description;
-        public LocationEvent[] LocationEvent;
     }
 
     public static GameInfo Instance = new()
@@ -101,24 +135,73 @@ public class GameInfo
                 ID = "FOREST",
                 Name = "Forest",
                 Description = "The forest is a place of mystery and magic. It is home to many creatures, both good and evil. The trees are tall and thick, with branches that reach up into the sky. The air is filled with the sounds of birds chirping and insects buzzing. There are also dangers lurking in the shadows, waiting to pounce on unsuspecting travelers.",
-                Success = "You have successfully entered the forest.",
-                Failure = "You have failed to enter the forest."
+                Failure = "You have failed to enter the forest.",
+                Available = new List<ItemEvent>()
+                {
+                    new()
+                    {
+                        ItemID = "BOOKOFMORMON",
+                        EventText = "You find a book on the ground. It's called 'The Book of Mormon'.",
+                        Changes = new[] {"+BOOKOFMORMON"}
+                    }
+                },
+                Carried = new List<ItemEvent>()
+                {
+                    new()
+                    {
+                        ItemID = "CROWN",
+                        EventText = "A group of bandits approach and demand you give them the crown",
+                        ChoiceYesChanges = new []{"-CROWN"},
+                        ChoiceNoChanges = new []{"-CROWN"}
+                    }
+                }
             },
             new()
             {
                 ID = "CAVE",
                 Name = "Cave",
                 Description = "The cave is a dark and mysterious place. It is home to many creatures, both good and evil. The walls are made of stone, with stalactites hanging from the ceiling. There are also dangers lurking in the shadows, waiting to pounce on unsuspecting travelers.",
-                Success = "You have successfully entered the cave.",
-                Failure = "You have failed to enter the cave."
+                Failure = "You have failed to enter the cave.",
+                Carried = new List<ItemEvent>()
+                {
+                    new()
+                    {
+                        ItemID = "BOOKOFMORMON",
+                        EventText = "The troll takes the book and gives you a crown in return.",
+                        Changes = new[] {"+CROWN", "-BOOKOFMORMON"}
+                    }
+                }
             },
             new()
             {
                 ID = "CASTLE",
                 Name = "Castle",
                 Description = "It's only a model.",
-                Success = "You have successfully entered the castle.",
-                Failure = "You have failed to enter the castle."
+                Failure = "You have failed to enter the castle.",
+                Available = new List<ItemEvent>()
+                {
+                    new()
+                    {
+                        ItemID = "CROWN",
+                        EventText = "I want my crown back! Go get it for me.",
+                        ChoiceNoChanges = new[] {"DEFEAT You dare defy the King? You are thrown in the dungeon and left to rot."}
+                    }
+                },
+                Carried = new List<ItemEvent>()
+                {
+                    new()
+                    {
+                        ItemID = "CROWN",
+                        EventText = "You give the King his crown. He is very happy and gives you infinite riches.",
+                        Changes = new[] {"VICTORY You got a whole bunch of gold, you win!"}
+                    },
+                    new()
+                    {
+                        ItemID = "BOOKOFMORMON",
+                        EventText = "You filthy heathens! You will hang for this!",
+                        Changes = new []{"DEFEAT You all got hung."}
+                    }
+                }
             }
         },
         Items = new Item[]
@@ -128,34 +211,18 @@ public class GameInfo
                 ID = "BOOKOFMORMON",
                 Name = "Book of Mormon",
                 Description = "The Book of Mormon is a sacred text of the Latter Day Saint movement.",
-                LocationEvent = new LocationEvent[]
-                {
-                    new()
-                    {
-                        LocationID = "FOREST",
-                        EventText = "The bandits are impressed by this book you show. They tell you to show it to their leader up north.",
-                    }
-                }
             },
             new()
             {
                 ID = "CROWN",
                 Name = "King's Crown",
                 Description = "The King's Crown is a symbol of power and authority. The King needs it",
-                LocationEvent = new LocationEvent[]
-                {
-                    new()
-                    {
-                        LocationID = "CASTLE",
-                        EventText = "The King rejoices that his crown has been returned to him. You win!",
-                        Changes = new[]
-                        {
-                            "-CROWN",
-                            "VICTORY"
-                        }
-                    }
-                }
             },
+            new()
+            {
+                ID = "FANCYROBE",
+                Name = "Fancy robe"
+            }
         }
     };
 }
