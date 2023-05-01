@@ -2,19 +2,29 @@
 
 public class CameraZoom : MonoBehaviour
 {
-    public float MaxZoom = 8;
-    public float MinZoom = 2;
-    public float ScrollSpeed = 1;
-    private Camera mainCamera;
+    public float zoomSpeed = 1f;
+    public float minZoom = 1f;
+    public float maxZoom = 10f;
+    public float smoothTime = 0.1f; // Adjust this to set the zoom smoothness
 
-    public void Start()
+    private Camera mainCamera;
+    private float currentZoom; // Adjust this to set the initial zoom level
+    private float targetZoom;
+
+    private void Start()
     {
-        mainCamera = Camera.main;
+        currentZoom = maxZoom;
+        mainCamera = GetComponent<Camera>();
+        targetZoom = currentZoom;
     }
 
-    public void Update()
+    void Update()
     {
-        var scroll = mainCamera.orthographicSize - Input.mouseScrollDelta.y * ScrollSpeed;
-        mainCamera.orthographicSize = Mathf.Clamp(scroll, MinZoom, MaxZoom);
+        float scroll = Input.mouseScrollDelta.y;
+        targetZoom -= scroll * zoomSpeed;
+        targetZoom = Mathf.Clamp(targetZoom, minZoom, maxZoom);
+        currentZoom = Mathf.Lerp(currentZoom, targetZoom, smoothTime);
+        mainCamera.orthographicSize = currentZoom;
     }
 }
+
