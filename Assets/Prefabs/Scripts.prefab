@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   showEnterLocationInfo: {fileID: 2507323328143690053}
-  gameOver: {fileID: 0}
+  gameOver: {fileID: 724022968904651304}
   playerGroup: {fileID: 0}
 --- !u!1 &633635951
 GameObject:
@@ -328,7 +328,7 @@ Transform:
   - {fileID: 630228799}
   - {fileID: 3572298013683970508}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7949705283585450916
 GameObject:
@@ -375,6 +375,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   showEnterLocationInfo: {fileID: 2507323328143690053}
+  characters: {fileID: 0}
 --- !u!1 &8147904244749616954
 GameObject:
   m_ObjectHideFlags: 0
