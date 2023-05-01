@@ -8272,6 +8272,10 @@ PrefabInstance:
       propertyPath: playerGroup
       value: 
       objectReference: {fileID: 1663109534}
+    - target: {fileID: 8883886709828763752, guid: 102b83df2cf80264eace4b4e3147d3e0, type: 3}
+      propertyPath: backgroundMusic
+      value: 
+      objectReference: {fileID: 1681668647}
     - target: {fileID: 8883886709828763753, guid: 102b83df2cf80264eace4b4e3147d3e0, type: 3}
       propertyPath: m_Name
       value: Ambience

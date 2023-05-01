@@ -3,6 +3,7 @@
 public class GameStateChangeTracker : MonoBehaviour
 {
     public ShowEnterLocationInfo showEnterLocationInfo;
+    public GameOver gameOver;
     public PlayerGroup playerGroup;
     
     public void OnEnable()
@@ -36,18 +37,31 @@ public class GameStateChangeTracker : MonoBehaviour
         }
     }
 
-    private static void PerformChanges(string[] locationEventChanges)
+    private void PerformChanges(string[] locationEventChanges)
     {
+        if(locationEventChanges == null)
+            return;
+        
         foreach(var change in locationEventChanges)
         {
-            if(change.StartsWith("VICTORY"))
-                Debug.Log("SHOW VICTORY SCREEN");
-            else if(change.StartsWith("DEFEAT"))
-                Debug.Log("SHOW DEFEAT SCREEN");
+            if(change.StartsWith("ENDING"))
+            {
+                var text = change.Length > 6 ? change.Substring(7) : "";
+                gameOver.Show(false, text);
+            }
+            else if(change.StartsWith("TEXT"))
+            {
+                
+            }
             else if(change[0] == '+')
-                Debug.Log($"GET ITEM {change.Substring(1)}");
+            {
+                GameState.Instance.CarriedItems.Add(change.Substring(1));
+            }
             else if(change[0] == '-')
-                Debug.Log($"DROP ITEM {change.Substring(1)}");
+            {
+                GameState.Instance.CarriedItems.Remove(change.Substring(1));
+                GameState.Instance.DeliveredItems.Add(change.Substring(1));
+            }
         }
     }
 
