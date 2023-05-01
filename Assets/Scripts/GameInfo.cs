@@ -5,7 +5,8 @@ using System.Linq;
 public class GameState
 {
     public List<Character> Characters = new();
-    public List<string> ItemsIDs = new();
+    public List<string> CarriedItems = new();
+    public List<string> DeliveredItems = new();
 
     public class Character
     {
@@ -22,19 +23,27 @@ public class GameState
     public List<GameInfo.Item> GetActiveItems()
     {
         var gameInfo = GameInfo.Instance;
-        return ItemsIDs.Select(x => gameInfo.Items.FirstOrDefault(y => y.ID == x)).ToList();
+        return CarriedItems.Select(x => gameInfo.Items.FirstOrDefault(y => y.ID == x)).ToList();
     }
 
     public GameInfo.ItemEvent GetLocationEvent(string locationID)
     {
-        var items = GetActiveItems();
-        foreach (var item in items)
+        var location = GameInfo.Instance.Locations.FirstOrDefault(x => x.ID == locationID);
+        if(location.Carried != null)
         {
-            //var itemLocationInfo = item.LocationEvent.FirstOrDefault(x => x.LocationID == locationID);
-            /*if (itemLocationInfo != null)
+            foreach(var carried in location.Carried)
             {
-                return itemLocationInfo;
-            }*/
+                if(Instance.CarriedItems.Contains(carried.ItemID))
+                    return carried;
+            }
+        }
+        if(location.Available != null)
+        {
+            foreach(var available in location.Available)
+            {
+                if(!Instance.DeliveredItems.Contains(available.ItemID) && !Instance.CarriedItems.Contains(available.ItemID))
+                    return available;
+            }
         }
 
         return null;
