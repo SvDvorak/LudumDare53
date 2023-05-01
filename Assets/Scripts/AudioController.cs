@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class AudioController : MonoBehaviour
@@ -13,6 +14,7 @@ public class AudioController : MonoBehaviour
     [Range(0f, 1f)]
     public float backgroundMusicVolume = 0.3f;
 
+    private AudioSource[] footstepSounds;
     private AudioSource audioSource;
     private Location destination;
     private float maxVolume = 0;
@@ -20,13 +22,37 @@ public class AudioController : MonoBehaviour
 
     void Start()
     {
+        footstepSounds = playerGroup.transform.GetChild(0).GetComponentsInChildren<AudioSource>();
+
         audioSource = GetComponent<AudioSource>();
         playerGroup.HalfWayToLocation += OnPlayLocationMusic;
         playerGroup.ExitLocation += OnChangeMusic;
+        playerGroup.ExitLocation += OnPlayWalkingSound;
+        playerGroup.EnteredLocation += OnStopWalkingSound;
 
         backgroundMusic.volume = backgroundMusicVolume;
         backgroundMusic.Play();
         OnPlayLocationMusic("", playerGroup.currentLocation);
+    }
+
+    private void OnStopWalkingSound(string characterID, Location currentLocation)
+    {
+        foreach (var footstepSound in footstepSounds)
+        {
+            footstepSound.Stop();
+        }
+    }
+
+    private void OnPlayWalkingSound(string characterID, Location currentLocation)
+    {
+        foreach (var aliveCharacter in GameState.Instance.Characters.Where(x => x.IsAlive))
+        {
+            foreach (var footstepSound in footstepSounds)
+            {
+                if (footstepSound.name == aliveCharacter.ID)
+                    footstepSound.Play();
+            }
+        }
     }
 
     private void OnChangeMusic(string characterID, Location destination)
