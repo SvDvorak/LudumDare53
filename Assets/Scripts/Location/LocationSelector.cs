@@ -39,7 +39,8 @@ public class LocationSelector : MonoBehaviour
             if (playerGroup.HasEnteredTargetLocation && IsConnected())
             {
                 isMouseOver = false;
-                DroppedCharacterOnValidLocation?.Invoke(droppedCharacter, location);
+                if (playerGroup.currentLocation != location)
+                    DroppedCharacterOnValidLocation?.Invoke(droppedCharacter, location);
             }
         }
 
@@ -82,6 +83,6 @@ public class LocationSelector : MonoBehaviour
     /// <returns></returns>
     public bool IsConnected()
     {
-        return playerGroup.currentLocation.ConnectedLocations.Find(x => x.gameObject.name.Equals(gameObject.name));
+        return playerGroup.currentLocation == location || playerGroup.currentLocation.ConnectedLocations.Find(x => x.gameObject.name.Equals(gameObject.name));
     }
 }

@@ -22,7 +22,7 @@ public class LocationInfoToggler : MonoBehaviour
     {
         camera = FindObjectOfType<Camera>();
         locationSelector = GetComponent<LocationSelector>();
-        CharacterMouseMover.DroppedCharacter += OnShowOutline; ;
+        CharacterMouseMover.DroppedCharacter += OnShowOutline;
         LocationSelector.DroppedCharacterOnValidLocation += OnShowOutline;
         LocationSelector.DroppedCharacterOnValidLocation += DroppedCharacterOnValidLocation;
         LocationSelector.ValidLocationSelected += OnShowInfo;
@@ -33,7 +33,7 @@ public class LocationInfoToggler : MonoBehaviour
 
     private void OnDestroy()
     {
-        CharacterMouseMover.DroppedCharacter -= OnShowOutline; ;
+        CharacterMouseMover.DroppedCharacter -= OnShowOutline;
         LocationSelector.DroppedCharacterOnValidLocation -= OnShowOutline;
         LocationSelector.DroppedCharacterOnValidLocation -= DroppedCharacterOnValidLocation;
         LocationSelector.ValidLocationSelected -= OnShowInfo;
