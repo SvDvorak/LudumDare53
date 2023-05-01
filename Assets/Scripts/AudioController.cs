@@ -57,6 +57,17 @@ public class AudioController : MonoBehaviour
         buttonSound.Play();
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            if (backgroundMusic.isPlaying)
+                backgroundMusic.Stop();
+            else
+                backgroundMusic.Play();
+        }
+    }
+
     private void OnDestroy()
     {
         ShowEnterLocationInfo.Success -= OnPlayAchievementSound;

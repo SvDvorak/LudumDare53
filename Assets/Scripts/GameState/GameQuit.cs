@@ -6,10 +6,10 @@ public class GameQuit : MonoBehaviour
     {
         Application.Quit();
     }
-    
+
     public void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.Escape))
             QuitGame();
     }
 }
