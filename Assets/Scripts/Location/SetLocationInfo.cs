@@ -1,3 +1,4 @@
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,5 +15,6 @@ public class SetLocationInfo : MonoBehaviour
         Picture.sprite = Images.GetImage(location.ID);
         Name.text = location.Name;
         Description.text = location.Description;
+        //var GameInfo.Instance.Items.FirstOrDefault(x => x.ID == location.ID);
     }
 }

@@ -1,15 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 public class GameState
 {
     public List<Character> Characters = new();
+    public List<string> ItemsIDs = new();
 
     public class Character
     {
         public string ID;
         public bool IsAlive = true;
-        //public List<string> ItemsOrAttributes = new();
     }
 
     public GameState()
@@ -25,7 +26,8 @@ public class GameState
 public class GameInfo
 {
     public Character[] Characters = new Character[4];
-    public Location[] Locations = new Location[4];
+    public Location[] Locations = Array.Empty<Location>();
+    public Item[] Items = Array.Empty<Item>();
 
     public class Character
     {
@@ -44,18 +46,19 @@ public class GameInfo
         public string Failure;
     }
 
-    public class EnterLocationEvent
+    public class LocationEvent
     {
         public string LocationID;
         public string EventText;
+        public string[] Changes;
     }
 
-    public class ItemOrAttribute
+    public class Item
     {
-        public string ItemID;
-        public string ItemName;
-        public string ItemDescription;
-        //public EnterLocationEvent[] EnterLocationEvents;
+        public string ID;
+        public string Name;
+        public string Description;
+        public LocationEvent[] LocationEvent;
     }
 
     public static GameInfo Instance = new()
@@ -117,6 +120,42 @@ public class GameInfo
                 Success = "You have successfully entered the castle.",
                 Failure = "You have failed to enter the castle."
             }
+        },
+        Items = new Item[]
+        {
+            new()
+            {
+                ID = "BOOKOFMORMON",
+                Name = "Book of Mormon",
+                Description = "The Book of Mormon is a sacred text of the Latter Day Saint movement.",
+                LocationEvent = new LocationEvent[]
+                {
+                    new()
+                    {
+                        LocationID = "FOREST",
+                        EventText = "The bandits are impressed by this book you show. They tell you to show it to their leader up north.",
+                    }
+                }
+            },
+            new()
+            {
+                ID = "CROWN",
+                Name = "King's Crown",
+                Description = "The King's Crown is a symbol of power and authority. The King needs it",
+                LocationEvent = new LocationEvent[]
+                {
+                    new()
+                    {
+                        LocationID = "CASTLE",
+                        EventText = "The King rejoices that his crown has been returned to him. You win!",
+                        Changes = new[]
+                        {
+                            "-CROWN",
+                            "VICTORY"
+                        }
+                    }
+                }
+            },
         }
     };
 }
