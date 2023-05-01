@@ -25527,6 +25527,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7019255873152178592, guid: 6f182e73dd63f7444816f3daeefdcc00, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7279516002207252432, guid: 6f182e73dd63f7444816f3daeefdcc00, type: 3}
       propertyPath: currentLocation
       value: 
@@ -25535,10 +25539,6 @@ PrefabInstance:
       propertyPath: showEnterLocationInfo
       value: 
       objectReference: {fileID: 293161808}
-    - target: {fileID: 7279516002207252432, guid: 6f182e73dd63f7444816f3daeefdcc00, type: 3}
-      propertyPath: CharacterMovement.Array.size
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 7279516002207252432, guid: 6f182e73dd63f7444816f3daeefdcc00, type: 3}
       propertyPath: CharacterMovement.Array.data[0]
       value: 
@@ -25603,10 +25603,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7279516002207252435, guid: 6f182e73dd63f7444816f3daeefdcc00, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f182e73dd63f7444816f3daeefdcc00, type: 3}
@@ -25639,10 +25635,6 @@ PrefabInstance:
       propertyPath: mainWalkingSound
       value: 
       objectReference: {fileID: 7279516001198039054}
-    - target: {fileID: 633635952, guid: 28cc4f5cbc4ee494785e988c542dc28e, type: 3}
-      propertyPath: backgroundMusicVolume
-      value: 0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 633635952, guid: 28cc4f5cbc4ee494785e988c542dc28e, type: 3}
       propertyPath: characterWalkingSounds
       value: 
