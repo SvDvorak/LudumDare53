@@ -16,6 +16,7 @@ public class CharacterController : MonoBehaviour
 
     private void OnDestroy()
     {
+        showEnterLocationInfo.CharacterDied -= OnDeadCharacter;
         ShowEnterLocationInfo.ShowedInfo -= OnDisableMouseMover;
     }
 
@@ -56,26 +57,11 @@ public class CharacterController : MonoBehaviour
             if (child.gameObject.name == deadCharacter.ID)
             {
                 child.gameObject.GetComponent<CharacterMouseMover>().Disable();
-            }
-        }
-    }
-
-    private void OnUpdateDeadCharacters()
-    {
-        foreach (var character in GameState.Instance.Characters)
-        {
-            if (!character.IsAlive)
-            {
-                foreach (Transform child in characters.transform)
-                {
-                    if (child.gameObject.name == character.ID)
-                    {
-                        var deadCharacter = child.gameObject;
-                        float darkness = 0.4f;
-                        deadCharacter.GetComponent<Image>().color = new Color(darkness, darkness, darkness);
-                        deadCharacter.transform.Find("Skull").GetComponent<Image>().enabled = true;
-                    }
-                }
+                
+                var deadCharacterObject = child.gameObject;
+                float darkness = 0.4f;
+                deadCharacterObject.GetComponent<Image>().color = new Color(darkness, darkness, darkness);
+                deadCharacterObject.transform.Find("Skull").GetComponent<Image>().enabled = true;
             }
         }
     }
