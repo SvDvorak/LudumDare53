@@ -39,7 +39,7 @@ public class GameStateChangeTracker : MonoBehaviour
             if(change.StartsWith("ENDING"))
             {
                 var text = change.Length > 6 ? change.Substring(7) : "";
-                gameOver.Show(false, text);
+                gameOver.Show(false, "The End", text);
             }
             else if(change.StartsWith("TEXT"))
             {

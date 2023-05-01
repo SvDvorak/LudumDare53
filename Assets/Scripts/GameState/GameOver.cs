@@ -17,15 +17,15 @@ public class GameOver : MonoBehaviour
         ShowEnterLocationInfo.HidInfo -= CheckGameOver;
     }
 
-    public void Show(bool death, string text)
+    public void Show(bool death, string title, string description)
     {
-        GameOverPanel.Show(death, text);
+        GameOverPanel.Show(death, title, description);
     }
 
     private void CheckGameOver()
     {
         if(GameState.Instance.Characters.Any(x => x.IsAlive))
             return;
-        GameOverPanel.Show(true, GameInfo.Instance.PartyDeadGameOverText);
+        Show(true, "Party dead", GameInfo.Instance.PartyDeadGameOverText);
     }
 }

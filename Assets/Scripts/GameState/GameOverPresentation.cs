@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class GameOverPresentation : MonoBehaviour
 {
+    public TMP_Text title;
     public TMP_Text description;
     public FadeEffect fadeEffect;
 
@@ -11,10 +12,11 @@ public class GameOverPresentation : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void Show(bool isVictory, string text)
+    public void Show(bool isVictory, string titleText, string descriptionText)
     {
         Debug.Log("Play victory or defeat sound");
-        description.text = text;
+        title.text = titleText;
+        description.text = descriptionText;
         fadeEffect.FadeInAndEnable();
     }
 }

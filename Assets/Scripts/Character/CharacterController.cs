@@ -19,6 +19,7 @@ public class CharacterController : MonoBehaviour
     {
         showEnterLocationInfo.CharacterDied -= OnDeadCharacter;
         ShowEnterLocationInfo.ShowedInfo -= OnDisableMouseMover;
+        ShowEnterLocationInfo.HidInfo -= OnEnableMouseMover;
     }
 
     private void OnEnableMouseMover()
