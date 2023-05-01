@@ -24,7 +24,7 @@ MonoBehaviour:
   - ID: Nimbleton
     image: {fileID: 21300000, guid: 767f3c8b3d5188b448429597345f4f65, type: 3}
     music: {fileID: 8300000, guid: 8c96d7ae2049c1747a8b5208a522514a, type: 3}
-    volume: 1
+    volume: 0.939
   - ID: The Gullible Grotto
     image: {fileID: 21300000, guid: 756d8892adb722d4b974f6c9397b8d0a, type: 3}
     music: {fileID: 8300000, guid: ec6934840aef1684ca13dae3a506fb8f, type: 3}
@@ -40,7 +40,7 @@ MonoBehaviour:
   - ID: Memoirea
     image: {fileID: 21300000, guid: 4eb7abc1c52325744ad17a64d02f1bd1, type: 3}
     music: {fileID: 8300000, guid: be44aad6e51daf34f99fe5060e174ea4, type: 3}
-    volume: 1
+    volume: 0.705
   - ID: The Straitlaced Stronghold
     image: {fileID: 21300000, guid: b4764201be7cb9a47b6bc8eddd2b4f7e, type: 3}
     music: {fileID: 8300000, guid: e5ed9a474c2e22f429d06dbba20d3669, type: 3}
@@ -56,19 +56,19 @@ MonoBehaviour:
   - ID: The City of Skeptics
     image: {fileID: 21300000, guid: df90bba1391f0ee45a86cb00003e12ba, type: 3}
     music: {fileID: 8300000, guid: 94e01ff1a74eece4b9e0344e5f90782e, type: 3}
-    volume: 1
+    volume: 0.883
   - ID: The Province of Promptitude
     image: {fileID: 21300000, guid: c9e9125bc862efd4b92db88c1918c229, type: 3}
     music: {fileID: 8300000, guid: 94e01ff1a74eece4b9e0344e5f90782e, type: 3}
-    volume: 1
+    volume: 0.904
   - ID: Sinceritopia
     image: {fileID: 21300000, guid: 380282dadc023ce4f847207cc9cd7282, type: 3}
     music: {fileID: 8300000, guid: 8a269dbe93856cc4e8ff867315882210, type: 3}
-    volume: 1
+    volume: 0.709
   - ID: The Village of Braggarts
     image: {fileID: 21300000, guid: ced75e3e3874929488600e9b1d1bda74, type: 3}
     music: {fileID: 8300000, guid: 94e01ff1a74eece4b9e0344e5f90782e, type: 3}
-    volume: 1
+    volume: 0.913
   - ID: Slumberburg
     image: {fileID: 21300000, guid: 895e30d44956f3e4bbe53c5d62718f25, type: 3}
     music: {fileID: 8300000, guid: 4233c693604400140ab48621437f39fb, type: 3}
@@ -76,11 +76,11 @@ MonoBehaviour:
   - ID: Graceful Glade
     image: {fileID: 21300000, guid: 5c4cdaae64261be4fbcea1613734796a, type: 3}
     music: {fileID: 8300000, guid: 8a269dbe93856cc4e8ff867315882210, type: 3}
-    volume: 1
+    volume: 0.714
   - ID: The Town of Understatement
     image: {fileID: 21300000, guid: be7622e82eaa3b84ebd734865bb35410, type: 3}
     music: {fileID: 8300000, guid: b6f15bbc0e6c3d742ac80dfe49dfb35b, type: 3}
-    volume: 1
+    volume: 0.909
   - ID: The Fearless Frontier
     image: {fileID: 21300000, guid: a1d734f1f37fd2144b925c64a2255400, type: 3}
     music: {fileID: 8300000, guid: e5ed9a474c2e22f429d06dbba20d3669, type: 3}
@@ -88,7 +88,7 @@ MonoBehaviour:
   - ID: The Casual Commonwealth
     image: {fileID: 21300000, guid: 4d5e78042838bd44b9928c6684f83e4e, type: 3}
     music: {fileID: 8300000, guid: b6f15bbc0e6c3d742ac80dfe49dfb35b, type: 3}
-    volume: 1
+    volume: 0.909
   - ID: The Town of Neutrality
     image: {fileID: 21300000, guid: e75af48e1c0db904ca6b9aeb43fa8c98, type: 3}
     music: {fileID: 8300000, guid: ec6934840aef1684ca13dae3a506fb8f, type: 3}
@@ -96,11 +96,11 @@ MonoBehaviour:
   - ID: The Land of Mediocrity
     image: {fileID: 21300000, guid: cc46253f44df1d140ab2b14c6fad1ed5, type: 3}
     music: {fileID: 8300000, guid: 875ca44de38ed0b46bfdb940aad81642, type: 3}
-    volume: 1
+    volume: 0.757
   - ID: The City of Precision
     image: {fileID: 21300000, guid: 844563992b4e30e4aa5af8f5f12e1eb2, type: 3}
     music: {fileID: 8300000, guid: b6f15bbc0e6c3d742ac80dfe49dfb35b, type: 3}
-    volume: 1
+    volume: 0.918
   - ID: The Quiet Queendom
     image: {fileID: 21300000, guid: b3f36f40b77a7264b8badb501527b92f, type: 3}
     music: {fileID: 8300000, guid: 1b7480b813b259d42a31504ee959cfba, type: 3}
@@ -108,7 +108,7 @@ MonoBehaviour:
   - ID: The Land of Routine
     image: {fileID: 21300000, guid: 34d7b45e71f92b444935271c64757aa3, type: 3}
     music: {fileID: 8300000, guid: 875ca44de38ed0b46bfdb940aad81642, type: 3}
-    volume: 1
+    volume: 0.765
   - ID: The Realm of Humility
     image: {fileID: 21300000, guid: cd960941002036c4e802c31c11ef0014, type: 3}
     music: {fileID: 8300000, guid: f6906ca021ef8f340ad726d6a2538ca9, type: 3}
@@ -116,19 +116,19 @@ MonoBehaviour:
   - ID: The Kingdom of Sobriety
     image: {fileID: 21300000, guid: ff2e0151c82f74d4193dfd65600f3915, type: 3}
     music: {fileID: 8300000, guid: 49dc69af550cda64ba5b6221832ab9c0, type: 3}
-    volume: 1
+    volume: 0.284
   - ID: The Endless Ennui Empire
     image: {fileID: 21300000, guid: cc16e4643dd66fd449491d77115e0f4d, type: 3}
     music: {fileID: 8300000, guid: 875ca44de38ed0b46bfdb940aad81642, type: 3}
-    volume: 1
+    volume: 0.766
   - ID: The Hedonist Haven
     image: {fileID: 21300000, guid: d2eaa9dea5ee4334aa2544dc89f2e590, type: 3}
     music: {fileID: 8300000, guid: 6e2e6412cb1e8824a9ccd2d67c2145d0, type: 3}
-    volume: 1
+    volume: 0.878
   - ID: The Irreverent Isles
     image: {fileID: 21300000, guid: 4fc2aedf6591bb64fb135e3681f7d9d0, type: 3}
     music: {fileID: 8300000, guid: b6f15bbc0e6c3d742ac80dfe49dfb35b, type: 3}
-    volume: 1
+    volume: 0.887
   - ID: The Pacifist Paradise
     image: {fileID: 21300000, guid: f80c231d855678d4fb229ac06ffca10f, type: 3}
     music: {fileID: 8300000, guid: 1b7480b813b259d42a31504ee959cfba, type: 3}
@@ -140,7 +140,7 @@ MonoBehaviour:
   - ID: The Stubborn Stronghold
     image: {fileID: 21300000, guid: 1cb91f6d1fd8aa643a85985caf41691d, type: 3}
     music: {fileID: 8300000, guid: be44aad6e51daf34f99fe5060e174ea4, type: 3}
-    volume: 1
+    volume: 0.735
   - ID: The Anxious Archipelago
     image: {fileID: 21300000, guid: 4218320a2de713e48867d05c45166445, type: 3}
     music: {fileID: 8300000, guid: f6906ca021ef8f340ad726d6a2538ca9, type: 3}
@@ -148,7 +148,7 @@ MonoBehaviour:
   - ID: The Harmonious Halls
     image: {fileID: 21300000, guid: 7ca95a56d23487c4b834feea0d114d68, type: 3}
     music: {fileID: 8300000, guid: 8a269dbe93856cc4e8ff867315882210, type: 3}
-    volume: 1
+    volume: 0.708
   - ID: The Land of Caution
     image: {fileID: 21300000, guid: deb2aa687fadcf24e8a0ef0b3de5bf19, type: 3}
     music: {fileID: 8300000, guid: e5ed9a474c2e22f429d06dbba20d3669, type: 3}
@@ -156,7 +156,7 @@ MonoBehaviour:
   - ID: The City of Capitulation
     image: {fileID: 21300000, guid: a96c168e1d8f5ff45837413a277ef237, type: 3}
     music: {fileID: 8300000, guid: 875ca44de38ed0b46bfdb940aad81642, type: 3}
-    volume: 1
+    volume: 0.753
   - ID: The Grounded Grove
     image: {fileID: 21300000, guid: 7d3b12fdde0555f418ac6e4f7d77ba7e, type: 3}
     music: {fileID: 8300000, guid: 24bc956c796fb5e449893e6bd7e3765e, type: 3}
@@ -164,12 +164,12 @@ MonoBehaviour:
   - ID: The Dairy Domain
     image: {fileID: 21300000, guid: c456d34f29b371d49a690e6530334c3b, type: 3}
     music: {fileID: 8300000, guid: 6e2e6412cb1e8824a9ccd2d67c2145d0, type: 3}
-    volume: 1
+    volume: 0.809
   - ID: The Sparse Sanctuary
     image: {fileID: 21300000, guid: 80e8be6c0533c5045b719edfb19266b7, type: 3}
     music: {fileID: 8300000, guid: 875ca44de38ed0b46bfdb940aad81642, type: 3}
-    volume: 1
+    volume: 0.757
   - ID: The Bustling Borough
     image: {fileID: 21300000, guid: 971ddcfcae04359459e5313f97bde88a, type: 3}
     music: {fileID: 8300000, guid: 94e01ff1a74eece4b9e0344e5f90782e, type: 3}
-    volume: 1
+    volume: 0.9
