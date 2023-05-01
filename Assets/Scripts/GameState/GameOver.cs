@@ -8,7 +8,7 @@ public class GameOver : MonoBehaviour
 
     public void Start()
     {
-        showEnterLocationInfo.HidInfo += CheckGameOver;
+        ShowEnterLocationInfo.HidInfo += CheckGameOver;
     }
 
     public void Show(bool death, string text)

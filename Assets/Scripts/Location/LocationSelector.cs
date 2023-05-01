@@ -6,7 +6,7 @@ public class LocationSelector : MonoBehaviour
 {
     public delegate void LocationSelectedHandler(GameObject droppedCharacter, Location selectedLocation);
     public static event LocationSelectedHandler DroppedCharacterOnValidLocation;
-    public event Action ValidLocationSelected;
+    public static event Action<GameObject> ValidLocationSelected;
     public event Action ClickedOutside;
 
     private SpriteRenderer spriteRenderer;
@@ -32,22 +32,26 @@ public class LocationSelector : MonoBehaviour
         if (isMouseOver)
         {
             if (playerGroup.HasEnteredTargetLocation && IsConnected())
+            {
+                isMouseOver = false;
                 DroppedCharacterOnValidLocation?.Invoke(droppedCharacter, location);
-
-            OnMouseExit();
+            }
         }
 
     }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonUp(0))
         {
-            if (!isMouseOver)
+            if (isMouseOver && playerGroup.HasEnteredTargetLocation && IsConnected())
+            {
+                ValidLocationSelected?.Invoke(gameObject);
+            }
+            else if (!isMouseOver)
+            {
                 ClickedOutside?.Invoke();
-            else if (playerGroup.HasEnteredTargetLocation && IsConnected())
-                ValidLocationSelected?.Invoke();
-            
+            }
         }
     }
 
@@ -57,7 +61,7 @@ public class LocationSelector : MonoBehaviour
         if (CharacterMouseMover.IsMovingObject)
         {
             spriteRenderer.color = Color.black;
-            ValidLocationSelected?.Invoke();
+            ValidLocationSelected?.Invoke(gameObject);
         }
     }
 
@@ -65,8 +69,6 @@ public class LocationSelector : MonoBehaviour
     {
         isMouseOver = false;
         spriteRenderer.color = Color.white;
-        if (CharacterMouseMover.IsMovingObject)
-            ClickedOutside?.Invoke();
     }
 
     /// <summary>

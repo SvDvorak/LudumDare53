@@ -13,42 +13,69 @@ public class LocationInfoToggler : MonoBehaviour
     private Camera camera;
     private Canvas canvas;
     private LocationSelector locationSelector;
-    private GameObject instantiatedInfo;
+    private static GameObject instantiatedInfo;
     private Location location;
 
-    public static bool IsShowingInfo { get; private set; }
+    private bool isMouseOver = false;
 
     public void Start()
     {
-        camera = GameObject.FindObjectOfType<Camera>();
+        camera = FindObjectOfType<Camera>();
         locationSelector = GetComponent<LocationSelector>();
-        locationSelector.ValidLocationSelected += OnShowInfo;
-        locationSelector.ClickedOutside += HideInfo;
+        CharacterMouseMover.DroppedCharacter += OnShowOutline; ;
+        LocationSelector.DroppedCharacterOnValidLocation += OnShowOutline;
+        LocationSelector.DroppedCharacterOnValidLocation += DroppedCharacterOnValidLocation;
+        LocationSelector.ValidLocationSelected += OnShowInfo;
+        LocationInfoHider.HidInfo += HideInfo;
         location = GetComponent<Location>();
-        canvas = GameObject.Find("OverlayUI").GetComponent<Canvas>();
-        ShowEnterLocationInfo.ShowedInfo += HideInfo;
+        canvas = FindObjectOfType<Canvas>();
+    }
+
+    private void DroppedCharacterOnValidLocation(GameObject droppedCharacter, Location selectedLocation)
+    {
+        OnShowInfo(selectedLocation.gameObject);
+    }
+
+    private void OnShowOutline(GameObject droppedCharacter)
+    {
+        outline.gameObject.SetActive(true);
+    }
+
+    private void OnShowOutline(GameObject droppedCharacter, Location selectedLocation)
+    {
+        OnShowOutline(droppedCharacter);
+        
     }
 
     private void OnDestroy()
     {
-        locationSelector.ValidLocationSelected -= OnShowInfo;
-        locationSelector.ClickedOutside -= HideInfo;
+        LocationSelector.ValidLocationSelected -= OnShowInfo;
+    }
+
+    private void OnMouseEnter()
+    {
+        isMouseOver = true;
+    }
+
+    private void OnMouseExit()
+    {
+        isMouseOver = false;
+    }
+
+    private void Update()
+    {
+        if (!isMouseOver && Input.GetMouseButtonUp(0))
+            outline.gameObject.SetActive(false);
     }
 
     private void HideInfo()
     {
-        if (instantiatedInfo != null)
-        {
-            instantiatedInfo.GetComponent<FadeEffect>().FadeOutAndDestroy();
-            instantiatedInfo = null;
-            outline.gameObject.SetActive(false);
-            IsShowingInfo = false;
-        }
+        instantiatedInfo = null;
     }
 
-    private void OnShowInfo()
+    private void OnShowInfo(GameObject selectedLocation)
     {
-        if ((!locationSelector.IsConnected() && CharacterMouseMover.IsMovingObject) || locationInfoPrefab == null || instantiatedInfo != null)
+        if (!gameObject.Equals(selectedLocation) || !locationSelector.IsConnected() || CharacterMouseMover.IsMovingObject || locationInfoPrefab == null)
             return;
 
         var locationInfo = GameInfo.Instance.Locations.FirstOrDefault(x => x.ID == location.LocationID);
@@ -58,11 +85,15 @@ public class LocationInfoToggler : MonoBehaviour
             return;
         }
 
-        instantiatedInfo = Instantiate(locationInfoPrefab.gameObject, canvas.transform);
-        instantiatedInfo.GetComponent<SetLocationInfo>().SetLocation(locationInfo);
-        instantiatedInfo.GetComponent<FadeEffect>().FadeIn();
+        if (instantiatedInfo == null)
+        {
+            instantiatedInfo = Instantiate(locationInfoPrefab.gameObject, canvas.transform);
+            instantiatedInfo.GetComponent<SetLocationInfo>().SetLocation(locationInfo);
+            instantiatedInfo.GetComponent<FadeEffect>().FadeIn();
+        }
+        else
+            instantiatedInfo.GetComponent<SetLocationInfo>().SetLocation(locationInfo);
         outline.gameObject.SetActive(true);
         ShowedInfo?.Invoke(transform);
-        IsShowingInfo = true;
     }
 }

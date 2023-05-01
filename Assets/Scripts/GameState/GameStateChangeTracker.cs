@@ -8,12 +8,12 @@ public class GameStateChangeTracker : MonoBehaviour
     
     public void OnEnable()
     {
-        showEnterLocationInfo.HidInfo += UpdateChanges;
+        ShowEnterLocationInfo.HidInfo += UpdateChanges;
     }
 
     public void OnDisable()
     {
-        showEnterLocationInfo.HidInfo -= UpdateChanges;
+        ShowEnterLocationInfo.HidInfo -= UpdateChanges;
     }
 
     public void OnYesResponse()

@@ -9,10 +9,10 @@ public class CharacterController : MonoBehaviour
 
     void Start()
     {
-        showEnterLocationInfo.HidInfo += OnUpdateDeadCharacters;
+        ShowEnterLocationInfo.HidInfo += OnUpdateDeadCharacters;
         showEnterLocationInfo.CharacterDied += OnDeadCharacter;
         ShowEnterLocationInfo.ShowedInfo += OnDisableMouseMover;
-        showEnterLocationInfo.HidInfo += OnEnableMouseMover;
+        ShowEnterLocationInfo.HidInfo += OnEnableMouseMover;
     }
 
     private void OnEnableMouseMover()

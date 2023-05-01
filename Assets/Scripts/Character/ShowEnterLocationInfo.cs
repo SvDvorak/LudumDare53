@@ -8,7 +8,7 @@ public class ShowEnterLocationInfo : MonoBehaviour
 {
     public event Action<GameState.Character> CharacterDied;
     public static event Action ShowedInfo;
-    public event Action HidInfo;
+    public static event Action HidInfo;
 
     public FadeEffect MenuFade;
     public TMP_Text Title;
@@ -18,8 +18,6 @@ public class ShowEnterLocationInfo : MonoBehaviour
 
     [SerializeField] private PlayerGroup playerGroup;
     private bool showButtons;
-
-    public static bool IsShowingEnterLocationInfo { get; private set; }
 
     private void Start()
     {
@@ -54,10 +52,9 @@ public class ShowEnterLocationInfo : MonoBehaviour
             
             YesButton.gameObject.SetActive(false);
             NoButton.gameObject.SetActive(false);
-            
+
             MenuFade.FadeInAndEnable();
             ShowedInfo?.Invoke();
-            IsShowingEnterLocationInfo = true;
         }
         else if(locationEvent != null)
         {
@@ -67,10 +64,9 @@ public class ShowEnterLocationInfo : MonoBehaviour
             showButtons = locationEvent.ChoiceYesChanges != null || locationEvent.ChoiceNoChanges != null;
             YesButton.gameObject.SetActive(showButtons);
             NoButton.gameObject.SetActive(showButtons);
-            
+
             MenuFade.FadeInAndEnable();
             ShowedInfo?.Invoke();
-            IsShowingEnterLocationInfo = true;
         }
         else
         {
@@ -87,7 +83,6 @@ public class ShowEnterLocationInfo : MonoBehaviour
         {
             MenuFade.FadeOutAndDisable();
             HidInfo?.Invoke();
-            IsShowingEnterLocationInfo = false;
         }
     }
 
