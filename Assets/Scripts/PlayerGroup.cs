@@ -4,7 +4,8 @@ using UnityEngine.Serialization;
 
 public class PlayerGroup : MonoBehaviour
 {
-    public event Action EnteredLocation;
+    public delegate void EnterLocationEventHandler(string characterID, Location currentLocation);
+    public event EnterLocationEventHandler EnteredLocation;
     public ShowEnterLocationInfo showEnterLocationInfo;
     public Location currentLocation;
     [FormerlySerializedAs("CharacterMovers")] public CharacterMovement[] CharacterMovement;
@@ -48,8 +49,7 @@ public class PlayerGroup : MonoBehaviour
 
             if (Vector3.Distance(transform.position, target.position) < 0.01)
             {
-                showEnterLocationInfo.ShowEnterLocation(droppedCharacter.name, currentLocation);
-                //EnteredLocation?.Invoke();
+                EnteredLocation?.Invoke(droppedCharacter.name, currentLocation);
                 HasEnteredTargetLocation = true;
                 target = null;
             }
