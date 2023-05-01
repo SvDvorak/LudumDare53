@@ -188,6 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86a4335c60a5fe443812de7ab7bf3ee3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  showEnterLocationInfo: {fileID: 0}
   playerGroup: {fileID: 0}
   characterWalkingSounds: {fileID: 0}
   locationImages: {fileID: 11400000, guid: 2385a3c856b21544da9673d504969e2d, type: 2}
@@ -197,6 +198,7 @@ MonoBehaviour:
   achievementSound: {fileID: 0}
   signButtonSound: {fileID: 0}
   hoveredSignButtonSound: {fileID: 0}
+  buttonSound: {fileID: 0}
   characterSelectSound: {fileID: 0}
   fadeInDuration: 1
   fadeOutDuration: 1
@@ -333,7 +335,7 @@ Transform:
   - {fileID: 630228799}
   - {fileID: 3572298013683970508}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7949705283585450916
 GameObject:
@@ -392,6 +394,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7604691568002280059}
   - component: {fileID: 724022968904651304}
+  - component: {fileID: 4533618933632020718}
   m_Layer: 0
   m_Name: GameOverController
   m_TagString: Untagged
@@ -428,6 +431,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GameOverPanel: {fileID: 0}
   showEnterLocationInfo: {fileID: 2507323328143690053}
+--- !u!114 &4533618933632020718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8147904244749616954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c25c81c10b24ffa4a897f5f4f71b76c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8641968204045869736
 GameObject:
   m_ObjectHideFlags: 0

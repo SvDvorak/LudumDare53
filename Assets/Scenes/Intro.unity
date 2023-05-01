@@ -1050,6 +1050,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   FadeEffect: {fileID: 1238144195}
+  Music: {fileID: 1236188393}
 --- !u!1001 &1350432900
 PrefabInstance:
   m_ObjectHideFlags: 0
