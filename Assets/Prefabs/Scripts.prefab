@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   showEnterLocationInfo: {fileID: 2507323328143690053}
+  gameOver: {fileID: 0}
   playerGroup: {fileID: 0}
 --- !u!1 &633635951
 GameObject:
@@ -188,11 +189,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerGroup: {fileID: 0}
+  characterWalkingSounds: {fileID: 0}
   locationImages: {fileID: 11400000, guid: 2385a3c856b21544da9673d504969e2d, type: 2}
   backgroundMusic: {fileID: 0}
+  mainWalkingSound: {fileID: 0}
   fadeInDuration: 1
   fadeOutDuration: 1
-  backgroundMusicVolume: 0.3
+  backgroundMusicVolume: 0.1
 --- !u!1 &392138336857571508
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,7 +328,7 @@ Transform:
   - {fileID: 630228799}
   - {fileID: 3572298013683970508}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7949705283585450916
 GameObject:
