@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using UnityEngine;
 
 public class GameOver : MonoBehaviour
@@ -9,6 +10,11 @@ public class GameOver : MonoBehaviour
     public void Start()
     {
         ShowEnterLocationInfo.HidInfo += CheckGameOver;
+    }
+
+    public void OnDestroy()
+    {
+        ShowEnterLocationInfo.HidInfo -= CheckGameOver;
     }
 
     public void Show(bool death, string text)

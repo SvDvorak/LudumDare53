@@ -9,7 +9,7 @@ public class ShowEnterLocationInfo : MonoBehaviour
 {
     public event Action<GameState.Character> CharacterDied;
     public static event Action ShowedInfo;
-    public event Action HidInfo;
+    public static event Action HidInfo;
     public event Action<GameInfo.ItemEvent> CompletedLocationEvent;
     public event Action<bool, GameInfo.ItemEvent> AnsweredLocationEvent;
 
@@ -92,7 +92,6 @@ public class ShowEnterLocationInfo : MonoBehaviour
         if (!isShowingNew && MenuFade.gameObject.activeSelf)
         {
             MenuFade.FadeOutAndDisable();
-            IsShowingEnterLocationInfo = false;
         }
     }
 
@@ -125,7 +124,6 @@ public class ShowEnterLocationInfo : MonoBehaviour
             MenuFade.FadeInAndEnable();
         ShowedInfo?.Invoke();
         forceMenuButtonClick = info.ShowButtons;
-        IsShowingEnterLocationInfo = true;
         
         currentLocationInfo = info;
         
