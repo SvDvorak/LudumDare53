@@ -196,6 +196,7 @@ MonoBehaviour:
   gameoverSound: {fileID: 0}
   achievementSound: {fileID: 0}
   signButtonSound: {fileID: 0}
+  hoveredSignButtonSound: {fileID: 0}
   characterSelectSound: {fileID: 0}
   fadeInDuration: 1
   fadeOutDuration: 1

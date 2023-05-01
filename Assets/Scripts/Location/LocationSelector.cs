@@ -8,6 +8,7 @@ public class LocationSelector : MonoBehaviour
     public static event LocationSelectedHandler DroppedCharacterOnValidLocation;
     public static event Action<GameObject> ValidLocationSelected;
     public static event Action ClickedValidLocation;
+    public static event Action HoveredValidLocation;
     public event Action ClickedOutside;
 
     private SpriteRenderer spriteRenderer;
@@ -68,8 +69,11 @@ public class LocationSelector : MonoBehaviour
         isMouseOver = true;
         if (CharacterMouseMover.IsMovingObject && IsConnected())
         {
-            spriteRenderer.color = Color.black;
-            ClickedValidLocation?.Invoke();
+            if (playerGroup.currentLocation != location)
+            {
+                spriteRenderer.color = Color.black;
+                HoveredValidLocation?.Invoke();
+            }
             ValidLocationSelected?.Invoke(gameObject);
         }
     }
