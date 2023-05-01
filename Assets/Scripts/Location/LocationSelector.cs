@@ -67,13 +67,10 @@ public class LocationSelector : MonoBehaviour
     private void OnMouseEnter()
     {
         isMouseOver = true;
-        if (CharacterMouseMover.IsMovingObject && IsConnected())
+        if (CharacterMouseMover.IsMovingObject && playerGroup.currentLocation != location && IsConnected())
         {
-            if (playerGroup.currentLocation != location)
-            {
-                spriteRenderer.color = Color.black;
-                HoveredValidLocation?.Invoke();
-            }
+            spriteRenderer.color = Color.black;
+            HoveredValidLocation?.Invoke();
             ValidLocationSelected?.Invoke(gameObject);
         }
     }

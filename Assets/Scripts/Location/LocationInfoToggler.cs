@@ -22,8 +22,6 @@ public class LocationInfoToggler : MonoBehaviour
     {
         camera = FindObjectOfType<Camera>();
         locationSelector = GetComponent<LocationSelector>();
-        CharacterMouseMover.DroppedCharacter += OnShowOutline;
-        LocationSelector.DroppedCharacterOnValidLocation += OnShowOutline;
         LocationSelector.DroppedCharacterOnValidLocation += DroppedCharacterOnValidLocation;
         LocationSelector.ValidLocationSelected += OnShowInfo;
         LocationInfoHider.HidInfo += HideInfo;
@@ -33,8 +31,6 @@ public class LocationInfoToggler : MonoBehaviour
 
     private void OnDestroy()
     {
-        CharacterMouseMover.DroppedCharacter -= OnShowOutline;
-        LocationSelector.DroppedCharacterOnValidLocation -= OnShowOutline;
         LocationSelector.DroppedCharacterOnValidLocation -= DroppedCharacterOnValidLocation;
         LocationSelector.ValidLocationSelected -= OnShowInfo;
         LocationInfoHider.HidInfo -= HideInfo;
@@ -45,16 +41,6 @@ public class LocationInfoToggler : MonoBehaviour
         OnShowInfo(selectedLocation.gameObject);
     }
 
-    private void OnShowOutline(GameObject droppedCharacter)
-    {
-        outline.gameObject.SetActive(true);
-    }
-
-    private void OnShowOutline(GameObject droppedCharacter, Location selectedLocation)
-    {
-        OnShowOutline(droppedCharacter);
-        
-    }
 
     private void OnMouseEnter()
     {
