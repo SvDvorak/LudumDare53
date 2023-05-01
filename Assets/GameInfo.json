@@ -20,8 +20,7 @@
     {
       "ID": "SISTER",
       "Name": "Sister Willow the Pious",
-      "Description": "Sister Willow is a deeply spiritual individual, living a life of minimalism and dedication to her beliefs. Her stern demeanor and unwavering convictions can be intimidating, yet she is also compassionate and nurturing to those who share her faith. With high standards for herself and others, she is constantly striving for excellence in all aspects of her life. Sister Willow has a keen interest in the lives of her fellow believers, often sharing and seeking information about their moral conduct. However, her trusting nature can make her susceptible to believing outlandish tales. She can be quite blunt, expressing her opinions without sugarcoating them.
-",
+      "Description": "Sister Willow is a deeply spiritual individual, living a life of minimalism and dedication to her beliefs. Her stern demeanor and unwavering convictions can be intimidating, yet she is also compassionate and nurturing to those who share her faith. With high standards for herself and others, she is constantly striving for excellence in all aspects of her life. Sister Willow has a keen interest in the lives of her fellow believers, often sharing and seeking information about their moral conduct. However, her trusting nature can make her susceptible to believing outlandish tales. She can be quite blunt, expressing her opinions without sugarcoating them.",
       "FailureLocationIDs": [
         "The Irreverent Isles",
         "The Hedonist Haven",
@@ -31,6 +30,8 @@
         "The Town of Hushed Whispers",
         "The City of Skeptics",
         "Sharpwit Village",
+        "The Town of Neutrality",
+        "The Haphazard Hovel"
       ]
     },
     {
@@ -63,7 +64,8 @@
         "The Sparse Sanctuary",
         "The Bustling Borough",
         "The Village of Braggarts",
-        "The Fearless Frontier"
+        "The Fearless Frontier",
+        "The Chaste Chateau"
       ]
     }
   ],
@@ -93,7 +95,6 @@
       "ID": "The Gullible Grotto",
       "Name": "The Gullible Grotto",
       "Description": "This subterranean realm is populated by creatures who believe in the most outlandish myths and legends. Those who question the existence of the invisible unicorns, or dare doubt the prophetic powers of the clairvoyant cabbages, are met with great disdain.",		
-      "Success": "You have successfully entered the cave.",
       "Failure": "As Neville led the group through the twisting tunnels of the Gullible Grotto, he couldn't help but scoff at the absurd beliefs of its inhabitants. \"Invisible unicorns,\" he muttered under his breath, \"clairvoyant cabbages, what nonsense!\" But as they neared the heart of the grotto, they were greeted by a group of very real, very angry, invisible unicorns. The creatures were convinced that Neville and his companions were attempting to steal their treasure, and they attacked with ferocity. Despite his sharp wit and biting sarcasm, Neville was unable to talk his way out of the situation. In the end, he was captured by the unicorns and forced to spend the rest of his days serving as their court jester, entertaining them with his cynical quips and jabs at their ridiculous beliefs."
     },
     {
@@ -129,7 +130,7 @@
       "Name": "The Haphazard Hovel",
       "Description": "This ramshackle collection of crooked huts and mismatched furniture is home to an assortment of creatures who revel in chaos. Any attempt to impose order on this maddening environment is met with outright hostility.",		
       "Success": "You have successfully entered the cave.",
-      "Failure": "You have failed to enter the cave."
+      "Failure": "As Sister Willow led the group into the Haphazard Hovel, she couldn't help but feel a sense of revulsion. The chaotic jumble of furniture and belongings made her skin crawl, and she immediately set to work trying to impose some semblance of order. However, her attempts to tidy up were met with hostility from the hovel's inhabitants, who reveled in the disarray. Sister Willow found herself caught in the middle of a chaotic battle, dodging flying debris and scurrying creatures. She refused to give up, determined to bring order to the madness, but her fussy nature proved to be her undoing. In her zeal to tidy up a particularly messy corner, she accidentally knocked over a pile of rickety furniture, which came crashing down on top of her. The group had no choice but to leave her behind, buried beneath a pile of clutter, as they made their escape from the Haphazard Hovel."
     },
     {
       "ID": "The Town of Hushed Whispers",
@@ -164,16 +165,14 @@
       "Name": "The Village of Braggarts",
       "Description": "A community where boasting and self-aggrandizement are considered essential virtues. Those who lack confidence or struggle with self-esteem may find themselves overshadowed by the town's larger-than-life personalities.",		
       "Success": "You have successfully entered the cave.",
-      "Failure": "You have failed to enter the cave."
+      "Failure": "As Lavender led the group into the Village of Braggarts, she felt a knot form in her stomach. Everywhere she looked, there were people boasting about their accomplishments, their possessions, and their social status. Lavender, feeling insecure and inadequate, tried to muster up some grand stories of her own to impress the locals, but found herself stuttering and stumbling over her words. The more she tried to keep up with the grandiosity of the Braggarts, the more she felt like a failure. Eventually, Lavender became so overwhelmed by her own insecurities that she fled the village, never to be seen again. Some say she found solace in a nearby forest, where she spends her days telling stories to the trees and animals, far away from the judgmental eyes of the bragging townsfolk."
     },
     {
       "ID": "Slumberburg",
       "Name": "Slumberburg",
       "Description": "This peaceful hamlet is nestled in a tranquil valley that exudes a soporific aura, causing all creatures to sleep soundly through the night. Insomniacs are quickly driven to madness by the ceaseless snoring of their well-rested neighbors.",		
       "Success": "You have successfully entered the cave.",
-      "Failure": "As the group approached the sleepy village of Slumberburg, Neville's eyes grew wider and more manic with each passing step. The soporific aura of the valley began to take its toll on his already restless mind, and soon he was barely able to keep his eyes open. Despite his best efforts, Neville's desperate attempts to stay awake proved futile, and he soon fell into a deep slumber.
-
-      \n Days passed, and the group searched frantically for Neville, fearing the worst. Eventually, they stumbled upon a small cottage on the outskirts of the village, where they found Neville fast asleep, surrounded by a mountain of empty coffee cups. Despite their best efforts to wake him, Neville remained in his slumber, lost to the world of dreams. The group realized that they would have to leave Neville behind, for his obsession with staying awake had led him into a sleep from which he may never awake."
+      "Failure": "As the group approached the sleepy village of Slumberburg, Neville's eyes grew wider and more manic with each passing step. The soporific aura of the valley began to take its toll on his already restless mind, and soon he was barely able to keep his eyes open. Despite his best efforts, Neville's desperate attempts to stay awake proved futile, and he soon fell into a deep slumber.\n Days passed, and the group searched frantically for Neville, fearing the worst. Eventually, they stumbled upon a small cottage on the outskirts of the village, where they found Neville fast asleep, surrounded by a mountain of empty coffee cups. Despite their best efforts to wake him, Neville remained in his slumber, lost to the world of dreams. The group realized that they would have to leave Neville behind, for his obsession with staying awake had led him into a sleep from which he may never awake."
     },
     {
       "ID": "Graceful Glade",
@@ -194,7 +193,7 @@
       "Name": "The Fearless Frontier",
       "Description": "A wild and untamed land where brave warriors and adventurers face perilous challenges daily. Those who tremble at the mere thought of danger will find no refuge or solace in this unforgiving environment.",		
       "Success": "You have successfully entered the cave.",
-      "Failure": "You have failed to enter the cave."
+      "Failure": "As Lavender led the group into the Fearless Frontier, she couldn't help but feel a sense of overwhelming dread. The wild and untamed land was a far cry from the luxurious surroundings she was used to, and the constant threat of danger made her knees shake with fear. Despite her best efforts to put on a brave face, Lavender's nervousness betrayed her at every turn. She jumped at the slightest sound, flinched at every shadow, and spent most of her time cowering behind the stronger members of the group. It wasn't long before her jittery behavior attracted the attention of a group of particularly hungry wolves, who saw her as an easy target. Lavender's friends tried their best to defend her, but she panicked and ran off in a blind panic, leading the wolves straight to their camp. They managed to fend off the attack, but Lavender was nowhere to be found. The group searched high and low, but all they found was a trail of discarded jewelry and perfume bottles. Lavender had fled, leaving her companions to face the dangers of the Fearless Frontier alone."
     },
     {
       "ID": "The Casual Commonwealth",
@@ -208,15 +207,14 @@
       "Name": "The Town of Neutrality",
       "Description": "A village where every citizen is strictly impartial and unbiased. Those who dare to express strong opinions risk alienating themselves from the community and being branded as troublemakers.",		
       "Success": "You have successfully entered the cave.",
-      "Failure": "You have failed to enter the cave."
+      "Failure": "As Sister Willow led the group into the Town of Neutrality, she couldn't help but feel a sense of unease. The citizens seemed to lack any passion or drive, and their complete lack of opinion on any matter left her feeling frustrated and bored. She tried to engage them in conversation, to get them to take a stand on some issue, but all she got were blank stares and noncommittal shrugs. The more she pressed, the more the townspeople seemed to withdraw from her. Eventually, her outspoken nature drew the attention of the town's leaders, who viewed her as a dangerous element in their perfectly balanced society. They decided to banish her from the town, sending her off into the wilderness alone. As the group continued on without her, Sister Willow could be heard ranting and raving about the need for individuality and self-expression, even as her voice grew fainter in the distance."
     },
     {
       "ID": "The Land of Mediocrity",
       "Name": "The Land of Mediocrity",
       "Description": "A realm where average is the ideal, and the inhabitants shun excellence in favor of embracing the ordinary. Perfectionists who strive for greatness will be met with scorn and derision, as their efforts are seen as an affront to the status quo.",		
       "Success": "You have successfully entered the cave.",
-      "Failure": "You have failed to enter the cave."
-
+      "Failure": "Sister Willow led the group into the Land of Mediocrity, her eyes filled with horror at the sight before her. The inhabitants were content to live in squalor, with no desire for improvement or excellence. Sister Willow couldn't help but feel a sense of outrage at their lack of ambition and unwillingness to strive for something better. She set about trying to teach them the value of hard work and dedication, but her efforts were met with nothing but apathy and hostility. The more she tried to push the people towards greatness, the more they pushed back, clinging to their mediocre ways. Eventually, Sister Willow became so disillusioned by the land's attitude towards perfection that she disappeared into the wilderness, never to be seen again. The group mourned her loss, but couldn't help but think that perhaps it was better for her to rest in peace than to be constantly tormented by the Land of Mediocrity's complacency."
     },
     {
       "ID": "The City of Precision",
@@ -281,7 +279,6 @@
       "Success": "You have successfully entered the cave.",
       "Failure": "Sister Willow's devout beliefs led her to bring the group to the Pacifist Paradise, hoping to find solace in its peaceful ways. But as they walked the tranquil streets, Sister Willow couldn't shake the feeling of unease. She longed for the rush of battle, the thrill of combat, and the glory of victory. Her fierce nature clashed with the pacifist ideals of the Paradise, and she struggled to find her place in the peaceful society. As the days went on, Sister Willow became more and more restless, until one fateful day, she snapped. In a fit of uncontrollable rage, she challenged the entire town to battle, heedless of the consequences. The peaceful residents tried to calm her down, but to no avail. In the end, Sister Willow was subdued and banished from the Pacifist Paradise, never to be seen again."
     },
-
     {
       "ID": "The Chaste Chateau",
       "Name": "The Chaste Chateau",
@@ -296,7 +293,7 @@
       "Success": "You have successfully entered the cave.",
       "Failure": "As Zephyr the Jester pranced into the Stubborn Stronghold, he was confident that his persuasive charm and contagious enthusiasm would win over even the most unyielding residents. But these obstinate denizens were immune to his infectious laughter and vibrant personality. Zephyr, undeterred, decided to put on the most spectacular show of his life, complete with dazzling colors, acrobatics, and well-timed puns.\nHowever, as the performance reached its crescendo, the stronghold's residents remained unmoved. In a final, desperate attempt to win their favor, Zephyr performed his signature move: the Flippant Flip. Unfortunately, he misjudged the distance, and in a moment of slapstick hilarity, he soared through the air and landed headfirst into a barrel of the stronghold's notoriously sticky Stubborn Stew.\nTry as they might, the group couldn't free Zephyr from the clutches of the tenacious stew. With a heavy heart, they left him behind, entrapped in the gooey concoction as a monument to his overconfidence. Zephyr's muffled laughter could be heard echoing through the fortress, a testament to the one jester who dared to challenge the Stubborn Stronghold's unyielding resolve."
     },
-      {
+    {
       "ID": "The Anxious Archipelago",
       "Name": "The Anxious Archipelago",
       "Description": "A chain of islands populated by perpetually worried inhabitants who agonize over every decision and fret about potential disasters. The carefree may struggle to find common ground with these anxiety-ridden islanders.",		
