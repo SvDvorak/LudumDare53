@@ -77,9 +77,4 @@ public class AudioController : MonoBehaviour
             yield return null;
         }
     }
-
-    private void Update()
-    {
-        backgroundMusic.volume = backgroundMusicVolume;
-    }
 }

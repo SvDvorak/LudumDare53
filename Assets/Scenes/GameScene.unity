@@ -20108,7 +20108,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1682791880
 GameObject:
@@ -25688,6 +25688,10 @@ PrefabInstance:
       propertyPath: backgroundMusic
       value: 
       objectReference: {fileID: 1681668647}
+    - target: {fileID: 633635952, guid: 28cc4f5cbc4ee494785e988c542dc28e, type: 3}
+      propertyPath: backgroundMusicVolume
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 45756540117404100, guid: 28cc4f5cbc4ee494785e988c542dc28e, type: 3}
       propertyPath: m_RootOrder
       value: 1
