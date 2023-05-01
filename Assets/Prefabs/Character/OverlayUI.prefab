@@ -3659,6 +3659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: babba4751e341fb42a7b3c154197f842, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  title: {fileID: 4681690562254794795}
   description: {fileID: 951535236202437200}
   fadeEffect: {fileID: 6341510741368508933}
 --- !u!1 &8005165485749534011
