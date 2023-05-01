@@ -26,7 +26,7 @@ public class GameState
         return CarriedItems.Select(x => gameInfo.Items.FirstOrDefault(y => y.ID == x)).ToList();
     }
 
-    public GameInfo.ItemEvent GetLocationEvent(string locationID)
+    public IEnumerable<GameInfo.ItemEvent> GetLocationEvents(string locationID)
     {
         var location = GameInfo.Instance.Locations.FirstOrDefault(x => x.ID == locationID);
         if(location.Carried != null)
@@ -34,7 +34,7 @@ public class GameState
             foreach(var carried in location.Carried)
             {
                 if(Instance.CarriedItems.Contains(carried.ItemID))
-                    return carried;
+                    yield return carried;
             }
         }
         if(location.Available != null)
@@ -42,11 +42,9 @@ public class GameState
             foreach(var available in location.Available)
             {
                 if(!Instance.DeliveredItems.Contains(available.ItemID) && !Instance.CarriedItems.Contains(available.ItemID))
-                    return available;
+                    yield return available;
             }
         }
-
-        return null;
     }
     
     public bool IsGameOver() => Characters.All(x => !x.IsAlive);

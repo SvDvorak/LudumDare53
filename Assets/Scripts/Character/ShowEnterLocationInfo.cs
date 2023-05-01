@@ -2,13 +2,16 @@
 using TMPro;
 using UnityEngine;
 using System;
+using System.Collections.Generic;
 using UnityEngine.UI;
 
 public class ShowEnterLocationInfo : MonoBehaviour
 {
     public event Action<GameState.Character> CharacterDied;
     public static event Action ShowedInfo;
-    public static event Action HidInfo;
+    public event Action HidInfo;
+    public event Action<GameInfo.ItemEvent> CompletedLocationEvent;
+    public event Action<bool, GameInfo.ItemEvent> AnsweredLocationEvent;
 
     public FadeEffect MenuFade;
     public TMP_Text Title;
@@ -17,18 +20,33 @@ public class ShowEnterLocationInfo : MonoBehaviour
     public Button NoButton;
 
     [SerializeField] private PlayerGroup playerGroup;
-    private bool showButtons;
+    private bool forceMenuButtonClick;
 
     private void Start()
     {
         playerGroup.EnteredLocation += ShowEnterLocation;
         MenuFade.gameObject.SetActive(false);
+        YesButton.onClick.AddListener(OnYesResponse);
+        NoButton.onClick.AddListener(OnNoResponse);
     }
 
     private void OnDestroy()
     {
         playerGroup.EnteredLocation -= ShowEnterLocation;
     }
+
+    private class QueuedLocationInfo
+    {
+        public string Title;
+        public string Description;
+        public Action OnShow;
+        public bool ShowButtons;
+        public GameInfo.ItemEvent LocationEvent;
+    }
+    
+    private QueuedLocationInfo currentLocationInfo;
+    
+    private List<QueuedLocationInfo> queuedLocationInfos = new();
 
     public void ShowEnterLocation(string characterID, Location currentLocation)
     {
@@ -37,58 +55,114 @@ public class ShowEnterLocationInfo : MonoBehaviour
         var locationInfo = gameInfo.Locations.FirstOrDefault(x => x.ID == currentLocation.LocationID);
         if(locationInfo == null)
         {
-            Debug.LogWarning("Location event not found");
+            Debug.LogWarning($"Location event not found for {currentLocation.LocationID} and character {characterID}");
             return;
         }
 
-        var locationEvent = GameState.Instance.GetLocationEvent(currentLocation.LocationID);
+        var locationEvents = GameState.Instance.GetLocationEvents(currentLocation.LocationID);
         if(character.FailureLocationIDs.Contains(currentLocation.LocationID))
         {
-            Title.text = "Character Lost";
-            Description.text = locationInfo.Failure;
-            var gamestateCharacter = GameState.Instance.Characters.First(x => x.ID == characterID);
-            gamestateCharacter.IsAlive = false;
-            CharacterDied?.Invoke(gamestateCharacter);
-            
-            YesButton.gameObject.SetActive(false);
-            NoButton.gameObject.SetActive(false);
-
-            MenuFade.FadeInAndEnable();
-            ShowedInfo?.Invoke();
+            queuedLocationInfos.Add(new QueuedLocationInfo()
+            {
+                Title = "Character Lost",
+                Description = locationInfo.Failure,
+                ShowButtons = false,
+                OnShow = () =>
+                {
+                    var gamestateCharacter = GameState.Instance.Characters.First(x => x.ID == characterID);
+                    gamestateCharacter.IsAlive = false;
+                    CharacterDied?.Invoke(gamestateCharacter);
+                }
+            });
         }
-        else if(locationEvent != null)
+
+        foreach(var locationEvent in locationEvents)
         {
-            Title.text = GameInfo.Instance.Locations.First(x => x.ID == currentLocation.LocationID).Name;
-            Description.text = locationEvent.EventText;
-
-            showButtons = locationEvent.ChoiceYesChanges != null || locationEvent.ChoiceNoChanges != null;
-            YesButton.gameObject.SetActive(showButtons);
-            NoButton.gameObject.SetActive(showButtons);
-
-            MenuFade.FadeInAndEnable();
-            ShowedInfo?.Invoke();
+            queuedLocationInfos.Add(new QueuedLocationInfo()
+            {
+                Title = GameInfo.Instance.Locations.First(x => x.ID == currentLocation.LocationID).Name,
+                Description = locationEvent.EventText,
+                ShowButtons = locationEvent.ChoiceYesChanges != null || locationEvent.ChoiceNoChanges != null,
+                LocationEvent = locationEvent,
+                OnShow = null
+            });
         }
-        else
+
+        var isShowingNew = TryShowingNextLocationInfo();
+        if (!isShowingNew && MenuFade.gameObject.activeSelf)
         {
-            HidInfo?.Invoke();
+            MenuFade.FadeOutAndDisable();
+            IsShowingEnterLocationInfo = false;
         }
     }
-    
+
+    public void QueueShowingText(string text)
+    {
+        queuedLocationInfos.Insert(0, new QueuedLocationInfo()
+        {
+            Title = "",
+            Description = text,
+        });
+    }
+
+    private bool TryShowingNextLocationInfo()
+    {
+        if(queuedLocationInfos.Count <= 0)
+            return false;
+        
+        var info = queuedLocationInfos[0];
+        queuedLocationInfos.RemoveAt(0);
+            
+        Title.text = info.Title;
+        Description.text = info.Description;
+            
+        info.OnShow?.Invoke();
+            
+        YesButton.gameObject.SetActive(info.ShowButtons);
+        NoButton.gameObject.SetActive(info.ShowButtons);
+            
+        if(!MenuFade.gameObject.activeSelf)
+            MenuFade.FadeInAndEnable();
+        ShowedInfo?.Invoke();
+        forceMenuButtonClick = info.ShowButtons;
+        IsShowingEnterLocationInfo = true;
+        
+        currentLocationInfo = info;
+        
+        return true;
+    }
+
     public void HideInfo()
     {
-        if(showButtons)
+        if(forceMenuButtonClick)
             return;
         
-        if (MenuFade.gameObject.activeSelf)
+        if(currentLocationInfo != null && currentLocationInfo.LocationEvent != null)
+            CompletedLocationEvent?.Invoke(currentLocationInfo.LocationEvent);
+        
+        var isShowingNew = TryShowingNextLocationInfo();
+        if (!isShowingNew && MenuFade.gameObject.activeSelf)
         {
             MenuFade.FadeOutAndDisable();
             HidInfo?.Invoke();
         }
     }
 
+    public void OnYesResponse()
+    {
+        AnsweredLocationEvent?.Invoke(true, currentLocationInfo.LocationEvent);
+        ResponseButtonClicked();
+    }
+
+    public void OnNoResponse()
+    {
+        AnsweredLocationEvent?.Invoke(false, currentLocationInfo.LocationEvent);
+        ResponseButtonClicked();
+    }
+
     public void ResponseButtonClicked()
     {
-        showButtons = false;
+        forceMenuButtonClick = false;
         HideInfo();
     }
 }

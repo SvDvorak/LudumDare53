@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,10 +7,14 @@ public class CharacterController : MonoBehaviour
 
     void Start()
     {
-        ShowEnterLocationInfo.HidInfo += OnUpdateDeadCharacters;
         showEnterLocationInfo.CharacterDied += OnDeadCharacter;
         ShowEnterLocationInfo.ShowedInfo += OnDisableMouseMover;
         ShowEnterLocationInfo.HidInfo += OnEnableMouseMover;
+    }
+
+    private void OnDestroy()
+    {
+        ShowEnterLocationInfo.ShowedInfo -= OnDisableMouseMover;
     }
 
     private void OnEnableMouseMover()
@@ -35,20 +37,14 @@ public class CharacterController : MonoBehaviour
 
     private void OnDeadCharacter(GameState.Character deadCharacter)
     {
-        GameObject.Find(deadCharacter.ID).GetComponent<CharacterMouseMover>().Disable();
-    }
-
-    private void OnUpdateDeadCharacters()
-    {
-        foreach (var character in GameState.Instance.Characters)
+        var deadCharacterObject = GameObject.Find(deadCharacter.ID);
+        deadCharacterObject.GetComponent<CharacterMouseMover>().Disable();
+        
+        if (!deadCharacter.IsAlive)
         {
-            if (!character.IsAlive)
-            {
-                var deadCharacter = GameObject.Find(character.ID);
-                float darkness = 0.4f;
-                deadCharacter.GetComponent<Image>().color = new Color(darkness, darkness, darkness);
-                deadCharacter.transform.Find("Skull").GetComponent<Image>().enabled = true;
-            }
+            float darkness = 0.4f;
+            deadCharacterObject.GetComponent<Image>().color = new Color(darkness, darkness, darkness);
+            deadCharacterObject.transform.Find("Skull").GetComponent<Image>().enabled = true;
         }
     }
 }

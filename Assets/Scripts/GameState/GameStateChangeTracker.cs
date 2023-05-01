@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Linq;
+using UnityEngine;
 
 public class GameStateChangeTracker : MonoBehaviour
 {
@@ -8,33 +9,24 @@ public class GameStateChangeTracker : MonoBehaviour
     
     public void OnEnable()
     {
-        ShowEnterLocationInfo.HidInfo += UpdateChanges;
+        showEnterLocationInfo.CompletedLocationEvent += UpdateChanges;
+        showEnterLocationInfo.AnsweredLocationEvent += UpdateChanges;
     }
 
     public void OnDisable()
     {
-        ShowEnterLocationInfo.HidInfo -= UpdateChanges;
+        showEnterLocationInfo.CompletedLocationEvent -= UpdateChanges;
+        showEnterLocationInfo.AnsweredLocationEvent -= UpdateChanges;
     }
 
-    public void OnYesResponse()
+    private void UpdateChanges(GameInfo.ItemEvent itemEvent)
     {
-        PerformChanges(GetLocationEvent().ChoiceYesChanges);
-        showEnterLocationInfo.ResponseButtonClicked();
-    }
-    
-    public void OnNoResponse()
-    {
-        PerformChanges(GetLocationEvent().ChoiceNoChanges);
-        showEnterLocationInfo.ResponseButtonClicked();
+        PerformChanges(itemEvent.Changes);
     }
 
-    private void UpdateChanges()
+    private void UpdateChanges(bool answeredYes, GameInfo.ItemEvent itemEvent)
     {
-        var locationEvent = GetLocationEvent();
-        if(locationEvent != null)
-        {
-            PerformChanges(locationEvent.Changes);
-        }
+        PerformChanges(answeredYes ? itemEvent.ChoiceYesChanges : itemEvent.ChoiceNoChanges);
     }
 
     private void PerformChanges(string[] locationEventChanges)
@@ -51,7 +43,7 @@ public class GameStateChangeTracker : MonoBehaviour
             }
             else if(change.StartsWith("TEXT"))
             {
-                
+                showEnterLocationInfo.QueueShowingText(change.Substring(5));
             }
             else if(change[0] == '+')
             {
@@ -63,11 +55,5 @@ public class GameStateChangeTracker : MonoBehaviour
                 GameState.Instance.DeliveredItems.Add(change.Substring(1));
             }
         }
-    }
-
-    private GameInfo.ItemEvent GetLocationEvent()
-    {
-        var location = playerGroup.currentLocation;
-        return GameState.Instance.GetLocationEvent(location.LocationID);
     }
 }

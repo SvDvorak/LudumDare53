@@ -27,6 +27,11 @@ public class LocationSelector : MonoBehaviour
         CharacterMouseMover.DroppedCharacter += OnDroppedCharacter;
     }
 
+    private void OnDestroy()
+    {
+        CharacterMouseMover.DroppedCharacter -= OnDroppedCharacter;
+    }
+
     private void OnDroppedCharacter(GameObject droppedCharacter)
     {
         if (isMouseOver)

@@ -50,6 +50,8 @@ public class LocationInfoToggler : MonoBehaviour
     private void OnDestroy()
     {
         LocationSelector.ValidLocationSelected -= OnShowInfo;
+        locationSelector.ClickedOutside -= HideInfo;
+        ShowEnterLocationInfo.ShowedInfo -= HideInfo;
     }
 
     private void OnMouseEnter()
