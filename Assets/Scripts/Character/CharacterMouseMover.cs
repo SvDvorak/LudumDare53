@@ -5,10 +5,11 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class CharacterMouseMover : MonoBehaviour, IPointerUpHandler, IDragHandler
+public class CharacterMouseMover : MonoBehaviour, IPointerUpHandler, IDragHandler, IPointerDownHandler
 {
     public delegate void DroppedCharacterEventHandler(GameObject droppedCharacter);
     public static event DroppedCharacterEventHandler DroppedCharacter;
+    public static event Action ClickedOnCharacter;
 
     private Camera camera;
     private GameObject canvas;
@@ -22,6 +23,7 @@ public class CharacterMouseMover : MonoBehaviour, IPointerUpHandler, IDragHandle
     {
         camera = FindObjectOfType<Camera>();
         canvas = FindObjectOfType<Canvas>().gameObject;
+        
     }
 
     private void Update()
@@ -83,5 +85,10 @@ public class CharacterMouseMover : MonoBehaviour, IPointerUpHandler, IDragHandle
 
         followingObject = null;
         canMove = false;
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        ClickedOnCharacter?.Invoke();
     }
 }
