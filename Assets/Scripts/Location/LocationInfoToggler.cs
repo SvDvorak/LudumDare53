@@ -5,6 +5,7 @@ using UnityEngine;
 public class LocationInfoToggler : MonoBehaviour
 {
     public static event Action<Location> SelectedLeader;
+    public static event Action<Transform> ShowedInfo;
 
     [SerializeField] private GameObject locationInfoPrefab;
 
@@ -45,18 +46,16 @@ public class LocationInfoToggler : MonoBehaviour
             return;
 
         var locationInfo = GameInfo.Instance.Locations.FirstOrDefault(x => x.ID == location.LocationID);
-        if(locationInfo == null)
+        if (locationInfo == null)
         {
             Debug.Log("Location not found in GameInfo for ID: " + location.LocationID);
             return;
         }
-        
-        instantiatedInfo = Instantiate(locationInfoPrefab.gameObject, canvas.transform);
-        
-        Vector2 screenPoint = camera.ScreenToWorldPoint(transform.position);
-        instantiatedInfo.GetComponent<RectTransform>().localPosition = screenPoint;
 
+        instantiatedInfo = Instantiate(locationInfoPrefab.gameObject, canvas.transform);
         instantiatedInfo.GetComponent<SetLocationInfo>().SetLocation(locationInfo);
         instantiatedInfo.GetComponent<FadeEffect>().FadeIn();
+
+        ShowedInfo?.Invoke(transform);
     }
 }
