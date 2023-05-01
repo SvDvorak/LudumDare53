@@ -8,6 +8,8 @@ public class AudioController : MonoBehaviour
     [SerializeField] private LocationImages locationImages;
 
     private AudioSource audioSource;
+    public float fadeInDuration = 5f;
+    public float fadeOutDuration = 1f;
 
     private Location destination;
     private float maxVolume = 0;
@@ -43,14 +45,13 @@ public class AudioController : MonoBehaviour
     private IEnumerator FadeInMusic()
     {
         fadingIn = true;
-        float duration = 5f;
         float startVolume = audioSource.volume;
         float elapsedTime = 0f;
 
-        while (fadingIn && elapsedTime < duration)
+        while (fadingIn && elapsedTime < fadeInDuration)
         {
             elapsedTime += Time.deltaTime;
-            audioSource.volume = Mathf.Lerp(startVolume, maxVolume, elapsedTime / duration);
+            audioSource.volume = Mathf.Lerp(startVolume, maxVolume, elapsedTime / fadeInDuration);
             yield return null;
         }
 
@@ -59,20 +60,14 @@ public class AudioController : MonoBehaviour
 
     private IEnumerator FadeOutMusic()
     {
-        float duration = 1f;
         float startVolume = audioSource.volume;
         float elapsedTime = 0f;
 
-        while (elapsedTime < duration)
+        while (elapsedTime < fadeOutDuration)
         {
             elapsedTime += Time.deltaTime;
-            audioSource.volume = Mathf.Lerp(startVolume, 0f, elapsedTime / duration);
+            audioSource.volume = Mathf.Lerp(startVolume, 0f, elapsedTime / fadeOutDuration);
             yield return null;
         }
-    }
-
-    private void Update()
-    {
-        Debug.Log(audioSource.volume);
     }
 }
