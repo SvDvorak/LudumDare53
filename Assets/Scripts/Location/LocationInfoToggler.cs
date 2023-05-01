@@ -20,7 +20,7 @@ public class LocationInfoToggler : MonoBehaviour
     {
         camera = GameObject.FindObjectOfType<Camera>();
         locationSelector = GetComponent<LocationSelector>();
-        locationSelector.LocationSelected += OnShowInfo;
+        locationSelector.ValidLocationSelected += OnShowInfo;
         locationSelector.ClickedOutside += HideInfo;
         location = GetComponent<Location>();
         canvas = GameObject.Find("OverlayUI").GetComponent<Canvas>();
@@ -28,7 +28,7 @@ public class LocationInfoToggler : MonoBehaviour
 
     private void OnDestroy()
     {
-        locationSelector.LocationSelected -= OnShowInfo;
+        locationSelector.ValidLocationSelected -= OnShowInfo;
         locationSelector.ClickedOutside -= HideInfo;
     }
 

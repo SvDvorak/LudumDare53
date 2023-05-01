@@ -24647,12 +24647,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1464870289210577632, guid: 5ec32c6d22002c141a8a7824cae4515a, type: 3}
+      propertyPath: MaxZoom
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1464870289210577632, guid: 5ec32c6d22002c141a8a7824cae4515a, type: 3}
       propertyPath: SmoothTime
       value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 1464870289210577632, guid: 5ec32c6d22002c141a8a7824cae4515a, type: 3}
       propertyPath: ScrollSpeed
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1464870289210577637, guid: 5ec32c6d22002c141a8a7824cae4515a, type: 3}
       propertyPath: m_Name
@@ -24706,6 +24710,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 445523791}
+    - target: {fileID: 3154244985095117454, guid: 5ec32c6d22002c141a8a7824cae4515a, type: 3}
+      propertyPath: background
+      value: 
+      objectReference: {fileID: 209126004}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ec32c6d22002c141a8a7824cae4515a, type: 3}

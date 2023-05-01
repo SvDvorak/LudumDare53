@@ -21,12 +21,12 @@ public class PlayerGroup : MonoBehaviour
         transform.position = currentLocation.transform.position;
         foreach(var characterMove in CharacterMovement)
             characterMove.SetPosition(transform);
-        LocationSelector.ValidLocationSelected += OnMoveTowardsLocation;
+        LocationSelector.DroppedCharacterOnValidLocation += OnMoveTowardsLocation;
     }
 
     private void OnDestroy()
     {
-        LocationSelector.ValidLocationSelected -= OnMoveTowardsLocation;
+        LocationSelector.DroppedCharacterOnValidLocation -= OnMoveTowardsLocation;
     }
 
     private void OnMoveTowardsLocation(GameObject droppedCharacter, Location selectedLocation)

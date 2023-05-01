@@ -5,8 +5,8 @@ using UnityEngine;
 public class LocationSelector : MonoBehaviour
 {
     public delegate void LocationSelectedHandler(GameObject droppedCharacter, Location selectedLocation);
-    public static event LocationSelectedHandler ValidLocationSelected;
-    public event Action LocationSelected;
+    public static event LocationSelectedHandler DroppedCharacterOnValidLocation;
+    public event Action ValidLocationSelected;
     public event Action ClickedOutside;
 
     private SpriteRenderer spriteRenderer;
@@ -32,7 +32,7 @@ public class LocationSelector : MonoBehaviour
         if (isMouseOver)
         {
             if (playerGroup.HasEnteredTargetLocation && IsConnected())
-                ValidLocationSelected?.Invoke(droppedCharacter, location);
+                DroppedCharacterOnValidLocation?.Invoke(droppedCharacter, location);
 
             ClickedOutside?.Invoke();
             OnMouseExit();
@@ -44,10 +44,11 @@ public class LocationSelector : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (isMouseOver)
-                LocationSelected?.Invoke();
-            else
+            if (!isMouseOver)
                 ClickedOutside?.Invoke();
+            else if (playerGroup.HasEnteredTargetLocation && IsConnected())
+                ValidLocationSelected?.Invoke();
+            
         }
     }
 
@@ -57,7 +58,7 @@ public class LocationSelector : MonoBehaviour
         if (CharacterMouseMover.IsMovingObject)
         {
             spriteRenderer.color = Color.black;
-            LocationSelected?.Invoke();
+            ValidLocationSelected?.Invoke();
         }
     }
 
