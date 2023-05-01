@@ -10,6 +10,8 @@ public class ShowEnterLocationInfo : MonoBehaviour
     public event Action<GameState.Character> CharacterDied;
     public static event Action ShowedInfo;
     public static event Action HidInfo;
+    public static event Action LostCharacter;
+    public static event Action Success;
     public event Action<GameInfo.ItemEvent> CompletedLocationEvent;
     public event Action<bool, GameInfo.ItemEvent> AnsweredLocationEvent;
 
@@ -60,8 +62,9 @@ public class ShowEnterLocationInfo : MonoBehaviour
         }
 
         var locationEvents = GameState.Instance.GetLocationEvents(currentLocation.LocationID);
-        if(character.FailureLocationIDs.Contains(currentLocation.LocationID))
+        if (character.FailureLocationIDs.Contains(currentLocation.LocationID))
         {
+            LostCharacter?.Invoke();
             queuedLocationInfos.Add(new QueuedLocationInfo()
             {
                 Title = "Character Lost",
@@ -75,6 +78,8 @@ public class ShowEnterLocationInfo : MonoBehaviour
                 }
             });
         }
+        else
+            Success?.Invoke();
 
         foreach(var locationEvent in locationEvents)
         {
