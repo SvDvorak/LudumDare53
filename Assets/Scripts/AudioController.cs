@@ -37,7 +37,7 @@ public class AudioController : MonoBehaviour
         playerGroup.EnteredLocation += OnStopWalkingSound;
         ShowEnterLocationInfo.Success += OnPlayAchievementSound;
         ShowEnterLocationInfo.LostCharacter += OnPlayGameoverSound;
-        LocationSelector.ValidLocationSelected += OnPlaySignButtonSound;
+        LocationSelector.ClickedValidLocation += OnPlaySignButtonSound;
         CharacterMouseMover.ClickedOnCharacter += OnPlayCharacterSelectSound;
 
         backgroundMusic.volume = backgroundMusicVolume;
@@ -50,7 +50,7 @@ public class AudioController : MonoBehaviour
         characterSelectSound.Play();
     }
 
-    private void OnPlaySignButtonSound(GameObject obj)
+    private void OnPlaySignButtonSound()
     {
         signButtonSound.Play();
     }

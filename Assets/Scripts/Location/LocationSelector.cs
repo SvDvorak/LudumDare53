@@ -7,6 +7,7 @@ public class LocationSelector : MonoBehaviour
     public delegate void LocationSelectedHandler(GameObject droppedCharacter, Location selectedLocation);
     public static event LocationSelectedHandler DroppedCharacterOnValidLocation;
     public static event Action<GameObject> ValidLocationSelected;
+    public static event Action ClickedValidLocation;
     public event Action ClickedOutside;
 
     private SpriteRenderer spriteRenderer;
@@ -52,6 +53,7 @@ public class LocationSelector : MonoBehaviour
         {
             if (isMouseOver && playerGroup.HasEnteredTargetLocation && IsConnected())
             {
+                ClickedValidLocation?.Invoke();
                 ValidLocationSelected?.Invoke(gameObject);
             }
             else if (!isMouseOver)
@@ -64,9 +66,10 @@ public class LocationSelector : MonoBehaviour
     private void OnMouseEnter()
     {
         isMouseOver = true;
-        if (CharacterMouseMover.IsMovingObject)
+        if (CharacterMouseMover.IsMovingObject && IsConnected())
         {
             spriteRenderer.color = Color.black;
+            ClickedValidLocation?.Invoke();
             ValidLocationSelected?.Invoke(gameObject);
         }
     }
