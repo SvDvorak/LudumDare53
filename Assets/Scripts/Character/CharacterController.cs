@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,10 +9,14 @@ public class CharacterController : MonoBehaviour
 
     void Start()
     {
-        ShowEnterLocationInfo.HidInfo += OnUpdateDeadCharacters;
         showEnterLocationInfo.CharacterDied += OnDeadCharacter;
         ShowEnterLocationInfo.ShowedInfo += OnDisableMouseMover;
         ShowEnterLocationInfo.HidInfo += OnEnableMouseMover;
+    }
+
+    private void OnDestroy()
+    {
+        ShowEnterLocationInfo.ShowedInfo -= OnDisableMouseMover;
     }
 
     private void OnEnableMouseMover()
