@@ -13,8 +13,20 @@ public class ShowEnterLocationInfo : MonoBehaviour
     public TMP_Text Title;
     public TMP_Text Description;
 
+    [SerializeField] private PlayerGroup playerGroup;
+
     public static bool IsShowingEnterLocationInfo { get; private set; }
-    
+
+    private void Start()
+    {
+        playerGroup.EnteredLocation += ShowEnterLocation;
+    }
+
+    private void OnDestroy()
+    {
+        playerGroup.EnteredLocation -= ShowEnterLocation;
+    }
+
     public void ShowEnterLocation(string characterID, Location currentLocation)
     {
         var gameInfo = GameInfo.Instance;
