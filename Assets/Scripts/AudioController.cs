@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class AudioController : MonoBehaviour
 {
+    [SerializeField] private ShowEnterLocationInfo showEnterLocationInfo;
     [SerializeField] private PlayerGroup playerGroup;
     [SerializeField] private GameObject characterWalkingSounds;
     [SerializeField] private LocationImages locationImages;
@@ -14,6 +15,7 @@ public class AudioController : MonoBehaviour
     [SerializeField] private AudioSource achievementSound;
     [SerializeField] private AudioSource signButtonSound;
     [SerializeField] private AudioSource hoveredSignButtonSound;
+    [SerializeField] private AudioSource buttonSound;
     [SerializeField] private AudioSource characterSelectSound;
 
     public float fadeInDuration = 5f;
@@ -38,6 +40,7 @@ public class AudioController : MonoBehaviour
         playerGroup.EnteredLocation += OnStopWalkingSound;
         ShowEnterLocationInfo.Success += OnPlayAchievementSound;
         ShowEnterLocationInfo.LostCharacter += OnPlayGameoverSound;
+        showEnterLocationInfo.AnsweredLocationEvent += OnPlayAnsweredButtonSound;
         LocationSelector.ClickedValidLocation += OnPlaySignButtonSound;
         LocationSelector.HoveredValidLocation += OnPlayHoveredSignButtonSound;
         CharacterMouseMover.ClickedOnCharacter += OnPlayCharacterSelectSound;
@@ -45,6 +48,11 @@ public class AudioController : MonoBehaviour
         backgroundMusic.volume = backgroundMusicVolume;
         backgroundMusic.Play();
         OnPlayLocationMusic("", playerGroup.currentLocation);
+    }
+
+    private void OnPlayAnsweredButtonSound(bool arg1, GameInfo.ItemEvent arg2)
+    {
+        buttonSound.Play();
     }
 
     private void OnPlayHoveredSignButtonSound()
