@@ -42,7 +42,7 @@ public class CharacterMouseMover : MonoBehaviour, IPointerUpHandler, IDragHandle
         if (!canMove)
             return;
 
-        //ReleaseFollowingObject();
+        ReleaseFollowingObject();
     }
 
     public void OnDrag(PointerEventData eventData)
