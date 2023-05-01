@@ -6,6 +6,7 @@ public class CharacterController : MonoBehaviour
     public ShowEnterLocationInfo showEnterLocationInfo;
 
     [SerializeField] private GameObject characters;
+    [SerializeField] private GameObject groupCharacters;
 
     void Start()
     {
@@ -63,6 +64,12 @@ public class CharacterController : MonoBehaviour
                 deadCharacterObject.GetComponent<Image>().color = new Color(darkness, darkness, darkness);
                 deadCharacterObject.transform.Find("Skull").GetComponent<Image>().enabled = true;
             }
+        }
+
+        foreach (Transform child in groupCharacters.transform)
+        {
+            if (child.gameObject.name == deadCharacter.ID)
+                child.gameObject.SetActive(false);
         }
     }
 }
