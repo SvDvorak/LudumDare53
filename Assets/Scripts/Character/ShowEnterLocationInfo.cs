@@ -24,6 +24,7 @@ public class ShowEnterLocationInfo : MonoBehaviour
     private void Start()
     {
         playerGroup.EnteredLocation += ShowEnterLocation;
+        MenuFade.gameObject.SetActive(false);
     }
 
     private void OnDestroy()
