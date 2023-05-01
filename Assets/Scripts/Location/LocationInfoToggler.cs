@@ -96,7 +96,11 @@ public class LocationInfoToggler : MonoBehaviour
             instantiatedInfo.GetComponent<FadeEffect>().FadeIn();
         }
         else
+        {
             instantiatedInfo.GetComponent<SetLocationInfo>().SetLocation(locationInfo);
+            instantiatedInfo.GetComponent<LocationInfoPositionAdjuster>().UpdatePosition();
+        }
+
         outline.gameObject.SetActive(true);
         ShowedInfo?.Invoke(transform);
     }

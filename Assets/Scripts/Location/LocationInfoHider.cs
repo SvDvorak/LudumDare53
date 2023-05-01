@@ -38,7 +38,7 @@ public class LocationInfoHider : MonoBehaviour, IPointerEnterHandler, IPointerEx
 
     private void OnPreventHiding(GameObject selectedLocation)
     {
-        OnPreventHiding();
+        OnPreventHidingWait(null);
     }
 
     private IEnumerator WaitToHide()
