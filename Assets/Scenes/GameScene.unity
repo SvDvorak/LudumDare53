@@ -23545,7 +23545,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1974261756}
   m_Layer: 0
-  m_Name: Sounds
+  m_Name: WalkingSounds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26234,6 +26234,10 @@ PrefabInstance:
       propertyPath: playerGroup
       value: 
       objectReference: {fileID: 1663109534}
+    - target: {fileID: 633635952, guid: 28cc4f5cbc4ee494785e988c542dc28e, type: 3}
+      propertyPath: walkingSounds
+      value: 
+      objectReference: {fileID: 1974261755}
     - target: {fileID: 633635952, guid: 28cc4f5cbc4ee494785e988c542dc28e, type: 3}
       propertyPath: backgroundMusic
       value: 

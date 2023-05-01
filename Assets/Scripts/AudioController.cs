@@ -6,8 +6,10 @@ using UnityEngine;
 public class AudioController : MonoBehaviour
 {
     [SerializeField] private PlayerGroup playerGroup;
+    [SerializeField] private GameObject characterWalkingSounds;
     [SerializeField] private LocationImages locationImages;
     [SerializeField] private AudioSource backgroundMusic;
+    [SerializeField] private AudioSource mainWalkingSound;
 
     public float fadeInDuration = 5f;
     public float fadeOutDuration = 1f;
@@ -22,7 +24,7 @@ public class AudioController : MonoBehaviour
 
     void Start()
     {
-        footstepSounds = playerGroup.transform.GetChild(0).GetComponentsInChildren<AudioSource>();
+        footstepSounds = characterWalkingSounds.GetComponentsInChildren<AudioSource>();
 
         audioSource = GetComponent<AudioSource>();
         playerGroup.HalfWayToLocation += OnPlayLocationMusic;
@@ -41,6 +43,8 @@ public class AudioController : MonoBehaviour
         {
             footstepSound.Stop();
         }
+
+        mainWalkingSound.Stop();
     }
 
     private void OnPlayWalkingSound(string characterID, Location currentLocation)
@@ -53,6 +57,9 @@ public class AudioController : MonoBehaviour
                     footstepSound.Play();
             }
         }
+
+        mainWalkingSound.time = Random.Range(0, mainWalkingSound.clip.length - 0.1f);
+        mainWalkingSound.Play();
     }
 
     private void OnChangeMusic(string characterID, Location destination)
