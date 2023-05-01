@@ -101,20 +101,7 @@
 			"ID": "The Gullible Grotto",
 			"Name": "The Gullible Grotto",
 			"Description": "This subterranean realm is populated by creatures who believe in the most outlandish myths and legends. Those who question the existence of the invisible unicorns, or dare doubt the prophetic powers of the clairvoyant cabbages, are met with great disdain.",
-			"Failure": "As Neville led the group through the twisting tunnels of the Gullible Grotto, he couldn't help but scoff at the absurd beliefs of its inhabitants. \"Invisible unicorns,\" he muttered under his breath, \"clairvoyant cabbages, what nonsense!\" But as they neared the heart of the grotto, they were greeted by a group of very real, very angry, invisible unicorns. The creatures were convinced that Neville and his companions were attempting to steal their treasure, and they attacked with ferocity. Despite his sharp wit and biting sarcasm, Neville was unable to talk his way out of the situation. In the end, he was captured by the unicorns and forced to spend the rest of his days serving as their court jester, entertaining them with his cynical quips and jabs at their ridiculous beliefs.",
-			"Available": [
-				{
-					"ItemID": "WORLDEATER",
-					"EventText": "This is a sleeping creature that can devour entire realms. In the wrong hands, it could be unleashed to consume the world and all its inhabitants. It should be delivered to the cosmic protectors in Mundania, who have the ability to neutralize its power and prevent it from causing destruction. Dont let it fall inte to the hands of the Chaos King in The Straitlaced Stronghold. Do you want this responsibility?",
-					"Changes": null,
-					"ChoiceYesChanges": [
-						"+WORLDEATER"
-					],
-					"ChoiceNoChanges": [
-						"TEXT We will try to keep it safe here or at another location as long as we can!"
-					]
-				}
-			]
+			"Failure": "As Neville led the group through the twisting tunnels of the Gullible Grotto, he couldn't help but scoff at the absurd beliefs of its inhabitants. \"Invisible unicorns,\" he muttered under his breath, \"clairvoyant cabbages, what nonsense!\" But as they neared the heart of the grotto, they were greeted by a group of very real, very angry, invisible unicorns. The creatures were convinced that Neville and his companions were attempting to steal their treasure, and they attacked with ferocity. Despite his sharp wit and biting sarcasm, Neville was unable to talk his way out of the situation. In the end, he was captured by the unicorns and forced to spend the rest of his days serving as their court jester, entertaining them with his cynical quips and jabs at their ridiculous beliefs."
 		},
 		{
 			"ID": "Mundania",
@@ -150,7 +137,20 @@
 			"Name": "Memoirea",
 			"Description": "A coastal town where residents are renowned for their eidetic memory, and every event is recorded in the Great Book of Memoirea. Those who cannot recall their own names or appointments may find themselves forever lost in the labyrinthine streets.",
 			"Success": "You have successfully entered the cave.",
-			"Failure": "As Zephyr led the group into the town of Memoirea, he was immediately struck by the sheer amount of information around him. Every street corner, every building, seemed to be packed with facts and figures, all meticulously recorded in the Great Book. Zephyr was so fascinated by the abundance of knowledge that he couldn't help but become distracted. He wandered off on his own, lost in thought as he tried to absorb as much information as possible. Unfortunately, his curiosity got the better of him, and he accidentally knocked over one of the Great Books, sending centuries of history tumbling to the ground. The enraged townspeople quickly captured Zephyr, locking him away in a cell with only his own memories to keep him company. As the group left Memoirea without him, Zephyr could only lament his distracted nature, wishing he had been more careful in the town of endless memories.."
+			"Failure": "As Zephyr led the group into the town of Memoirea, he was immediately struck by the sheer amount of information around him. Every street corner, every building, seemed to be packed with facts and figures, all meticulously recorded in the Great Book. Zephyr was so fascinated by the abundance of knowledge that he couldn't help but become distracted. He wandered off on his own, lost in thought as he tried to absorb as much information as possible. Unfortunately, his curiosity got the better of him, and he accidentally knocked over one of the Great Books, sending centuries of history tumbling to the ground. The enraged townspeople quickly captured Zephyr, locking him away in a cell with only his own memories to keep him company. As the group left Memoirea without him, Zephyr could only lament his distracted nature, wishing he had been more careful in the town of endless memories..",
+			"Available": [
+				{
+					"ItemID": "WORLDEATER",
+					"EventText": "This is a sleeping creature that can devour entire realms. In the wrong hands, it could be unleashed to consume the world and all its inhabitants. It should be delivered to the cosmic protectors in Mundania, who have the ability to neutralize its power and prevent it from causing destruction. Dont let it fall inte to the hands of the Chaos King in The Straitlaced Stronghold. Do you want this responsibility?",
+					"Changes": null,
+					"ChoiceYesChanges": [
+						"+WORLDEATER"
+					],
+					"ChoiceNoChanges": [
+						"TEXT We will try to keep it safe here or at another location as long as we can!"
+					]
+				}
+			]
 		},
 		{
 			"ID": "The Straitlaced Stronghold",
@@ -208,7 +208,16 @@
 			"Name": "The Village of Braggarts",
 			"Description": "A community where boasting and self-aggrandizement are considered essential virtues. Those who lack confidence or struggle with self-esteem may find themselves overshadowed by the town's larger-than-life personalities.",
 			"Success": "You have successfully entered the cave.",
-			"Failure": "As Lavender led the group into the Village of Braggarts, she felt a knot form in her stomach. Everywhere she looked, there were people boasting about their accomplishments, their possessions, and their social status. Lavender, feeling insecure and inadequate, tried to muster up some grand stories of her own to impress the locals, but found herself stuttering and stumbling over her words. The more she tried to keep up with the grandiosity of the Braggarts, the more she felt like a failure. Eventually, Lavender became so overwhelmed by her own insecurities that she fled the village, never to be seen again. Some say she found solace in a nearby forest, where she spends her days telling stories to the trees and animals, far away from the judgmental eyes of the bragging townsfolk."
+			"Failure": "As Lavender led the group into the Village of Braggarts, she felt a knot form in her stomach. Everywhere she looked, there were people boasting about their accomplishments, their possessions, and their social status. Lavender, feeling insecure and inadequate, tried to muster up some grand stories of her own to impress the locals, but found herself stuttering and stumbling over her words. The more she tried to keep up with the grandiosity of the Braggarts, the more she felt like a failure. Eventually, Lavender became so overwhelmed by her own insecurities that she fled the village, never to be seen again. Some say she found solace in a nearby forest, where she spends her days telling stories to the trees and animals, far away from the judgmental eyes of the bragging townsfolk.",
+			"Carried": [
+				{
+					"ItemID": "BELT",
+					"EventText": "Why, I dare say, this belt will enable me to recount my numerous accomplishments and heroic deeds with such force and conviction that even the most doubtful of skeptics shall be swayed! And in battle, oh, in battle! My mere presence shall send shivers down the spines of our adversaries, as I roar with the might of a thousand lions!I shall parade through the streets, an unparalleled beacon of confidence and self-aggrandizement, admired and envied by all who lay eyes upon me. Truly, no one can rival the majesty and splendor that I now embody, thanks to this illustrious Magical Belt of Boasting! Tremble in awe, fellow Braggartians, for I am the epitome of greatness, and none shall surpass me! Go to the Fearless Frontier if you want to find the legendary creature World Eater if you havent already found it!",
+					"Changes": [
+						"-BELT"
+					]
+				}
+			]
 		},
 		{
 			"ID": "Slumberburg",
@@ -327,17 +336,10 @@
 			"Description": "A cluster of islands inhabited by a society of blasphemous, irreverent jesters who poke fun at all things sacred. The devout and pious will struggle to find acceptance or understanding in this realm of irreverence and mockery.",
 			"Success": "You have successfully entered the cave.",
 			"Failure": "As Sister Willow led the group onto the Irreverent Isles, she couldn't help but feel a sense of unease. Everywhere she looked, there were blasphemous jokes and mocking laughter. She tried to keep her focus on the mission at hand, but her trusting nature got the best of her. One of the irreverent jesters approached her with a tale about a sacred relic that was being held on one of the nearby islands. Without a second thought, Sister Willow handed over all of her valuable personal possessions in exchange for a map to the relic's location. It wasn't until the group was long gone that Sister Willow realized the map was nothing but a crude drawing of a stickman figure riding a donkey. The irreverent jesters had taken advantage of her trust and robbed the group blind. Sister Willow was so ashamed of her mistake that she disappeared into the shadows, unable to face her companions. The group had to continue on without her, their pockets empty and their spirits dampened by the irreverent mockery around them.",
-			"Available": [
+			"Carried": [
 				{
 					"ItemID": "WORLDEATER",
-					"EventText": "This is a sleeping creature that can devour entire realms. In the wrong hands, it could be unleashed to consume the world and all its inhabitants. It should be delivered to the cosmic protectors in Mundania, who have the ability to neutralize its power and prevent it from causing destruction. Dont let it fall inte to the hands of the Chaos King in The Straitlaced Stronghold. Do you want this responsibility?",
-					"Changes": null,
-					"ChoiceYesChanges": [
-						"+WORLDEATER"
-					],
-					"ChoiceNoChanges": [
-						"TEXT We will try to keep it safe here as long as we can!"
-					]
+					"EventText": "Oh, the world eater? Carry it with you wherever you go! It's like having your own personal apocalypse in a bag. Just imagine the chaos and destruction you could unleash with that thing. The world needs a good shake-up every once in a while, don't you think? Plus, it could be a great party trick. Just pull it out and watch as everyone runs for their lives. So go ahead, carry that world eater with pride! What could go wrong?"
 				}
 			]
 		},
@@ -353,7 +355,17 @@
 			"Name": "The Chaste Chateau",
 			"Description": "A fortress of modesty and decorum, where any hint of flirtation or promiscuity is met with scandalized gasps and disapproving glares. The flirtatious will find it impossible to charm their way through the chateau's prim and proper halls",
 			"Success": "You have successfully entered the cave.",
-			"Failure": "As Lavender led the group into the Chaste Chateau, she was immediately struck by the overwhelming sense of propriety. The inhabitants were so uptight and formal, it was as if they had forgotten how to have fun. Lavender couldn't help herself, however, and began to flirt with the first handsome nobleman she laid eyes on. His response was a scandalized gasp, followed by a sharp slap across the face. Lavender tried to apologize, but the damage was done. The entire court turned on her, condemning her for her wanton behavior. Lavender's attempts to charm her way out of the situation only made things worse, and she was eventually banished from the chateau. The rest of the group had to continue on without her, while Lavender wandered the countryside, wondering where she went wrong."
+			"Failure": "As Lavender led the group into the Chaste Chateau, she was immediately struck by the overwhelming sense of propriety. The inhabitants were so uptight and formal, it was as if they had forgotten how to have fun. Lavender couldn't help herself, however, and began to flirt with the first handsome nobleman she laid eyes on. His response was a scandalized gasp, followed by a sharp slap across the face. Lavender tried to apologize, but the damage was done. The entire court turned on her, condemning her for her wanton behavior. Lavender's attempts to charm her way out of the situation only made things worse, and she was eventually banished from the chateau. The rest of the group had to continue on without her, while Lavender wandered the countryside, wondering where she went wrong.",
+			"Available": [
+				{
+					"ItemID": "MILK",
+					"EventText": "Could you please deliver this recipe to a friend in the Dairy Domain? It is of utmost importance. The recipe for Milkless Milk is a closely guarded secret, but it is widely known that alchemists use a combination of plant-based proteins, such as soy or pea protein, along with other natural flavors and additives, to create a milk-like substance. This mixture is then processed using advanced techniques to give it a creamy texture similar to that of milk. The resulting dairy-free milk substitute is perfect for those who are lactose intolerant or follow a vegan or plant-based diet, and it has the potential to revolutionize the entire industry!",
+					"Changes": null,
+					"ChoiceYesChanges": [
+						"+MILK"
+					]
+				}
+			]
 		},
 		{
 			"ID": "The Stubborn Stronghold",
@@ -399,7 +411,7 @@
 			"Available": [
 				{
 					"ItemID": "BELT",
-					"EventText":"This magical belt enhances the wearer's voice and amplifies their bravado, making them sound more impressive and intimidating than they actually are. It imbues the wearer with an unwavering sense of confidence and an insatiable desire to talk about their own accomplishments, no matter how insignificant or exaggerated they may be. The belt is made from the finest leather and adorned with gaudy gems and gold filigree, befitting of a true braggart. It is said that wearing the belt in battle will make even the most cowardly warrior sound like a fearsome champion, inspiring both allies and enemies alike to quiver in their boots. Deliver it to The Village of Braggarts.",
+					"EventText": "This magical belt enhances the wearer's voice and amplifies their bravado, making them sound more impressive and intimidating than they actually are. It imbues the wearer with an unwavering sense of confidence and an insatiable desire to talk about their own accomplishments, no matter how insignificant or exaggerated they may be. The belt is made from the finest leather and adorned with gaudy gems and gold filigree, befitting of a true braggart. It is said that wearing the belt in battle will make even the most cowardly warrior sound like a fearsome champion, inspiring both allies and enemies alike to quiver in their boots. Deliver it to The Village of Braggarts.",
 					"ChoiceYesChanges": [
 						"+BELT"
 					]
@@ -411,7 +423,16 @@
 			"Name": "The Dairy Domain",
 			"Description": "A land flowing with rivers of milk and hills of cheese, where the lactose intolerant will find themselves in a world of digestive discomfort. The inhabitants adore their dairy delights and may struggle to understand the woes of their lactose-averse visitors.",
 			"Success": "You have successfully entered the cave.",
-			"Failure": "Neville the Night Owl, in a stroke of misfortune, unwittingly led the group into the heart of The Dairy Domain. As they ventured deeper into this land of lactose, Neville's preoccupation with his thoughts and the inability to truly comprehend the severity of his dietary restrictions spelled disaster. The usually cautious and introspective soul became entranced by the glistening rivers of milk and hills of cheese, forgetting his lactose intolerance in the moment.\nNeville's obsession led him to sample a particularly pungent wheel of cheese, causing an uproar of comical chaos. As the lactose waged a tumultuous war within his stomach, Neville transformed into a human whoopee cushion. His fellow adventurers, unable to contain their laughter or bear the unfortunate side effects, decided to leave him behind in the care of the Dairy Domain's inhabitants. Neville, now dubbed \"The Inflatable Night Owl,\" was taken prisoner and paraded around the town, becoming an unexpected tourist attraction. And so, Neville's journey with the group came to an end, all because he couldn't resist the allure of the cheese."
+			"Failure": "Neville the Night Owl, in a stroke of misfortune, unwittingly led the group into the heart of The Dairy Domain. As they ventured deeper into this land of lactose, Neville's preoccupation with his thoughts and the inability to truly comprehend the severity of his dietary restrictions spelled disaster. The usually cautious and introspective soul became entranced by the glistening rivers of milk and hills of cheese, forgetting his lactose intolerance in the moment.\nNeville's obsession led him to sample a particularly pungent wheel of cheese, causing an uproar of comical chaos. As the lactose waged a tumultuous war within his stomach, Neville transformed into a human whoopee cushion. His fellow adventurers, unable to contain their laughter or bear the unfortunate side effects, decided to leave him behind in the care of the Dairy Domain's inhabitants. Neville, now dubbed \"The Inflatable Night Owl,\" was taken prisoner and paraded around the town, becoming an unexpected tourist attraction. And so, Neville's journey with the group came to an end, all because he couldn't resist the allure of the cheese.",
+			"Carried": [
+				{
+					"ItemID": "MILK",
+					"EventText": "Whoa, dude! You just blew my mind with this recipe for Milkless Milk! I mean, this is like a game-changer for me and my fellow lactose-averse comrades. No more digestive discomfort in the Dairy Domain! Those hills of cheese and rivers of milk won't stand a chance against us now. We'll be sipping on this creamy, plant-based goodness like it's going out of style. And who knows, maybe we'll even start a plant-based milk revolution in this dairy-loving land. The inhabitants won't know what hit 'em! Thanks for hooking me up with this secret recipe, my friend. You're a true hero in the world of lactose intolerance.",
+					"Changes": [
+						"-MILK"
+					]
+				}
+			]
 		},
 		{
 			"ID": "The Sparse Sanctuary",
@@ -455,7 +476,7 @@
 			"Description": "This magical belt enhances the wearer's voice and amplifies their bravado, making them sound more impressive and intimidating than they actually are. It imbues the wearer with an unwavering sense of confidence and an insatiable desire to talk about their own accomplishments, no matter how insignificant or exaggerated they may be. The belt is made from the finest leather and adorned with gaudy gems and gold filigree, befitting of a true braggart. It is said that wearing the belt in battle will make even the most cowardly warrior sound like a fearsome champion, inspiring both allies and enemies alike to quiver in their boots."
 		},
 		{
-			"ID": "RECIPE",
+			"ID": "MILK",
 			"Name": "Milkless Milk Recipe",
 			"Description": "The Secret recipe for the Milkless Milk is a closely guarded secret, but it is known that the alchemists use a combination of plant-based proteins, such as soy or pea protein, along with other natural flavors and additives to create the milk-like substance. The mixture is then processed using advanced techniques to give it a creamy texture similar to milk. The tools used in the process include specialized blending machines, filtration systems, and heating equipment, as well as laboratory equipment to test the final product for quality and consistency. The result is a dairy-free milk substitute that is perfect for those with lactose intolerance, as well as those who follow a vegan or plant-based diet."
 		},
@@ -463,6 +484,11 @@
 			"ID": "SLIPPER",
 			"Name": "A Graceful Glass Slipper",
 			"Description": "This delicate, shimmering slipper is made from the rarest and most exquisite materials from across the realm. It is said to be enchanted with a gracefulness that enhances the wearer's movements, making them glide effortlessly through the air as if they were weightless. The slipper is so coveted by the inhabitants of Graceful Glade that they would order it from the furthest reaches of the land just to be able to witness its beauty and elegance. Anyone who wears it is instantly transformed into a graceful being, able to dance and move with a fluidity that is unparalleled. The slipper is the ultimate symbol of grace and beauty, and is the most sought-after item in all of Graceful Glade."
+		},
+		{
+			"ID": "BOOK",
+			"Name": "Galloping into the Unknown: A Memoir of an Invisible Unicorn",
+			"Description": "You see a book on the ground a voice saying: \"Could you give this book to a friend in The Gullible Grotto.\" You look behind you, but nobody seems to be around. Do you accept?"
 		},
 		{
 			"ID": "THUNDERSTONE",
