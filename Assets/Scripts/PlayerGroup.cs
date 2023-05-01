@@ -6,6 +6,8 @@ public class PlayerGroup : MonoBehaviour
 {
     public delegate void EnterLocationEventHandler(string characterID, Location currentLocation);
     public event EnterLocationEventHandler EnteredLocation;
+    public event EnterLocationEventHandler HalfWayToLocation;
+    public event EnterLocationEventHandler ExitLocation;
     public ShowEnterLocationInfo showEnterLocationInfo;
     public Location currentLocation;
     [FormerlySerializedAs("CharacterMovers")] public CharacterMovement[] CharacterMovement;
@@ -13,7 +15,10 @@ public class PlayerGroup : MonoBehaviour
     private Transform target;
     private GameObject droppedCharacter;
 
+    private Vector2 startPosition;
+
     public bool HasEnteredTargetLocation { get; private set; }
+    private bool shouldInvokeHalfWayToLocation = false;
 
     private void Start()
     {
@@ -32,6 +37,8 @@ public class PlayerGroup : MonoBehaviour
 
     private void OnMoveTowardsLocation(GameObject droppedCharacter, Location selectedLocation)
     {
+        shouldInvokeHalfWayToLocation = true;
+        startPosition = transform.position;
         currentLocation = selectedLocation;
         target = selectedLocation.transform;
         this.droppedCharacter = droppedCharacter;
@@ -39,6 +46,8 @@ public class PlayerGroup : MonoBehaviour
         
         foreach(var characterMove in CharacterMovement)
             characterMove.MoveTo(transform);
+
+        ExitLocation?.Invoke(droppedCharacter.name, currentLocation);
     }
 
     void Update()
@@ -47,10 +56,21 @@ public class PlayerGroup : MonoBehaviour
         {
             transform.position = Vector3.MoveTowards(transform.position, target.position, 3 * Time.deltaTime);
 
-            if (Vector3.Distance(transform.position, target.position) < 0.01)
+            if (shouldInvokeHalfWayToLocation)
+            {
+                float maxDistance = Vector2.Distance(startPosition, target.position);
+                if (Vector2.Distance(transform.position, target.position) <= maxDistance * 0.5f)
+                {
+                    shouldInvokeHalfWayToLocation = false;
+                    HalfWayToLocation?.Invoke(droppedCharacter.name, currentLocation);
+                }
+            }
+
+            if (Vector2.Distance(transform.position, target.position) < 0.01)
             {
                 EnteredLocation?.Invoke(droppedCharacter.name, currentLocation);
                 HasEnteredTargetLocation = true;
+                shouldInvokeHalfWayToLocation = false;
                 target = null;
             }
         }
