@@ -18,6 +18,10 @@ public class AudioController : MonoBehaviour
 
     private void OnPlayLocationMusic(string characterID, Location currentLocation)
     {
-        audioSource.PlayOneShot(locationImages.GetMusic(currentLocation.LocationID), locationImages.GetVolume(currentLocation.LocationID));
+        audioSource.Stop();
+        audioSource.loop = true;
+        audioSource.clip = locationImages.GetMusic(currentLocation.LocationID);
+        audioSource.volume = locationImages.GetVolume(currentLocation.LocationID);
+        audioSource.Play();
     }
 }
