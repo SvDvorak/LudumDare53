@@ -17,7 +17,7 @@ public class CameraObjectFollower : MonoBehaviour
     void Start()
     {
         camera = GetComponent<Camera>();
-        camera.transform.position = new Vector3(target.position.x, target.position.y, transform.position.z);
+        FixedUpdate();
 
         spriteSize = background.sprite.bounds.size;
         spriteSize.x -= 2;
