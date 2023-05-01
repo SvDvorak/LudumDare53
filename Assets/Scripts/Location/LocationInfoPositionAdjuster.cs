@@ -3,13 +3,20 @@ using UnityEngine;
 public class LocationInfoPositionAdjuster : MonoBehaviour
 {
     public float screenOffset;
-    
+    private Camera mainCamera;
+    private RectTransform canvasRect;
+
     void Start()
     {
-        var camera = FindObjectOfType<Camera>();
-        var canvasRect = FindObjectOfType<Canvas>().GetComponent<RectTransform>();
+        mainCamera = FindObjectOfType<Camera>();
+        canvasRect = FindObjectOfType<Canvas>().GetComponent<RectTransform>();
+        UpdatePosition();
+    }
+
+    public void UpdatePosition()
+    {
         Vector2 centerPoint = canvasRect.position;
-        bool isMouseOnRight =  camera.ScreenToWorldPoint(Input.mousePosition).x > centerPoint.x;
+        bool isMouseOnRight = mainCamera.ScreenToWorldPoint(Input.mousePosition).x > centerPoint.x;
 
         var rectTransform = GetComponent<RectTransform>();
         if (isMouseOnRight)
