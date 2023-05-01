@@ -45,16 +45,16 @@ public class ShowEnterLocationInfo : MonoBehaviour
             var gamestateCharacter = GameState.Instance.Characters.First(x => x.ID == characterID);
             gamestateCharacter.IsAlive = false;
             CharacterDied?.Invoke(gamestateCharacter);
+            
+            MenuFade.FadeInAndEnable();
+            ShowedInfo?.Invoke();
+            IsShowingEnterLocationInfo = true;
         }
+        // Handle location item info
         else
         {
-            Title.text = "SUCCESS";
-            Description.text = locationInfo.Success;
+            HidInfo?.Invoke();
         }
-        
-        MenuFade.FadeInAndEnable();
-        ShowedInfo?.Invoke();
-        IsShowingEnterLocationInfo = true;
     }
     
     public void HideInfo()
