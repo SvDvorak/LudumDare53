@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class AudioController : MonoBehaviour
 {
@@ -53,6 +55,15 @@ public class AudioController : MonoBehaviour
     private void OnPlayAnsweredButtonSound(bool arg1, GameInfo.ItemEvent arg2)
     {
         buttonSound.Play();
+    }
+
+    private void OnDestroy()
+    {
+        ShowEnterLocationInfo.Success -= OnPlayAchievementSound;
+        ShowEnterLocationInfo.LostCharacter -= OnPlayGameoverSound;
+        LocationSelector.ClickedValidLocation -= OnPlaySignButtonSound;
+        LocationSelector.HoveredValidLocation -= OnPlayHoveredSignButtonSound;
+        CharacterMouseMover.ClickedOnCharacter -= OnPlayCharacterSelectSound;
     }
 
     private void OnPlayHoveredSignButtonSound()
