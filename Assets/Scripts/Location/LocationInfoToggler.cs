@@ -6,6 +6,7 @@ public class LocationInfoToggler : MonoBehaviour
 {
     public static event Action<Location> SelectedLeader;
     public static event Action<Transform> ShowedInfo;
+    public SpriteRenderer outline;
 
     [SerializeField] private GameObject locationInfoPrefab;
 
@@ -37,6 +38,7 @@ public class LocationInfoToggler : MonoBehaviour
         {
             instantiatedInfo.GetComponent<FadeEffect>().FadeOutAndDestroy();
             instantiatedInfo = null;
+            outline.gameObject.SetActive(false);
         }
     }
 
@@ -55,7 +57,7 @@ public class LocationInfoToggler : MonoBehaviour
         instantiatedInfo = Instantiate(locationInfoPrefab.gameObject, canvas.transform);
         instantiatedInfo.GetComponent<SetLocationInfo>().SetLocation(locationInfo);
         instantiatedInfo.GetComponent<FadeEffect>().FadeIn();
-
+        outline.gameObject.SetActive(true);
         ShowedInfo?.Invoke(transform);
     }
 }
