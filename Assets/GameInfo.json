@@ -224,7 +224,16 @@
 			"Name": "Slumberburg",
 			"Description": "This peaceful hamlet is nestled in a tranquil valley that exudes a soporific aura, causing all creatures to sleep soundly through the night. Insomniacs are quickly driven to madness by the ceaseless snoring of their well-rested neighbors.",
 			"Success": "You have successfully entered the cave.",
-			"Failure": "As the group approached the sleepy village of Slumberburg, Neville's eyes grew wider and more manic with each passing step. The soporific aura of the valley began to take its toll on his already restless mind, and soon he was barely able to keep his eyes open. Despite his best efforts, Neville's desperate attempts to stay awake proved futile, and he soon fell into a deep slumber.\n Days passed, and the group searched frantically for Neville, fearing the worst. Eventually, they stumbled upon a small cottage on the outskirts of the village, where they found Neville fast asleep, surrounded by a mountain of empty coffee cups. Despite their best efforts to wake him, Neville remained in his slumber, lost to the world of dreams. The group realized that they would have to leave Neville behind, for his obsession with staying awake had led him into a sleep from which he may never awake."
+			"Failure": "As the group approached the sleepy village of Slumberburg, Neville's eyes grew wider and more manic with each passing step. The soporific aura of the valley began to take its toll on his already restless mind, and soon he was barely able to keep his eyes open. Despite his best efforts, Neville's desperate attempts to stay awake proved futile, and he soon fell into a deep slumber.\n Days passed, and the group searched frantically for Neville, fearing the worst. Eventually, they stumbled upon a small cottage on the outskirts of the village, where they found Neville fast asleep, surrounded by a mountain of empty coffee cups. Despite their best efforts to wake him, Neville remained in his slumber, lost to the world of dreams. The group realized that they would have to leave Neville behind, for his obsession with staying awake had led him into a sleep from which he may never awake.",
+			"Carried": [
+				{
+					"ItemID": "FANCYPILLOW",
+					"EventText": "As the group presents the pillow to the woman in Slumberburg, she lets out a long, contented sigh and immediately curls up with it, closing her eyes. After a few moments, she opens them again and looks at the group with a serene expression. \"Thank you so much,\" she says, her voice soft and dreamy. \"This pillow is everything I hoped it would be and more. It's like sleeping on a cloud made of marshmallows and angel feathers! I can already feel the secrets of the universe calling to me in my dreams.\" She smiles blissfully and settles back down with the pillow, ready to drift off into a peaceful slumber.",
+					"Changes": [
+						"-FANCYPILLOW"
+					]
+				}
+			]
 		},
 		{
 			"ID": "Graceful Glade",
@@ -386,7 +395,16 @@
 			"Name": "The Harmonious Halls",
 			"Description": "A grand palace where diverse beings coexist peacefully, celebrating their differences and learning from one another. Intolerant visitors may find themselves out of place in this haven of tolerance and understanding.",
 			"Success": "You have successfully entered the cave.",
-			"Failure": "As Sister Willow led the group into the Harmonious Halls, she couldn't help but feel a sense of disdain for the diverse creatures around her. Despite the teachings of her faith, she could not tolerate those who were different from her. She scoffed at their customs and beliefs, dismissing them as inferior. The more she expressed her intolerance, the more she was met with confused stares and gentle reprimands from the harmonious inhabitants. It wasn't long before Sister Willow's close-mindedness led her to a fateful confrontation with a group of particularly accepting and open-minded beings. They challenged her beliefs in a way that she could not handle, and she stormed out of the Harmonious Halls in a fit of anger, never to return again. The rest of the group carried on without her, knowing that the Harmonious Halls were a place for those who were accepting of all."
+			"Failure": "As Sister Willow led the group into the Harmonious Halls, she couldn't help but feel a sense of disdain for the diverse creatures around her. Despite the teachings of her faith, she could not tolerate those who were different from her. She scoffed at their customs and beliefs, dismissing them as inferior. The more she expressed her intolerance, the more she was met with confused stares and gentle reprimands from the harmonious inhabitants. It wasn't long before Sister Willow's close-mindedness led her to a fateful confrontation with a group of particularly accepting and open-minded beings. They challenged her beliefs in a way that she could not handle, and she stormed out of the Harmonious Halls in a fit of anger, never to return again. The rest of the group carried on without her, knowing that the Harmonious Halls were a place for those who were accepting of all.",
+			"Available": [
+				{
+					"ItemID": "FANCYPILLOW",
+					"EventText": "Hey, you guys look like a group of adventurers who know the value of a good night's sleep! I have a proposition for you that could change your lives forever. See, I have this friend in Slumberburg who is in dire need of this pillow made from the fluffiest, most comfortable materials known to man or beast. This pillow is so comfortable that it's said to unlock the secrets of the universe in one's dreams! Can you imagine that? But alas, my friend is unable to leave Slumberburg due to the soporific aura that causes all creatures to sleep soundly through the night. Even insomniacs are quickly driven to madness by the ceaseless snoring of their well-rested neighbors. That's where you come in! If you deliver this pillow to my friend, she will be forever grateful and may even share with you the secrets of the universe that she unlocks in her dreams! Plus, you get to try out the pillow for yourselves before you deliver it. I mean, who wouldn't want to feel like they're floating on a cloud while they sleep? So, what do you say? Will you help out a fellow adventurer in need and potentially unlock the secrets of the universe? It's a win-win situation!",
+					"ChoiceYesChanges": [
+						"+FANCYPILLOW"
+					]
+				}
+			]
 		},
 		{
 			"ID": "The Land of Caution",
