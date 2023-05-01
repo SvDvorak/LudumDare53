@@ -238,4 +238,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   outline: {fileID: 7127947524377127914}
-  locationInfoPrefab: {fileID: 5929681375079779066, guid: b7d505fc443c091498e07247422bf13a, type: 3}
+  locationInfoPrefab: {fileID: 5929681375079779066, guid: d9dd94b540ec6a240baea1e0abd5fefe, type: 3}
