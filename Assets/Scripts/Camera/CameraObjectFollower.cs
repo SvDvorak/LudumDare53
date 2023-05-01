@@ -12,11 +12,16 @@ public class CameraObjectFollower : MonoBehaviour
     private Camera camera;
     private Vector3 offset;
     private Vector3 velocity = Vector3.zero;
+    private Vector2 spriteSize;
 
     void Start()
     {
         camera = GetComponent<Camera>();
         camera.transform.position = new Vector3(target.position.x, target.position.y, transform.position.z);
+
+        spriteSize = background.sprite.bounds.size;
+        spriteSize.x -= 2;
+        spriteSize.y -= 2;
     }
 
     void FixedUpdate()
@@ -25,7 +30,7 @@ public class CameraObjectFollower : MonoBehaviour
 
         Vector3 cameraPosition = camera.transform.position;
         Vector2 cameraViewSize = new Vector2(camera.orthographicSize * camera.aspect * 2, camera.orthographicSize * 2);
-        Vector2 spriteSize = background.sprite.bounds.size;
+
 
         float maxHorizontalOffset = spriteSize.x / 2f - cameraViewSize.x / 2f;
         float maxVerticalOffset = spriteSize.y / 2f - cameraViewSize.y / 2f;
@@ -46,5 +51,4 @@ public class CameraObjectFollower : MonoBehaviour
         else
             transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
     }
-
 }

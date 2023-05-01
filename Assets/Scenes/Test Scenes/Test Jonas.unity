@@ -24647,6 +24647,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1464870289210577632, guid: 5ec32c6d22002c141a8a7824cae4515a, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 445523791}
+    - target: {fileID: 1464870289210577632, guid: 5ec32c6d22002c141a8a7824cae4515a, type: 3}
       propertyPath: MaxZoom
       value: 10
       objectReference: {fileID: 0}
@@ -24666,6 +24670,10 @@ PrefabInstance:
       propertyPath: SmoothTime
       value: 0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 1464870289210577632, guid: 5ec32c6d22002c141a8a7824cae4515a, type: 3}
+      propertyPath: background
+      value: 
+      objectReference: {fileID: 209126004}
     - target: {fileID: 1464870289210577632, guid: 5ec32c6d22002c141a8a7824cae4515a, type: 3}
       propertyPath: smoothTime
       value: 0.005
