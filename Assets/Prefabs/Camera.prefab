@@ -98,9 +98,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae16ca156f844079a1da11c5d4f47d12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxZoom: 12
-  MinZoom: 7
-  ScrollSpeed: 1
+  zoomSpeed: 1
+  minZoom: 5
+  maxZoom: 11
+  smoothTime: 0.01
 --- !u!114 &3154244985095117454
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,5 +114,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6b2789871e0ccc4e8efebb42c18d905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  background: {fileID: 0}
   target: {fileID: 0}
   smoothTime: 0.3
