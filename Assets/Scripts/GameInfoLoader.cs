@@ -9,28 +9,13 @@ public class GameInfoLoader : MonoBehaviour
     public LocationImages LocationImages;
     private static string filePath => Path.Combine(Application.dataPath, "GameInfo.json");
 
-    public void Start()
+    public void Awake()
     {
-#if UNITY_EDITOR || DEVELOPMENT_BUILD
-        Debug.Log("Loading game info...");
-        if(File.Exists(filePath))
-        {
-            ReadGameInfo();
-        }
-        else
-        {
-            using (var writer = new StreamWriter(filePath))
-            {
-                var json = JsonConvert.SerializeObject(GameInfo.Instance, Formatting.Indented);
-                writer.Write(json);
-            }
-            Debug.LogWarning("GameInfo.json not found at " + filePath);
-        }
-#else
         GameInfo.Instance = JsonConvert.DeserializeObject<GameInfo>(GameInfoJson.text);
-#endif
 
+#if UNITY_EDITOR
         ValidateGameInfo();
+#endif
     }
 
     public static void ReadGameInfo()
@@ -74,6 +59,6 @@ public class GameInfoLoader : MonoBehaviour
     public void Update()
     {
         if(Input.GetKeyDown(KeyCode.F5))
-            Start();
+            Awake();
     }
 }

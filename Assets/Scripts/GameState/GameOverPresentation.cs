@@ -11,9 +11,10 @@ public class GameOverPresentation : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public void Show()
+    public void Show(bool isVictory, string text)
     {
-        description.text = GameInfo.Instance.PartyDeadGameOverText;
+        Debug.Log("Play victory or defeat sound");
+        description.text = text;
         fadeEffect.FadeInAndEnable();
     }
 }
