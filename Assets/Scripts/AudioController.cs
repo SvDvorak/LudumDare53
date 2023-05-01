@@ -6,11 +6,14 @@ public class AudioController : MonoBehaviour
 {
     [SerializeField] private PlayerGroup playerGroup;
     [SerializeField] private LocationImages locationImages;
+    [SerializeField] private AudioSource backgroundMusic;
 
-    private AudioSource audioSource;
     public float fadeInDuration = 5f;
     public float fadeOutDuration = 1f;
+    [Range(0f, 1f)]
+    public float backgroundMusicVolume = 0.3f;
 
+    private AudioSource audioSource;
     private Location destination;
     private float maxVolume = 0;
     private bool fadingIn = false;
@@ -19,12 +22,14 @@ public class AudioController : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         playerGroup.HalfWayToLocation += OnPlayLocationMusic;
-        playerGroup.ExitLocation += PlayerGroup_ExitLocation;
+        playerGroup.ExitLocation += OnChangeMusic;
 
+        backgroundMusic.volume = backgroundMusicVolume;
+        backgroundMusic.Play();
         OnPlayLocationMusic("", playerGroup.currentLocation);
     }
 
-    private void PlayerGroup_ExitLocation(string characterID, Location destination)
+    private void OnChangeMusic(string characterID, Location destination)
     {
         this.destination = destination;
         fadingIn = false;
@@ -34,11 +39,13 @@ public class AudioController : MonoBehaviour
 
     private void OnPlayLocationMusic(string characterID, Location currentLocation)
     {
-        audioSource.loop = true;
         audioSource.clip = locationImages.GetMusic(currentLocation.LocationID);
+
+        audioSource.loop = true;
         audioSource.volume = 0;
         maxVolume = locationImages.GetVolume(currentLocation.LocationID);
-        audioSource.Play();
+        if (audioSource.clip != null)
+            audioSource.Play();
         StartCoroutine(FadeInMusic());
     }
 
@@ -69,5 +76,10 @@ public class AudioController : MonoBehaviour
             audioSource.volume = Mathf.Lerp(startVolume, 0f, elapsedTime / fadeOutDuration);
             yield return null;
         }
+    }
+
+    private void Update()
+    {
+        backgroundMusic.volume = backgroundMusicVolume;
     }
 }

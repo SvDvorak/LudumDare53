@@ -35,7 +35,7 @@ MonoBehaviour:
     volume: 0
   - ID: The Land of Gray
     image: {fileID: 21300000, guid: 8e3fb634ac4a60f49bcad7d1788c271a, type: 3}
-    music: {fileID: 8300000, guid: d3ba011389059ed458f421d1e64a31a7, type: 3}
+    music: {fileID: 0}
     volume: 1
   - ID: Memoirea
     image: {fileID: 21300000, guid: 4eb7abc1c52325744ad17a64d02f1bd1, type: 3}
