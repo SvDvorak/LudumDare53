@@ -20,8 +20,8 @@ public class CharacterMouseMover : MonoBehaviour, IPointerUpHandler, IDragHandle
 
     public void Start()
     {
-        camera = GetComponent<Camera>();
-        canvas = GameObject.Find("OverlayUI");
+        camera = FindObjectOfType<Camera>();
+        canvas = FindObjectOfType<Canvas>().gameObject;
     }
 
     private void Update()
@@ -30,7 +30,11 @@ public class CharacterMouseMover : MonoBehaviour, IPointerUpHandler, IDragHandle
             return;
 
         if (followingObject != null)
-            followingObject.transform.position = Input.mousePosition;
+        {
+            Vector3 mousePosition = camera.ScreenToWorldPoint(Input.mousePosition);
+            followingObject.transform.position = new Vector3(mousePosition.x, mousePosition.y, 1);
+            followingObject.GetComponent<RectTransform>().localScale = Vector3.one;
+        }
     }
 
     public void OnPointerUp(PointerEventData eventData)
@@ -38,7 +42,7 @@ public class CharacterMouseMover : MonoBehaviour, IPointerUpHandler, IDragHandle
         if (!canMove)
             return;
 
-        ReleaseFollowingObject();
+        //ReleaseFollowingObject();
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -55,8 +59,8 @@ public class CharacterMouseMover : MonoBehaviour, IPointerUpHandler, IDragHandle
             var image = followingObject.AddComponent<Image>();
             image.sprite = GetComponent<Image>().sprite;
             image.color = new Color(1, 1, 1, 0.8f);
+            image.gameObject.GetComponent<RectTransform>().localScale = Vector3.one;
             followingObject.transform.SetParent(canvas.transform);
-            followingObject.transform.position = Input.mousePosition;
         }
     }
 
