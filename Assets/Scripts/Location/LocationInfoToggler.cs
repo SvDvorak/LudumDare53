@@ -16,6 +16,8 @@ public class LocationInfoToggler : MonoBehaviour
     private GameObject instantiatedInfo;
     private Location location;
 
+    public static bool IsShowingInfo { get; private set; }
+
     public void Start()
     {
         camera = GameObject.FindObjectOfType<Camera>();
@@ -24,6 +26,7 @@ public class LocationInfoToggler : MonoBehaviour
         locationSelector.ClickedOutside += HideInfo;
         location = GetComponent<Location>();
         canvas = GameObject.Find("OverlayUI").GetComponent<Canvas>();
+        ShowEnterLocationInfo.ShowedInfo += HideInfo;
     }
 
     private void OnDestroy()
@@ -39,6 +42,7 @@ public class LocationInfoToggler : MonoBehaviour
             instantiatedInfo.GetComponent<FadeEffect>().FadeOutAndDestroy();
             instantiatedInfo = null;
             outline.gameObject.SetActive(false);
+            IsShowingInfo = false;
         }
     }
 
@@ -59,5 +63,6 @@ public class LocationInfoToggler : MonoBehaviour
         instantiatedInfo.GetComponent<FadeEffect>().FadeIn();
         outline.gameObject.SetActive(true);
         ShowedInfo?.Invoke(transform);
+        IsShowingInfo = true;
     }
 }

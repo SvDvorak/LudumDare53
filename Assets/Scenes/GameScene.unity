@@ -19106,6 +19106,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1640633510 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1464870289210577637, guid: 5ec32c6d22002c141a8a7824cae4515a, type: 3}
+  m_PrefabInstance: {fileID: 1464870288588156949}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &1640633514 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 1464870289210577639, guid: 5ec32c6d22002c141a8a7824cae4515a, type: 3}
+  m_PrefabInstance: {fileID: 1464870288588156949}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1640633516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1640633510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50661f3141780cd478f21f9304daeac4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1645636267
 GameObject:
   m_ObjectHideFlags: 0
@@ -24993,10 +25015,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2026367666547609256, guid: 157a98464ddd3c14e9803dcaa9aa75a0, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2300080449813939379, guid: 157a98464ddd3c14e9803dcaa9aa75a0, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -25100,6 +25118,14 @@ PrefabInstance:
     - target: {fileID: 2300080451048406230, guid: 157a98464ddd3c14e9803dcaa9aa75a0, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300080451143305442, guid: 157a98464ddd3c14e9803dcaa9aa75a0, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1640633514}
+    - target: {fileID: 2300080451143305442, guid: 157a98464ddd3c14e9803dcaa9aa75a0, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2300080451143305443, guid: 157a98464ddd3c14e9803dcaa9aa75a0, type: 3}
       propertyPath: m_Pivot.x
@@ -25452,10 +25478,6 @@ PrefabInstance:
     - target: {fileID: 7707135281212663678, guid: 157a98464ddd3c14e9803dcaa9aa75a0, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8140034269654904738, guid: 157a98464ddd3c14e9803dcaa9aa75a0, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8270859987076042041, guid: 157a98464ddd3c14e9803dcaa9aa75a0, type: 3}
       propertyPath: m_AnchorMax.y

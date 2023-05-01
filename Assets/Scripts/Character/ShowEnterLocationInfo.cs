@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class ShowEnterLocationInfo : MonoBehaviour
 {
     public event Action<GameState.Character> CharacterDied;
-    public event Action ShowedInfo;
+    public static event Action ShowedInfo;
     public event Action HidInfo;
 
     public FadeEffect MenuFade;

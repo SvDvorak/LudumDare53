@@ -34,7 +34,6 @@ public class LocationSelector : MonoBehaviour
             if (playerGroup.HasEnteredTargetLocation && IsConnected())
                 DroppedCharacterOnValidLocation?.Invoke(droppedCharacter, location);
 
-            ClickedOutside?.Invoke();
             OnMouseExit();
         }
 
