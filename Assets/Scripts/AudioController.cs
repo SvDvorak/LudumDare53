@@ -10,6 +10,8 @@ public class AudioController : MonoBehaviour
     [SerializeField] private LocationImages locationImages;
     [SerializeField] private AudioSource backgroundMusic;
     [SerializeField] private AudioSource mainWalkingSound;
+    [SerializeField] private AudioSource gameoverSound;
+    [SerializeField] private AudioSource achievementSound;
 
     public float fadeInDuration = 5f;
     public float fadeOutDuration = 1f;
@@ -31,10 +33,22 @@ public class AudioController : MonoBehaviour
         playerGroup.ExitLocation += OnChangeMusic;
         playerGroup.ExitLocation += OnPlayWalkingSound;
         playerGroup.EnteredLocation += OnStopWalkingSound;
+        ShowEnterLocationInfo.Success += OnPlayAchievementSound;
+        ShowEnterLocationInfo.LostCharacter += OnPlayGameoverSound;
 
         backgroundMusic.volume = backgroundMusicVolume;
         backgroundMusic.Play();
         OnPlayLocationMusic("", playerGroup.currentLocation);
+    }
+
+    private void OnPlayGameoverSound()
+    {
+        gameoverSound.Play();
+    }
+
+    private void OnPlayAchievementSound()
+    {
+        achievementSound.Play();
     }
 
     private void OnStopWalkingSound(string characterID, Location currentLocation)
