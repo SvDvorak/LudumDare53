@@ -6,7 +6,7 @@ public class LocationInfoPositionAdjuster : MonoBehaviour
     
     void Start()
     {
-        var canvasRect = GameObject.Find("OverlayUI").GetComponent<Canvas>().GetComponent<RectTransform>();
+        var canvasRect = FindObjectOfType<Canvas>().GetComponent<RectTransform>();
         Vector2 centerPoint = canvasRect.position;
         bool isMouseOnRight = Input.mousePosition.x > centerPoint.x;
 

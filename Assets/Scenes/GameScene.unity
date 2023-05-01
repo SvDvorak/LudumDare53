@@ -9134,6 +9134,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4021460910326660029, guid: f94e24e481a56da4d823cc0f96cfb754, type: 3}
   m_PrefabInstance: {fileID: 159857497}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &832487694 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2300080449694776121, guid: 157a98464ddd3c14e9803dcaa9aa75a0, type: 3}
+  m_PrefabInstance: {fileID: 2300080451291760238}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &839668800
 GameObject:
   m_ObjectHideFlags: 0
@@ -9953,6 +9958,11 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!1 &912651095 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4606894477180839583, guid: f146a9a181addc744b54bf21b520952b, type: 3}
+  m_PrefabInstance: {fileID: 1680941178}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &921102584
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19870,6 +19880,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8066302884529933497, guid: f146a9a181addc744b54bf21b520952b, type: 3}
+      propertyPath: m_Name
+      value: NEVILLE
+      objectReference: {fileID: 0}
     - target: {fileID: 8066302884529933499, guid: f146a9a181addc744b54bf21b520952b, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -19898,6 +19912,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8066302885834193075, guid: f146a9a181addc744b54bf21b520952b, type: 3}
+      propertyPath: m_Name
+      value: LAVENDER
+      objectReference: {fileID: 0}
     - target: {fileID: 8066302885937545905, guid: f146a9a181addc744b54bf21b520952b, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -19918,6 +19936,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8066302885937545911, guid: f146a9a181addc744b54bf21b520952b, type: 3}
+      propertyPath: m_Name
+      value: SISTER
+      objectReference: {fileID: 0}
     - target: {fileID: 8066302886366519052, guid: f146a9a181addc744b54bf21b520952b, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -19937,6 +19959,10 @@ PrefabInstance:
     - target: {fileID: 8066302886366519053, guid: f146a9a181addc744b54bf21b520952b, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8066302886366519090, guid: f146a9a181addc744b54bf21b520952b, type: 3}
+      propertyPath: m_Name
+      value: ZEPHYR
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
@@ -25737,6 +25763,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Scripts
       objectReference: {fileID: 0}
+    - target: {fileID: 7111617080046956799, guid: 28cc4f5cbc4ee494785e988c542dc28e, type: 3}
+      propertyPath: characters
+      value: 
+      objectReference: {fileID: 832487694}
+    - target: {fileID: 7111617080046956799, guid: 28cc4f5cbc4ee494785e988c542dc28e, type: 3}
+      propertyPath: groupCharacters
+      value: 
+      objectReference: {fileID: 912651095}
     - target: {fileID: 8641968204045869739, guid: 28cc4f5cbc4ee494785e988c542dc28e, type: 3}
       propertyPath: Name
       value: 
@@ -25754,6 +25788,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1314079715}
     - target: {fileID: 8641968204045869739, guid: 28cc4f5cbc4ee494785e988c542dc28e, type: 3}
+      propertyPath: characters.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8641968204045869739, guid: 28cc4f5cbc4ee494785e988c542dc28e, type: 3}
       propertyPath: characters.Array.data[0]
       value: 
       objectReference: {fileID: 313829182}
@@ -25767,6 +25805,10 @@ PrefabInstance:
       objectReference: {fileID: 659990604}
     - target: {fileID: 8641968204045869739, guid: 28cc4f5cbc4ee494785e988c542dc28e, type: 3}
       propertyPath: characters.Array.data[3]
+      value: 
+      objectReference: {fileID: 316523966}
+    - target: {fileID: 8641968204045869739, guid: 28cc4f5cbc4ee494785e988c542dc28e, type: 3}
+      propertyPath: characters.Array.data[4]
       value: 
       objectReference: {fileID: 316523966}
     m_RemovedComponents: []

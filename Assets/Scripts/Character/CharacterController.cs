@@ -7,6 +7,8 @@ public class CharacterController : MonoBehaviour
 {
     public ShowEnterLocationInfo showEnterLocationInfo;
 
+    [SerializeField] private GameObject characters;
+
     void Start()
     {
         ShowEnterLocationInfo.HidInfo += OnUpdateDeadCharacters;
@@ -20,7 +22,13 @@ public class CharacterController : MonoBehaviour
         foreach (var character in GameState.Instance.Characters)
         {
             if (character.IsAlive)
-                GameObject.Find(character.ID).GetComponent<CharacterMouseMover>().Enable();
+            {
+                foreach (Transform child in characters.transform)
+                {
+                    if (child.gameObject.name == character.ID)
+                        child.GetComponent<CharacterMouseMover>().Enable();
+                }
+            }
         }
     }
 
@@ -29,13 +37,25 @@ public class CharacterController : MonoBehaviour
         foreach (var character in GameState.Instance.Characters)
         {
             if (character.IsAlive)
-                GameObject.Find(character.ID).GetComponent<CharacterMouseMover>().Disable();
+            {
+                foreach (Transform child in characters.transform)
+                {
+                    if (child.gameObject.name == character.ID)
+                        child.GetComponent<CharacterMouseMover>().Disable();
+                }
+            }
         }
     }
 
     private void OnDeadCharacter(GameState.Character deadCharacter)
     {
-        GameObject.Find(deadCharacter.ID).GetComponent<CharacterMouseMover>().Disable();
+        foreach (Transform child in characters.transform)
+        {
+            if (child.gameObject.name == deadCharacter.ID)
+            {
+                child.gameObject.GetComponent<CharacterMouseMover>().Disable();
+            }
+        }
     }
 
     private void OnUpdateDeadCharacters()
@@ -44,10 +64,16 @@ public class CharacterController : MonoBehaviour
         {
             if (!character.IsAlive)
             {
-                var deadCharacter = GameObject.Find(character.ID);
-                float darkness = 0.4f;
-                deadCharacter.GetComponent<Image>().color = new Color(darkness, darkness, darkness);
-                deadCharacter.transform.Find("Skull").GetComponent<Image>().enabled = true;
+                foreach (Transform child in characters.transform)
+                {
+                    if (child.gameObject.name == character.ID)
+                    {
+                        var deadCharacter = child.gameObject;
+                        float darkness = 0.4f;
+                        deadCharacter.GetComponent<Image>().color = new Color(darkness, darkness, darkness);
+                        deadCharacter.transform.Find("Skull").GetComponent<Image>().enabled = true;
+                    }
+                }
             }
         }
     }
