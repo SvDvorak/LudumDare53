@@ -2,6 +2,7 @@
 using TMPro;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class ShowEnterLocationInfo : MonoBehaviour
 {
@@ -12,8 +13,11 @@ public class ShowEnterLocationInfo : MonoBehaviour
     public FadeEffect MenuFade;
     public TMP_Text Title;
     public TMP_Text Description;
+    public Button YesButton;
+    public Button NoButton;
 
     [SerializeField] private PlayerGroup playerGroup;
+    private bool showButtons;
 
     public static bool IsShowingEnterLocationInfo { get; private set; }
 
@@ -37,33 +41,58 @@ public class ShowEnterLocationInfo : MonoBehaviour
             Debug.LogWarning("Location event not found");
             return;
         }
-        
+
+        var locationEvent = GameState.Instance.GetLocationEvent(currentLocation.LocationID);
         if(character.FailureLocationIDs.Contains(currentLocation.LocationID))
         {
-            Title.text = "FAILURE";
+            Title.text = "Character Lost";
             Description.text = locationInfo.Failure;
             var gamestateCharacter = GameState.Instance.Characters.First(x => x.ID == characterID);
             gamestateCharacter.IsAlive = false;
             CharacterDied?.Invoke(gamestateCharacter);
+            
+            YesButton.gameObject.SetActive(false);
+            NoButton.gameObject.SetActive(false);
+            
+            MenuFade.FadeInAndEnable();
+            ShowedInfo?.Invoke();
+            IsShowingEnterLocationInfo = true;
+        }
+        else if(locationEvent != null)
+        {
+            Title.text = GameInfo.Instance.Locations.First(x => x.ID == currentLocation.LocationID).Name;
+            Description.text = locationEvent.EventText;
+
+            showButtons = locationEvent.ChoiceYesChanges != null || locationEvent.ChoiceNoChanges != null;
+            YesButton.gameObject.SetActive(showButtons);
+            NoButton.gameObject.SetActive(showButtons);
+            
+            MenuFade.FadeInAndEnable();
+            ShowedInfo?.Invoke();
+            IsShowingEnterLocationInfo = true;
         }
         else
         {
-            Title.text = "SUCCESS";
-            Description.text = locationInfo.Success;
+            HidInfo?.Invoke();
         }
-        
-        MenuFade.FadeInAndEnable();
-        ShowedInfo?.Invoke();
-        IsShowingEnterLocationInfo = true;
     }
     
     public void HideInfo()
     {
+        if(showButtons)
+            return;
+        
         if (MenuFade.gameObject.activeSelf)
         {
             MenuFade.FadeOutAndDisable();
             HidInfo?.Invoke();
             IsShowingEnterLocationInfo = false;
         }
+    }
+
+    public void ResponseButtonClicked()
+    {
+        showButtons = false;
+        HideInfo();
     }
 }
