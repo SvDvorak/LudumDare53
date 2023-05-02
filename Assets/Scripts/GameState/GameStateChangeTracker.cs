@@ -52,11 +52,8 @@ public class GameStateChangeTracker : MonoBehaviour
             }
             else if (change[0] == '-')
             {
-                if (!GameState.Instance.CarriedItems.Contains(change.Substring(1)))
-                {
-                    GameState.Instance.CarriedItems.Remove(change.Substring(1));
-                    GameState.Instance.DeliveredItems.Add(change.Substring(1));
-                }
+                GameState.Instance.CarriedItems.Remove(change.Substring(1));
+                GameState.Instance.DeliveredItems.Add(change.Substring(1));
             }
         }
     }
