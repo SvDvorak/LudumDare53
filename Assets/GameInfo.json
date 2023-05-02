@@ -101,7 +101,16 @@
 			"ID": "The Gullible Grotto",
 			"Name": "The Gullible Grotto",
 			"Description": "This subterranean realm is populated by creatures who believe in the most outlandish myths and legends. Those who question the existence of the invisible unicorns, or dare doubt the prophetic powers of the clairvoyant cabbages, are met with great disdain.",
-			"Failure": "As Neville led the group through the twisting tunnels of the Gullible Grotto, he couldn't help but scoff at the absurd beliefs of its inhabitants. \"Invisible unicorns,\" he muttered under his breath, \"clairvoyant cabbages, what nonsense!\" But as they neared the heart of the grotto, they were greeted by a group of very real, very angry, invisible unicorns. The creatures were convinced that Neville and his companions were attempting to steal their treasure, and they attacked with ferocity. Despite his sharp wit and biting sarcasm, Neville was unable to talk his way out of the situation. In the end, he was captured by the unicorns and forced to spend the rest of his days serving as their court jester, entertaining them with his cynical quips and jabs at their ridiculous beliefs."
+			"Failure": "As Neville led the group through the twisting tunnels of the Gullible Grotto, he couldn't help but scoff at the absurd beliefs of its inhabitants. \"Invisible unicorns,\" he muttered under his breath, \"clairvoyant cabbages, what nonsense!\" But as they neared the heart of the grotto, they were greeted by a group of very real, very angry, invisible unicorns. The creatures were convinced that Neville and his companions were attempting to steal their treasure, and they attacked with ferocity. Despite his sharp wit and biting sarcasm, Neville was unable to talk his way out of the situation. In the end, he was captured by the unicorns and forced to spend the rest of his days serving as their court jester, entertaining them with his cynical quips and jabs at their ridiculous beliefs.",
+			"Available": [
+				{
+					"ItemID": "BOOK",
+					"EventText": "You see a book on the ground a voice saying: Galloping into the Unknown: A Memoir of an Invisible Unicorn",
+					"Changes": [
+						"+BOOK"
+					]
+				}
+			]
 		},
 		{
 			"ID": "Mundania",
@@ -210,7 +219,8 @@
 					"ItemID": "BELT",
 					"EventText": "Why, I dare say, this belt will enable me to recount my numerous accomplishments and heroic deeds with such force and conviction that even the most doubtful of skeptics shall be swayed! And in battle, oh, in battle! My mere presence shall send shivers down the spines of our adversaries, as I roar with the might of a thousand lions!I shall parade through the streets, an unparalleled beacon of confidence and self-aggrandizement, admired and envied by all who lay eyes upon me. Truly, no one can rival the majesty and splendor that I now embody, thanks to this illustrious Magical Belt of Boasting! Tremble in awe, fellow Braggartians, for I am the epitome of greatness, and none shall surpass me! Go to the Fearless Frontier if you want to find the legendary creature World Eater if you havent already found it!",
 					"Changes": [
-						"-BELT"
+						"-BELT",
+						"TEXT Rumor has it that Sinceritopia holds something of great value for those who have yet to venture there."
 					]
 				}
 			]
@@ -284,7 +294,16 @@
 			"Name": "The City of Precision",
 			"Description": "An orderly metropolis where everything has its proper place, and deviation from the norm is not tolerated. The absent-minded may find themselves hopelessly lost in the city's meticulously laid-out streets, unable to keep pace with its regimented inhabitants.",
 			"Success": "You have successfully entered the cave.",
-			"Failure": "As Zephyr led the group into the City of Precision, he couldn't help but feel overwhelmed by the strict order and regimented routine of the city's inhabitants. He tried his best to keep up, but his scatterbrained nature got the better of him. He wandered off on his own, distracted by the colorful architecture and elaborate fountains, until he found himself hopelessly lost in the maze of streets. The more he tried to retrace his steps, the more turned around he became. Eventually, Zephyr was discovered by a group of the city's officials, who were horrified by his lack of precision and attention to detail. They promptly arrested him and threw him into one of the city's many jails, where he remains to this day, amusing the other inmates with his silly dances and slapstick humor."
+			"Failure": "As Zephyr led the group into the City of Precision, he couldn't help but feel overwhelmed by the strict order and regimented routine of the city's inhabitants. He tried his best to keep up, but his scatterbrained nature got the better of him. He wandered off on his own, distracted by the colorful architecture and elaborate fountains, until he found himself hopelessly lost in the maze of streets. The more he tried to retrace his steps, the more turned around he became. Eventually, Zephyr was discovered by a group of the city's officials, who were horrified by his lack of precision and attention to detail. They promptly arrested him and threw him into one of the city's many jails, where he remains to this day, amusing the other inmates with his silly dances and slapstick humor.",
+			"Carried": [
+				{
+					"ItemID": "THUNDERSTONE",
+					"EventText": "Thank you so much for delivering the Thunderstone to us. The power of this magical rock is immense, and in the hands of the wrong person, it could cause untold damage and destruction. But thanks to your efforts, the Thunderstone is now safely in the hands of the weather wizards in The City of Precision. We have the knowledge and skill to harness its power and control it for the benefit of all. The orderly and precise nature of this city is the perfect place for the Thunderstone to be. I cannot express my gratitude enough. You have done a great service for the world, and for that, I am truly thankful.",
+					"Changes": [
+						"ENDING Your party are now famous across the land!"
+					]
+				}
+			]
 		},
 		{
 			"ID": "The Quiet Queendom",
@@ -348,6 +367,13 @@
 				{
 					"ItemID": "WORLDEATER",
 					"EventText": "Oh, the world eater? Carry it with you wherever you go! It's like having your own personal apocalypse in a bag. Just imagine the chaos and destruction you could unleash with that thing. The world needs a good shake-up every once in a while, don't you think? Plus, it could be a great party trick. Just pull it out and watch as everyone runs for their lives. So go ahead, carry that world eater with pride! What could go wrong?"
+				},
+				{
+					"ItemID": "THUNDERSTONE",
+					"EventText": "Ho ho, what do we have here? A Thunderstone? This sounds like my kind of magical rock! I mean, sure, in the wrong hands it could cause natural disasters and widespread destruction, but where's the fun in that? After all, what's the point of having a Thunderstone if you can't have a little fun with it?",
+					"Changes": [
+						"ENDING The world ends with a big boom!"
+					]
 				}
 			]
 		},
@@ -446,7 +472,9 @@
 					"ItemID": "MILK",
 					"EventText": "Whoa, dude! You just blew my mind with this recipe for Milkless Milk! I mean, this is like a game-changer for me and my fellow lactose-averse comrades. No more digestive discomfort in the Dairy Domain! Those hills of cheese and rivers of milk won't stand a chance against us now. We'll be sipping on this creamy, plant-based goodness like it's going out of style. And who knows, maybe we'll even start a plant-based milk revolution in this dairy-loving land. The inhabitants won't know what hit 'em! Thanks for hooking me up with this secret recipe, my friend. You're a true hero in the world of lactose intolerance.",
 					"Changes": [
-						"-MILK"
+						"-MILK",
+						"+THUNDERSTONE",
+						"TEXT Take this! The Thunderstone is magical rock that can summon storms and lightning strikes. In the wrong hands like the jesters of The Irreverent Isles, it could cause natural disasters and widespread destruction. It should be delivered to the weather wizards in The City of Precision, who have the ability to control and direct its power."
 					]
 				}
 			]
