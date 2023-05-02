@@ -6,7 +6,7 @@ public class GameStateChangeTracker : MonoBehaviour
     public ShowEnterLocationInfo showEnterLocationInfo;
     public GameOver gameOver;
     public PlayerGroup playerGroup;
-    
+
     public void OnEnable()
     {
         showEnterLocationInfo.CompletedLocationEvent += UpdateChanges;
@@ -31,28 +31,32 @@ public class GameStateChangeTracker : MonoBehaviour
 
     private void PerformChanges(string[] locationEventChanges)
     {
-        if(locationEventChanges == null)
+        if (locationEventChanges == null)
             return;
-        
-        foreach(var change in locationEventChanges)
+
+        foreach (var change in locationEventChanges)
         {
-            if(change.StartsWith("ENDING"))
+            if (change.StartsWith("ENDING"))
             {
                 var text = change.Length > 6 ? change.Substring(7) : "";
                 gameOver.Show(false, "The End", text);
             }
-            else if(change.StartsWith("TEXT"))
+            else if (change.StartsWith("TEXT"))
             {
                 showEnterLocationInfo.QueueShowingText(change.Substring(5));
             }
-            else if(change[0] == '+')
+            else if (change[0] == '+')
             {
-                GameState.Instance.CarriedItems.Add(change.Substring(1));
+                if (!GameState.Instance.CarriedItems.Contains(change.Substring(1)))
+                    GameState.Instance.CarriedItems.Add(change.Substring(1));
             }
-            else if(change[0] == '-')
+            else if (change[0] == '-')
             {
-                GameState.Instance.CarriedItems.Remove(change.Substring(1));
-                GameState.Instance.DeliveredItems.Add(change.Substring(1));
+                if (!GameState.Instance.CarriedItems.Contains(change.Substring(1)))
+                {
+                    GameState.Instance.CarriedItems.Remove(change.Substring(1));
+                    GameState.Instance.DeliveredItems.Add(change.Substring(1));
+                }
             }
         }
     }

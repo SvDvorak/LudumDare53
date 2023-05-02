@@ -137,20 +137,7 @@
 			"Name": "Memoirea",
 			"Description": "A coastal town where residents are renowned for their eidetic memory, and every event is recorded in the Great Book of Memoirea. Those who cannot recall their own names or appointments may find themselves forever lost in the labyrinthine streets.",
 			"Success": "You have successfully entered the cave.",
-			"Failure": "As Zephyr led the group into the town of Memoirea, he was immediately struck by the sheer amount of information around him. Every street corner, every building, seemed to be packed with facts and figures, all meticulously recorded in the Great Book. Zephyr was so fascinated by the abundance of knowledge that he couldn't help but become distracted. He wandered off on his own, lost in thought as he tried to absorb as much information as possible. Unfortunately, his curiosity got the better of him, and he accidentally knocked over one of the Great Books, sending centuries of history tumbling to the ground. The enraged townspeople quickly captured Zephyr, locking him away in a cell with only his own memories to keep him company. As the group left Memoirea without him, Zephyr could only lament his distracted nature, wishing he had been more careful in the town of endless memories..",
-			"Available": [
-				{
-					"ItemID": "WORLDEATER",
-					"EventText": "This is a sleeping creature that can devour entire realms. In the wrong hands, it could be unleashed to consume the world and all its inhabitants. It should be delivered to the cosmic protectors in Mundania, who have the ability to neutralize its power and prevent it from causing destruction. Dont let it fall inte to the hands of the Chaos King in The Straitlaced Stronghold. Do you want this responsibility?",
-					"Changes": null,
-					"ChoiceYesChanges": [
-						"+WORLDEATER"
-					],
-					"ChoiceNoChanges": [
-						"TEXT We will try to keep it safe here or at another location as long as we can!"
-					]
-				}
-			]
+			"Failure": "As Zephyr led the group into the town of Memoirea, he was immediately struck by the sheer amount of information around him. Every street corner, every building, seemed to be packed with facts and figures, all meticulously recorded in the Great Book. Zephyr was so fascinated by the abundance of knowledge that he couldn't help but become distracted. He wandered off on his own, lost in thought as he tried to absorb as much information as possible. Unfortunately, his curiosity got the better of him, and he accidentally knocked over one of the Great Books, sending centuries of history tumbling to the ground. The enraged townspeople quickly captured Zephyr, locking him away in a cell with only his own memories to keep him company. As the group left Memoirea without him, Zephyr could only lament his distracted nature, wishing he had been more careful in the town of endless memories.."
 		},
 		{
 			"ID": "The Straitlaced Stronghold",
@@ -201,7 +188,16 @@
 			"Name": "Sinceritopia",
 			"Description": "A kingdom where everyone takes everything at face value, and sarcasm is a foreign concept. Clever wordplay and double meanings will be lost on the residents, who expect visitors to express themselves with the utmost candor.",
 			"Success": "You have successfully entered the cave.",
-			"Failure": "As Neville and his companions entered the kingdom of Sinceritopia, Neville couldn't help but feel a sense of unease. His natural inclination towards sarcasm and biting humor was sure to get him into trouble here. He tried his best to hold his tongue, but as they made their way through the streets, Neville found it increasingly difficult to resist the urge to make a clever quip. Eventually, he let slip a particularly biting remark about the king's choice of attire. To Neville's horror, the king took his comment as a sincere compliment and promptly appointed him as the royal fashion advisor. Neville was trapped in Sinceritopia, forced to spend the rest of his days nodding and smiling at the most insipid of compliments, unable to return to his former life."
+			"Failure": "As Neville and his companions entered the kingdom of Sinceritopia, Neville couldn't help but feel a sense of unease. His natural inclination towards sarcasm and biting humor was sure to get him into trouble here. He tried his best to hold his tongue, but as they made their way through the streets, Neville found it increasingly difficult to resist the urge to make a clever quip. Eventually, he let slip a particularly biting remark about the king's choice of attire. To Neville's horror, the king took his comment as a sincere compliment and promptly appointed him as the royal fashion advisor. Neville was trapped in Sinceritopia, forced to spend the rest of his days nodding and smiling at the most insipid of compliments, unable to return to his former life.",
+			"Available": [
+				{
+					"ItemID": "ELIXIR",
+					"EventText": "Hey there, adventurers! I've got a proposition for you that's sure to pique your interest. You see, I've been tasked with delivering the Elixir of Ultimate Pleasure to a friend of mine in The Hedonist Haven. Now, I'm not much of a hedonist myself, but I've heard this elixir is the real deal. It's like a one-way ticket to pure bliss, my friends. And let me tell you, my friend is in desperate need of some pleasure right now. He's been working so hard lately that he's forgotten how to enjoy life. So, I'm reaching out to you to see if you could help me out. I know The Hedonist Haven may not be your cup of tea, but think of the adventure! Think of the thrill of delivering such a sought-after elixir to a land of indulgence and excess. Plus, you'll be doing a good deed by bringing some pleasure to my friend's life. So, what do you say? Are you ready to embark on a journey to The Hedonist Haven and deliver the Elixir of Ultimate Pleasure to my friend? I promise it'll be an experience you'll never forget.",
+					"ChoiceYesChanges": [
+						"+ELIXIR"
+					]
+				}
+			]
 		},
 		{
 			"ID": "The Village of Braggarts",
@@ -255,17 +251,10 @@
 			"Description": "A wild and untamed land where brave warriors and adventurers face perilous challenges daily. Those who tremble at the mere thought of danger will find no refuge or solace in this unforgiving environment.",
 			"Success": "You have successfully entered the cave.",
 			"Failure": "As Lavender led the group into the Fearless Frontier, she couldn't help but feel a sense of overwhelming dread. The wild and untamed land was a far cry from the luxurious surroundings she was used to, and the constant threat of danger made her knees shake with fear. Despite her best efforts to put on a brave face, Lavender's nervousness betrayed her at every turn. She jumped at the slightest sound, flinched at every shadow, and spent most of her time cowering behind the stronger members of the group. It wasn't long before her jittery behavior attracted the attention of a group of particularly hungry wolves, who saw her as an easy target. Lavender's friends tried their best to defend her, but she panicked and ran off in a blind panic, leading the wolves straight to their camp. They managed to fend off the attack, but Lavender was nowhere to be found. The group searched high and low, but all they found was a trail of discarded jewelry and perfume bottles. Lavender had fled, leaving her companions to face the dangers of the Fearless Frontier alone.",
-			"Available": [
+			"Carried": [
 				{
 					"ItemID": "WORLDEATER",
-					"EventText": "This is a sleeping creature that can devour entire realms. In the wrong hands, it could be unleashed to consume the world and all its inhabitants. It should be delivered to the cosmic protectors in Mundania, who have the ability to neutralize its power and prevent it from causing destruction. Dont let it fall inte to the hands of the Chaos King in The Straitlaced Stronghold. Do you want this responsibility?",
-					"Changes": null,
-					"ChoiceYesChanges": [
-						"+WORLDEATER"
-					],
-					"ChoiceNoChanges": [
-						"TEXT We will try to keep it safe here or at another location as long as we can!"
-					]
+					"EventText": "Do you know you are carring a sleeping creature that can devour entire realms. In the wrong hands, it could be unleashed to consume the world and all its inhabitants. It should be delivered to the cosmic protectors in Mundania, who have the ability to neutralize its power and prevent it from causing destruction. Dont let it fall inte to the hands of the Chaos King in The Straitlaced Stronghold."
 				}
 			]
 		},
@@ -337,7 +326,17 @@
 			"Name": "The Hedonist Haven",
 			"Description": "A land of indulgence and excess, where pleasure is the ultimate goal and deprivation is seen as unnatural. Ascetics will find it difficult to resist temptation and may be overwhelmed by the relentless pursuit of sensory delights.",
 			"Success": "You have successfully entered the cave.",
-			"Failure": "Sister Willow led the group into the Hedonist Haven with trepidation, her ascetic beliefs clashing with the overwhelming indulgence of the land. Everywhere she looked, there were temptations: platters of rich food, fine wines, and all manner of sensory delights. She tried to remain strong, but the constant barrage of pleasure wore down her willpower. Before she knew it, she found herself surrounded by a group of hedonists, each trying to entice her with their particular brand of decadence. Sister Willow's desire for moral purity battled with her desire for pleasure, until she finally collapsed into a heap of satisfied yet guilty flesh. The group had to leave her there, surrounded by her newfound friends, as she lost herself in the excesses of the Hedonist Haven."
+			"Failure": "Sister Willow led the group into the Hedonist Haven with trepidation, her ascetic beliefs clashing with the overwhelming indulgence of the land. Everywhere she looked, there were temptations: platters of rich food, fine wines, and all manner of sensory delights. She tried to remain strong, but the constant barrage of pleasure wore down her willpower. Before she knew it, she found herself surrounded by a group of hedonists, each trying to entice her with their particular brand of decadence. Sister Willow's desire for moral purity battled with her desire for pleasure, until she finally collapsed into a heap of satisfied yet guilty flesh. The group had to leave her there, surrounded by her newfound friends, as she lost herself in the excesses of the Hedonist Haven.",
+			"Carried": [
+				{
+					"ItemID": "ELIXIR",
+					"EventText": "Hey, my dear adventurer! Thank you so much for bringing me the Elixir of Ultimate Pleasure. You have no idea how much I've been craving for this. The Hedonist Haven can be quite overwhelming sometimes, you know. It's like a non-stop party, and you have to keep up with the constant flow of sensory delights, or you'll be left behind. But with this elixir, I can finally let loose and indulge in pure pleasure without any worries or concerns. The crystal decanter it came in is absolutely stunning too! I swear, it's like it's glowing with an otherworldly energy. It's almost too beautiful to drink from, but I won't let that stop me from enjoying the ultimate indulgence. Thank you again for being my hero and delivering this elixir to me. Take this as token of gratitude. Just dont pass by The Straitlaced Stronghold with that thing…",
+					"Changes": [
+						"-ELIXIR",
+						"+WORLDEATER"
+					]
+				}
+			]
 		},
 		{
 			"ID": "The Irreverent Isles",
@@ -513,5 +512,6 @@
 			"Name": "Thunderstone",
 			"Description": "Thunderstone is magical rock that can summon storms and lightning strikes. In the wrong hands like the jesters of The Irreverent Isles, it could cause natural disasters and widespread destruction. It should be delivered to the weather wizards in The City of Precision, who have the ability to control and direct its power."
 		}
-	]
+	],
+	"PartyDeadGameOverText": "The End"
 }
