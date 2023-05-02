@@ -105,8 +105,8 @@
 			"Available": [
 				{
 					"ItemID": "BOOK",
-					"EventText": "You see a book on the ground a voice saying: Galloping into the Unknown: A Memoir of an Invisible Unicorn",
-					"Changes": [
+					"EventText": "You see a book on the ground titled: \"Galloping into the Unknown: A Memoir of an Invisible Unicorn\". Do you pick it up?",
+					"ChoiceYesChanges": [
 						"+BOOK"
 					]
 				}
@@ -246,7 +246,13 @@
 			"Name": "Graceful Glade",
 			"Description": "A serene forest grove where the elegant inhabitants glide effortlessly through their day-to-day tasks. Any display of clumsiness is met with disdain, and the accident-prone are swiftly ostracized.",
 			"Success": "You have successfully entered the cave.",
-			"Failure": "As Zephyr led the group into the Graceful Glade, he felt the weight of all eyes upon him. The elegant inhabitants glided effortlessly past, their movements like poetry in motion. Zephyr, on the other hand, tripped over his own feet, stumbled into trees, and knocked over delicate statuary. Each mishap was met with a chorus of disdainful sighs and disapproving glares, until finally, Zephyr couldn't take it anymore. He ran off into the forest, tears streaming down his face, feeling like the ultimate failure. The rest of the group continued on without him, leaving Zephyr to wallow in his own self-pity. It wasn't until he discovered a troupe of clumsy woodland creatures that he found his place in the Glade, leading them in silly dances and pratfalls that brought joy to all who witnessed them."
+			"Failure": "As Zephyr led the group into the Graceful Glade, he felt the weight of all eyes upon him. The elegant inhabitants glided effortlessly past, their movements like poetry in motion. Zephyr, on the other hand, tripped over his own feet, stumbled into trees, and knocked over delicate statuary. Each mishap was met with a chorus of disdainful sighs and disapproving glares, until finally, Zephyr couldn't take it anymore. He ran off into the forest, tears streaming down his face, feeling like the ultimate failure. The rest of the group continued on without him, leaving Zephyr to wallow in his own self-pity. It wasn't until he discovered a troupe of clumsy woodland creatures that he found his place in the Glade, leading them in silly dances and pratfalls that brought joy to all who witnessed them.",
+			"Carried": [
+				{
+					"ItemID": "THUNDERSTONE",
+					"EventText": "Suddenly you feel a hand on your shoulder. Turning around, a woman with piercing eyes staring directly at you. \"You have something that doesn't belong to you,\" she said in a low voice. \"The Thunderstone is a dangerous object, and it shouldn't be in the hands of just anyone. I can sense its power. And I know that the jesters of The Irreverent Isles are after it. They will stop at nothing to get their hands on it, and if they do, it could mean the end of everything we hold dear.\""
+				}
+			]
 		},
 		{
 			"ID": "The Town of Understatement",
@@ -273,7 +279,13 @@
 			"Name": "The Casual Commonwealth",
 			"Description": "A laid-back kingdom where \"good enough\" is the guiding principle, and the pursuit of perfection is seen as a futile endeavor. Those who obsess over every detail may find their fastidiousness ridiculed by the easygoing populace.",
 			"Success": "You have successfully entered the cave.",
-			"Failure": "As Neville led the group into the Casual Commonwealth, he couldn't help but feel a sense of unease. Everything was just so...casual. The lack of attention to detail grated on his nerves, and he found himself compulsively straightening crooked picture frames and picking up bits of litter as they walked. The more he tried to make things perfect, the more he was met with mocking laughter and rolled eyes from the laid-back inhabitants. It wasn't long before Neville's obsessive tendencies drove him to a breaking point, and he disappeared into the shadows, driven mad by the casual chaos around him. The rest of the group never saw him again, though some say they can still hear his anguished cries echoing through the relaxed streets of the Casual Commonwealth."
+			"Failure": "As Neville led the group into the Casual Commonwealth, he couldn't help but feel a sense of unease. Everything was just so...casual. The lack of attention to detail grated on his nerves, and he found himself compulsively straightening crooked picture frames and picking up bits of litter as they walked. The more he tried to make things perfect, the more he was met with mocking laughter and rolled eyes from the laid-back inhabitants. It wasn't long before Neville's obsessive tendencies drove him to a breaking point, and he disappeared into the shadows, driven mad by the casual chaos around him. The rest of the group never saw him again, though some say they can still hear his anguished cries echoing through the relaxed streets of the Casual Commonwealth.",
+			"Carried": [
+				{
+					"ItemID": "THUNDERSTONE",
+					"EventText": "Ah, I see that you carry the Thunderstone with you. A powerful object indeed, but one that must be handled with great care. The potential for destruction is great, and in the wrong hands, it could cause chaos and devastation. Please, be careful with it, and do not use it lightly. The weather wizards in The City of Precision have the knowledge and expertise to control its power, but even they approach it with caution. I implore you to consider the consequences before you wield its power. The Thunderstone may seem like a blessing, but it can just as easily become a curse. Use it wisely, my friend, and may the winds of fortune be ever in your favor."
+				}
+			]
 		},
 		{
 			"ID": "The Town of Neutrality",
@@ -372,7 +384,7 @@
 					"ItemID": "THUNDERSTONE",
 					"EventText": "Ho ho, what do we have here? A Thunderstone? This sounds like my kind of magical rock! I mean, sure, in the wrong hands it could cause natural disasters and widespread destruction, but where's the fun in that? After all, what's the point of having a Thunderstone if you can't have a little fun with it?",
 					"Changes": [
-						"ENDING The world ends with a big boom!"
+						"ENDING You suddenly notice a massive storm cloud gathering above you. As you gaze up in awe, a blinding flash of light overwhelms your vision, and that's the last thing you see before everything goes dark. The next thing you know, you and your entire party are dead, crushed under the weight of the storm. Wow, talk about a shocking end to your adventure!"
 					]
 				}
 			]
@@ -541,5 +553,5 @@
 			"Description": "Thunderstone is magical rock that can summon storms and lightning strikes. In the wrong hands like the jesters of The Irreverent Isles, it could cause natural disasters and widespread destruction. It should be delivered to the weather wizards in The City of Precision, who have the ability to control and direct its power."
 		}
 	],
-	"PartyDeadGameOverText": "The End"
+	"PartyDeadGameOverText": "Play again?"
 }

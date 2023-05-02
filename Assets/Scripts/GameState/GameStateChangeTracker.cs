@@ -1,8 +1,10 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using UnityEngine;
 
 public class GameStateChangeTracker : MonoBehaviour
 {
+    public static event Action ItemsChanged;
     public ShowEnterLocationInfo showEnterLocationInfo;
     public GameOver gameOver;
     public PlayerGroup playerGroup;
@@ -56,5 +58,7 @@ public class GameStateChangeTracker : MonoBehaviour
                 GameState.Instance.DeliveredItems.Add(change.Substring(1));
             }
         }
+
+        ItemsChanged?.Invoke();
     }
 }
